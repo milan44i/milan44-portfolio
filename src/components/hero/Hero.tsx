@@ -87,7 +87,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.7 }}
         >
           3+ years across Vue, React &amp; TypeScript. I shipped{" "}
-          <span className="text-text">GameScore</span> solo, cut a carrier-grade telecom portal&apos;s
+          <span className="text-text">GameScore</span>{" "} solo, cut a carrier-grade telecom portal&apos;s
           load time by <span className="text-text">80%</span>, and engineered the AI-assisted workflow
           behind the work.
         </motion.p>
