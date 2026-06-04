@@ -5,7 +5,7 @@ import { about, education, skills } from "@/lib/content";
 export function About() {
   return (
     <Section id="about" index="03" title="About" kicker="Belgrade · open to remote">
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+      <div className="grid gap-12 md:grid-cols-[1.1fr_1fr] lg:gap-16">
         <div>
           {about.paragraphs.map((p, i) => (
             <Reveal key={i} delay={i * 0.08}>

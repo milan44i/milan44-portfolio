@@ -17,7 +17,7 @@ export function Statusline() {
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
@@ -28,6 +28,7 @@ export function Statusline() {
   const pct = Math.round(progress * 100);
 
   return (
+    <>
     <div
       className="fixed inset-x-0 bottom-0 z-50 hidden h-7 items-center justify-between gap-4 px-4 print:!hidden sm:flex"
       style={{
@@ -66,5 +67,14 @@ export function Statusline() {
         </span>
       </div>
     </div>
+
+    {/* mobile: minimal scroll-progress bar — keeps the "observability" signal alive on small screens */}
+    <div aria-hidden className="fixed inset-x-0 bottom-0 z-50 h-[3px] bg-line print:hidden sm:hidden">
+      <div
+        className="h-full origin-left bg-accent"
+        style={{ transform: `scaleX(${progress})`, boxShadow: "0 0 8px var(--accent-glow)" }}
+      />
+    </div>
+    </>
   );
 }

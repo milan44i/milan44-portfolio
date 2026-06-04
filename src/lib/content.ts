@@ -149,6 +149,6 @@ export const education = [
 export const about = {
   paragraphs: [
     "I'm a frontend engineer based in Belgrade, building clean, scalable, high-performance web applications. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity — like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
-    "My edge is AI-assisted development. I've spent 2.5+ years building the system around the model — context engineering, agentic orchestration, custom skills — and shipped a production product, GameScore, solo with Claude Code. I'm currently open to senior frontend roles at remote-first product teams.",
+    "My edge is AI-assisted development. I've spent 2.5+ years building the system around the model — context engineering, agentic orchestration, custom skills — and shipped a production product, GameScore, solo with Claude Code. I'm currently open to frontend roles at remote-first product teams.",
   ],
 };

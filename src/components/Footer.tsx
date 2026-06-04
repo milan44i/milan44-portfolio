@@ -22,7 +22,7 @@ export function Footer() {
               {site.email}
             </a>
             <p className="mt-5 text-sm text-text-dim">
-              {site.availability} · senior frontend roles · {site.location} ({site.timezone})
+              {site.availability} · frontend roles · {site.location} ({site.timezone})
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export function Footer() {
                 ))}
                 <li>
                   <Link href="/resume" className="text-sm text-text-dim transition-colors hover:text-text">
-                    Résumé
+                    Resume
                   </Link>
                 </li>
               </ul>
