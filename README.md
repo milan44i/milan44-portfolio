@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# milan44.dev
 
-## Getting Started
+Personal portfolio of **Milan Stanković** — Frontend Engineer (Vue · React · TypeScript · AI-assisted development).
 
-First, run the development server:
+A bold, motion-led site built around one signature interaction: an **agentic WebGL particle field** that reacts to the cursor. Substance-first content, an "engineered observability" aesthetic, and a recurring statusline motif that nods to my [`claude-setup`](https://github.com/milan44i/claude-setup) context-monitor.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4**
+- **React Three Fiber** + **three.js** — the agentic particle hero (lazy-loaded, GPU points)
+- **Motion** — scroll reveals & hero choreography
+- **Lenis** — smooth scroll
+- **Vercel Analytics + Speed Insights**
+- Fonts: Bricolage Grotesque (display) · Hanken Grotesk (body) · JetBrains Mono (labels)
+
+## Design principles
+
+- **One signature moment, restraint elsewhere.** The particle field is the hero; everything else stays calm and readable.
+- **Bold in form, evidence in substance.** Every flashy element carries meaning — metrics, real projects, a public workflow repo.
+- **Accessible & fast.** `prefers-reduced-motion` disables the canvas and smooth scroll with a real static fallback; the hero is lazy-loaded so it never blocks LCP; mobile uses a reduced particle count.
+
+## Structure
+
+```
+src/
+  app/
+    layout.tsx              # fonts, metadata, JSON-LD Person, analytics
+    page.tsx                # landing
+    resume/                 # print-to-PDF résumé
+    work/gamescore/         # deep case study (flagship)
+    work/lotusflare/        # focused case study
+    opengraph-image.tsx     # branded OG card
+    sitemap.ts · robots.ts
+  components/
+    hero/                   # Hero + ParticleField (R3F shader)
+    sections/               # Impact · Work · AIEdge · About · Writing · Contact
+    Nav · Statusline · Footer · Marquee · Reveal · ...
+  lib/
+    site.ts                 # identity + links
+    content.ts              # experience, projects, skills, metrics
+    case-studies.ts         # long-form case study content
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+All copy lives in `src/lib/` — edit content there, not in components.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Develop
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev      # http://localhost:3000 — see the particle field live
+npm run build    # production build
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Built for **Vercel** (zero-config for Next App Router). Point the `milan44.dev` domain at the deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with Next.js, React Three Fiber, and a [Claude Code workflow](https://github.com/milan44i/claude-setup).
