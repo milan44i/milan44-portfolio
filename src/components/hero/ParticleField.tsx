@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, type RefObject } from "react";
 import * as THREE from "three";
 
 const vertexShader = /* glsl */ `
@@ -122,7 +122,12 @@ function Field({ count }: { count: number }) {
   );
 }
 
-export function ParticleField() {
+export function ParticleField({
+  eventSource,
+}: {
+  // The hero <section>; lets r3f track the cursor across the overlays painted on top of the canvas.
+  eventSource?: RefObject<HTMLElement | null>;
+}) {
   const count = useMemo(() => {
     if (typeof window === "undefined") return 4200;
     const w = window.innerWidth;
@@ -137,6 +142,8 @@ export function ParticleField() {
       camera={{ position: [0, 0, 6], fov: 52 }}
       dpr={[1, 1.75]}
       gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
+      eventSource={(eventSource ?? undefined) as RefObject<HTMLElement> | undefined}
+      eventPrefix="client"
     >
       <Field count={count} />
     </Canvas>

@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 // Lazy-load the WebGL field so three.js stays out of the critical path (keeps LCP fast).
@@ -18,10 +18,11 @@ export function Hero() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  const sectionRef = useRef<HTMLElement>(null);
   const showCanvas = mounted && !reduce;
 
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden">
       {/* static atmospheric fallback — always rendered, sits behind the canvas */}
       <div
         aria-hidden
@@ -31,7 +32,7 @@ export function Hero() {
             "radial-gradient(120% 90% at 78% 12%, rgba(198,242,78,0.10), transparent 55%), radial-gradient(80% 70% at 12% 95%, rgba(126,240,208,0.06), transparent 60%)",
         }}
       />
-      {showCanvas && <ParticleField />}
+      {showCanvas && <ParticleField eventSource={sectionRef} />}
 
       {/* readability vignette over the field */}
       <div
