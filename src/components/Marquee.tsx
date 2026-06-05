@@ -5,7 +5,7 @@ const items = [
   "React",
   "TypeScript",
   "Next.js",
-  "Nuxt 3",
+  "Nuxt 4",
   "Performance",
   "Pinia",
   "TanStack Query",
@@ -13,7 +13,7 @@ const items = [
   "Claude Code",
   "Context engineering",
   "Vite",
-  "Cloudflare Workers",
+  "Vercel",
   "Agentic workflows",
   ...skills.flatMap((g) => g.items),
 ];

@@ -23,22 +23,19 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: "gamescore",
     title: "GameScore",
     kind: "Solo product · gamescore.cards",
-    period: "2025 — present",
+    period: "2026 — present",
     role: "Design, engineering & infrastructure — solo",
     intro:
-      "A production PWA for tracking board-game scores: offline-first, fast, and built around a catalogue of 100,000+ BoardGameGeek titles — with a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
+      "A production PWA for tracking board-game scores: offline-first, fast, and wired into BoardGameGeek search across 100,000+ titles — with a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
     summary:
-      "How I designed, built and shipped GameScore solo — an offline-first board-game scoring PWA on Nuxt 3, Dexie and Cloudflare Workers with a paid Pro tier.",
-    links: [
-      { label: "Visit gamescore.cards", href: "https://gamescore.cards" },
-      { label: "claude-setup (the workflow)", href: "https://github.com/milan44i/claude-setup" },
-    ],
-    stack: ["Nuxt 3", "TypeScript", "Pinia", "Dexie / IndexedDB", "Cloudflare Workers", "Cloudflare D1 / R2", "Tailwind", "PWA"],
+      "How I designed, built and shipped GameScore solo — an offline-first board-game scoring PWA on Nuxt 4, Dexie and Vercel with a paid Pro tier.",
+    links: [{ label: "Visit gamescore.cards", href: "https://gamescore.cards" }],
+    stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "shadcn-vue", "PWA", "Lemon Squeezy", "Vercel", "Vercel KV"],
     metrics: [
-      { value: "100k+", label: "BGG titles indexed" },
-      { value: "Offline", label: "first architecture" },
+      { value: "Offline", label: "first PWA, no account" },
       { value: "Solo", label: "design → ship → operate" },
-      { value: "Pro", label: "paid tier shipped" },
+      { value: "Pro", label: "paid tier (€4.99, Lemon Squeezy)" },
+      { value: "20", label: "curated game templates" },
     ],
     blocks: [
       {
@@ -50,27 +47,28 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "Constraints that shaped the build",
         bullets: [
-          "Offline-first is non-negotiable — scoring happens where Wi-Fi isn't. State lives locally and syncs opportunistically.",
-          "100,000+ titles from BoardGameGeek have to be searchable instantly on a phone, without shipping a giant payload or hammering an API mid-game.",
+          "Offline-first is non-negotiable — scoring happens where Wi-Fi isn't. All state lives on-device; there are no accounts and no cloud sync, with JSON export/import for backup.",
+          "Adding a game pulls metadata from BoardGameGeek's API — that lookup must be fast and must never block scoring, so each game's details are snapshotted locally the moment it's added.",
           "It's a solo project with a real cost ceiling — the infrastructure had to be cheap to run and near-zero to operate.",
-          "A paid Pro tier means real payments, entitlement checks and a feature boundary that can't leak.",
+          "A paid Pro tier means real payments, license checks and a feature boundary that can't leak.",
         ],
       },
       {
         heading: "Key decisions",
         body: [
-          "I built on Nuxt 3 for a single TypeScript codebase across rendering and routing, with Pinia for predictable state. The offline core is Dexie over IndexedDB: matches, players and game metadata are local-first, so the UI never blocks on the network. The BGG catalogue is indexed for fast client-side lookup rather than a live API call on every keystroke.",
-          "The backend runs entirely on Cloudflare Workers with D1 and R2 — edge-close, inexpensive, and operationally quiet. The Pro tier is gated by server-verified entitlements so the boundary holds even though the app is offline-capable. Sharable Victory Cards turn a completed game into a designed artifact people actually post.",
+          "I built on Nuxt 4 for a single TypeScript codebase across rendering, routing and server endpoints, with Pinia for state. The core is local-first: Dexie over IndexedDB holds matches, players and snapshotted game data, so scoring never blocks on the network. BGG search runs through a small Nuxt server route that proxies and parses BoardGameGeek's XML API; the fields that matter are denormalized into the match, so a game's name and box art stay available offline once it's been added.",
+          "The whole thing runs on Vercel — Nuxt server routes for BGG search and license verification, with Vercel KV holding Pro license keys (there is no user database). Payments are a one-time €4.99 through Lemon Squeezy, which also handles EU VAT. Pro features sit behind a server-verified license check so the boundary holds even though the app is otherwise offline-capable. Victory Cards are rendered client-side with html-to-image into shareable 1080×1920 images people actually post.",
         ],
       },
       {
         heading: "Architecture at a glance",
         bullets: [
-          "Client: Nuxt 3 PWA, installable, with a service worker for offline shell + assets.",
-          "Local data: Dexie/IndexedDB as the source of truth for in-progress and historical games.",
-          "Catalogue: 100k+ BGG titles indexed for instant on-device search.",
-          "Edge: Cloudflare Workers for API, D1 for relational data, R2 for generated Victory Card assets.",
-          "Monetization: Pro entitlements verified server-side; premium features fenced behind that check.",
+          "Client: Nuxt 4 PWA (@vite-pwa/nuxt), installable, with a service worker caching the offline shell + assets.",
+          "Local data: Dexie / IndexedDB as the source of truth for in-progress and historical games — no accounts, no server DB.",
+          "Game search: BoardGameGeek XML API via a Nuxt server route (fast-xml-parser); results snapshotted locally on add.",
+          "Backend: Vercel-hosted Nuxt server routes; Vercel KV stores Pro license keys.",
+          "Monetization: one-time €4.99 via Lemon Squeezy; license verified server-side and fenced behind that check.",
+          "Victory Cards: generated client-side with html-to-image (1080×1920); Sentry for monitoring, Umami for analytics.",
         ],
       },
       {

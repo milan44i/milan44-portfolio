@@ -6,7 +6,7 @@ export const metrics: Metric[] = [
   { value: "80%", label: "faster portal load", note: "1.2 min → 14 s" },
   { value: "45%", label: "complexity cut", note: "2k-line refactor, zero regressions" },
   { value: "53%", label: "smaller main bundle", note: "PointOne build optimization" },
-  { value: "100k+", label: "BGG titles", note: "shipped solo in GameScore" },
+  { value: "Pro", label: "paid tier, shipped solo", note: "GameScore · Lemon Squeezy" },
   { value: "500+", label: "files restandardized", note: "codebase-wide consistency" },
   { value: "2.5+ yrs", label: "daily AI-assisted dev", note: "Claude Code power user" },
 ];
@@ -30,11 +30,11 @@ export const projects: Project[] = [
     kind: "Solo product · gamescore.cards",
     blurb:
       "A production PWA for board-game score-tracking — offline-first, 100,000+ BoardGameGeek titles, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
-    stack: ["Nuxt 3", "TypeScript", "Pinia", "Dexie / IndexedDB", "Cloudflare Workers", "Tailwind"],
+    stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "Lemon Squeezy", "Vercel"],
     href: "https://gamescore.cards",
     caseStudy: "/work/gamescore",
     featured: true,
-    year: "2025",
+    year: "2026",
   },
   {
     slug: "claude-setup",
@@ -136,9 +136,9 @@ export type SkillGroup = { label: string; items: string[] };
 
 export const skills: SkillGroup[] = [
   { label: "Languages", items: ["TypeScript", "JavaScript", "HTML5", "CSS3", "SQL"] },
-  { label: "Frameworks & UI", items: ["Vue 3", "React", "Next.js", "Nuxt 3", "Node.js", "Tailwind", "SCSS", "Shadcn", "MUI", "Quasar"] },
+  { label: "Frameworks & UI", items: ["Vue 3", "React", "Next.js", "Nuxt 4", "Node.js", "Tailwind", "SCSS", "Shadcn", "MUI", "Quasar"] },
   { label: "State & Data", items: ["Pinia", "Vuex", "Redux Toolkit", "TanStack Query", "RTK Query"] },
-  { label: "Tooling & Infra", items: ["Vite", "Nx", "Storybook", "Vitest", "Git", "Docker", "Kubernetes", "AWS", "Cloudflare Workers / D1 / R2"] },
+  { label: "Tooling & Infra", items: ["Vite", "Nx", "Storybook", "Vitest", "Git", "Docker", "Kubernetes", "AWS", "Vercel"] },
 ];
 
 export const education = [
