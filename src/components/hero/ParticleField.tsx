@@ -2,7 +2,37 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef, type RefObject } from "react";
-import * as THREE from "three";
+import {
+  AdditiveBlending,
+  Color,
+  Vector3,
+  getConsoleFunction,
+  setConsoleFunction,
+  type Group,
+  type ShaderMaterial,
+} from "three";
+
+// three r183 deprecated THREE.Clock. @react-three/fiber 9.6.1 still constructs one
+// internally on every <Canvas> mount (migrated to THREE.Timer only in the unreleased
+// v10), so the deprecation fires from a dependency we don't control. Route three's own
+// console output through a filter that swallows just that one line and forwards
+// everything else, so genuine three warnings still surface. setConsoleFunction is
+// three's public hook for exactly this. Runs once, at module load — before <Canvas>
+// (and thus the Clock) is constructed — and only ships in the lazily-loaded 3D chunk.
+let clockDeprecationSilenced = false;
+function silenceClockDeprecation() {
+  if (clockDeprecationSilenced) return;
+  clockDeprecationSilenced = true;
+  const forward = getConsoleFunction();
+  setConsoleFunction((type, message, ...params) => {
+    if (type === "warn" && message.includes("Clock: This module has been deprecated")) {
+      return;
+    }
+    if (forward) forward(type, message, ...params);
+    else console[type](message, ...params);
+  });
+}
+silenceClockDeprecation();
 
 const vertexShader = /* glsl */ `
   uniform float uTime;
@@ -54,8 +84,8 @@ const fragmentShader = /* glsl */ `
 `;
 
 function Field({ count }: { count: number }) {
-  const matRef = useRef<THREE.ShaderMaterial>(null);
-  const groupRef = useRef<THREE.Group>(null);
+  const matRef = useRef<ShaderMaterial>(null);
+  const groupRef = useRef<Group>(null);
 
   const [positions, seeds] = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -72,18 +102,18 @@ function Field({ count }: { count: number }) {
   const uniforms = useMemo(
     () => ({
       uTime: { value: 0 },
-      uPointer: { value: new THREE.Vector3(0, 0, 0) },
+      uPointer: { value: new Vector3(0, 0, 0) },
       uSize: { value: 26 },
       uPixelRatio: { value: typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 1.75) : 1 },
-      uColor: { value: new THREE.Color("#c6f24e") },
+      uColor: { value: new Color("#c6f24e") },
     }),
     [],
   );
 
   // reusable vectors (avoid per-frame allocation)
-  const ndc = useMemo(() => new THREE.Vector3(), []);
-  const dir = useMemo(() => new THREE.Vector3(), []);
-  const target = useMemo(() => new THREE.Vector3(), []);
+  const ndc = useMemo(() => new Vector3(), []);
+  const dir = useMemo(() => new Vector3(), []);
+  const target = useMemo(() => new Vector3(), []);
 
   useFrame((state, delta) => {
     uniforms.uTime.value += Math.min(delta, 0.05);
@@ -115,7 +145,7 @@ function Field({ count }: { count: number }) {
           fragmentShader={fragmentShader}
           transparent
           depthWrite={false}
-          blending={THREE.AdditiveBlending}
+          blending={AdditiveBlending}
         />
       </points>
     </group>

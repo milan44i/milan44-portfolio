@@ -11,15 +11,63 @@ const ParticleField = dynamic(
   { ssr: false },
 );
 
+// Cheap, static, zero-network starfield for low-power devices, reduced-motion users,
+// and the brief window before the canvas inits. Pure CSS: a few tiled radial-gradients
+// (one dim dot per tile, varied sizes/offsets so it doesn't read as a grid) over the
+// hero's accent wash. Composites once on the GPU — no DOM nodes, no animation loop.
+const STARFIELD_BG =
+  "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.09) 0 1px, transparent 1.7px) 0 0 / 92px 92px," +
+  "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06) 0 1px, transparent 1.7px) 37px 53px / 143px 143px," +
+  "radial-gradient(circle at 50% 50%, rgba(198,242,78,0.07) 0 1px, transparent 1.7px) 71px 19px / 197px 197px," +
+  "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0 1px, transparent 1.7px) 113px 91px / 263px 263px";
+
+// Chromium-only navigator fields, declared structurally so we can feature-detect them
+// without `any`. Undefined on Safari/Firefox — callers default them to "capable".
+type CapabilityNavigator = Navigator & {
+  deviceMemory?: number;
+  connection?: { saveData?: boolean };
+};
+
+// Whether to run the animated WebGL field. Desktop is fine; this guards the mid-tier
+// phones where three.js parse/exec hurts TBT. Missing APIs default high (?? 8) so a
+// device is never demoted to the static fallback just because it doesn't report.
+function shouldRenderCanvas(): boolean {
+  if (typeof window === "undefined") return false;
+  const nav = navigator as CapabilityNavigator;
+  const matches = (q: string) => window.matchMedia?.(q).matches ?? false;
+
+  if (matches("(prefers-reduced-motion: reduce)")) return false;
+  if (nav.connection?.saveData === true) return false;
+  if ((navigator.hardwareConcurrency ?? 8) < 4) return false;
+  if ((nav.deviceMemory ?? 8) < 4) return false;
+  if (matches("(pointer: coarse)") && window.innerWidth <= 640) return false;
+  return true;
+}
+
+// Defer until the main thread is idle (after first paint) so three.js init lands past
+// LCP and outside the early TBT window. iOS/Safari lack rIC → short-timeout fallback.
+// Returns a cancel fn for effect cleanup.
+function onIdle(run: () => void): () => void {
+  if (typeof window === "undefined") return () => {};
+  if (typeof window.requestIdleCallback === "function") {
+    const id = window.requestIdleCallback(run, { timeout: 2000 });
+    return () => window.cancelIdleCallback?.(id);
+  }
+  const id = window.setTimeout(run, 200);
+  return () => window.clearTimeout(id);
+}
+
 const headlineWords = ["I", "build", "fast,", "scalable", "interfaces", "—"];
 
 export function Hero() {
   const reduce = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
+  const [canvasReady, setCanvasReady] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const showCanvas = mounted && !reduce;
+
+  useEffect(() => {
+    if (!shouldRenderCanvas()) return; // low-power / reduced-motion → keep the static starfield
+    return onIdle(() => setCanvasReady(true)); // defer three.js init until after first paint
+  }, []);
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden">
@@ -32,7 +80,12 @@ export function Hero() {
             "radial-gradient(120% 90% at 78% 12%, rgba(198,242,78,0.10), transparent 55%), radial-gradient(80% 70% at 12% 95%, rgba(126,240,208,0.06), transparent 60%)",
         }}
       />
-      {showCanvas && <ParticleField eventSource={sectionRef} />}
+      {canvasReady ? (
+        <ParticleField eventSource={sectionRef} />
+      ) : (
+        // static starfield for low-power/reduced-motion devices + the brief pre-init window
+        <div aria-hidden className="absolute inset-0" style={{ background: STARFIELD_BG }} />
+      )}
 
       {/* readability vignette over the field */}
       <div
