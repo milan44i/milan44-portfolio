@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import type { CaseStudy } from "@/lib/case-studies";
@@ -28,6 +29,36 @@ export function CaseStudyShell({ study }: { study: CaseStudy }) {
             </div>
           ))}
         </div>
+
+        {/* product shots */}
+        {study.gallery && (
+          <ul className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {study.gallery.map((img, i) => (
+              <Reveal
+                key={img.src}
+                as="li"
+                delay={i * 0.07}
+                className="card flex h-full flex-col overflow-hidden"
+              >
+                {/* flex-1 centers shorter images (the Victory Card) so captions align along the bottom */}
+                <div className="flex min-h-0 flex-1 items-center">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.width}
+                    height={img.height}
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="w-full"
+                    priority={i === 0}
+                  />
+                </div>
+                <p className="mono mt-auto border-t border-line p-4 text-[11px] leading-relaxed text-text-dim">
+                  {img.caption}
+                </p>
+              </Reveal>
+            ))}
+          </ul>
+        )}
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_300px] lg:gap-16">
           {/* body */}

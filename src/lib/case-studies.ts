@@ -4,6 +4,14 @@ export type CaseBlock = {
   bullets?: string[];
 };
 
+export type CaseImage = {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+};
+
 export type CaseStudy = {
   slug: string;
   title: string;
@@ -15,6 +23,7 @@ export type CaseStudy = {
   links: { label: string; href: string }[];
   stack: string[];
   metrics: { value: string; label: string }[];
+  gallery?: CaseImage[];
   blocks: CaseBlock[];
 };
 
@@ -23,7 +32,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: "gamescore",
     title: "GameScore",
     kind: "Solo product · gamescore.cards",
-    period: "2026 — present",
+    period: "Shipped 2026 · actively maintained",
     role: "Design, engineering & infrastructure — solo",
     intro:
       "A production PWA for tracking board-game scores: offline-first, fast, and wired into BoardGameGeek search across 100,000+ titles — with a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
@@ -36,6 +45,29 @@ export const caseStudies: Record<string, CaseStudy> = {
       { value: "Solo", label: "design → ship → operate" },
       { value: "Pro", label: "paid tier (€4.99, Lemon Squeezy)" },
       { value: "20", label: "curated game templates" },
+    ],
+    gallery: [
+      {
+        src: "/work/gamescore/bgg-search.png",
+        alt: "GameScore game search showing BoardGameGeek results for Wingspan with box art, year and rating",
+        caption: "Game search — BoardGameGeek's XML API, proxied and parsed server-side.",
+        width: 430,
+        height: 932,
+      },
+      {
+        src: "/work/gamescore/live-scoring.png",
+        alt: "GameScore live match screen scoring Wingspan for three players, with a per-category breakdown for the leader",
+        caption: "Live scoring — the Wingspan template tracks all six end-game categories per player.",
+        width: 430,
+        height: 932,
+      },
+       {
+        src: "/work/gamescore/victory-card.png",
+        alt: "A GameScore Victory Card for a Wingspan match, showing the winner and final standings over the game's box art",
+        caption: "The Victory Card — rendered client-side at 1080×1920, ready to share.",
+        width: 810,
+        height: 1440,
+      },
     ],
     blocks: [
       {
@@ -108,7 +140,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "Context",
         body: [
-          "The DNO Cloud Portal is how operators serving millions of subscribers configure data pipelines, reporting and real-time event processing. The interfaces are dense and the stakes are high — analysts drive carrier-grade systems through them. My remit is the frontend that makes that power usable.",
+          "The DNO Cloud Portal is how operators serving millions of subscribers configure data pipelines, reporting and real-time event processing. LotusFlare is Ericsson-backed, and the stakes match: the interfaces are dense and analysts drive carrier-grade systems through them. My remit is the frontend that makes that power usable.",
         ],
       },
       {

@@ -16,6 +16,8 @@ export const site = {
     github: "https://github.com/milan44i",
     linkedin: "https://www.linkedin.com/in/milan44/",
     medium: "https://medium.com/@milan44",
+    fieldGuide:
+      "https://medium.com/@milan44/claude-code-the-complete-field-guide-to-using-it-without-burning-your-token-budget-a68ad7e490a2",
     claudeSetup: "https://github.com/milan44i/claude-setup",
     gamescore: "https://gamescore.cards",
     email: "mailto:mln6stankovic@gmail.com",

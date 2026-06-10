@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 
 // Lazy-load the WebGL field so three.js stays out of the critical path (keeps LCP fast).
+// The chunk only downloads once <ParticleField> actually renders — see showCanvas below.
 const ParticleField = dynamic(
   () => import("./ParticleField").then((m) => m.ParticleField),
   { ssr: false },
@@ -15,11 +16,21 @@ const headlineWords = ["I", "build", "fast,", "scalable", "interfaces", "—"];
 
 export function Hero() {
   const reduce = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  // Desktop-only, idle-time WebGL: mobile and reduced-motion users keep the static
+  // gradient fallback, and the ~860KB three.js chunk never competes with first paint.
+  const [idle, setIdle] = useState(false);
+  useEffect(() => {
+    if (reduce || !window.matchMedia("(min-width: 768px)").matches) return;
+    if (typeof window.requestIdleCallback !== "function") {
+      const t = window.setTimeout(() => setIdle(true), 1200);
+      return () => window.clearTimeout(t);
+    }
+    const id = window.requestIdleCallback(() => setIdle(true), { timeout: 2500 });
+    return () => window.cancelIdleCallback(id);
+  }, [reduce]);
 
   const sectionRef = useRef<HTMLElement>(null);
-  const showCanvas = mounted && !reduce;
+  const showCanvas = idle && !reduce;
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden">

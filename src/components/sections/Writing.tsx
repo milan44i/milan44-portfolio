@@ -7,10 +7,10 @@ import { site } from "@/lib/site";
 const channels = [
   {
     label: "Medium",
-    title: "Essays on AI-assisted development & frontend craft",
-    body: "Notes on context engineering, agentic workflows, and shipping with Claude Code.",
-    href: site.links.medium,
-    cta: "Read on Medium",
+    title: "Claude Code: The Complete Field Guide",
+    body: "The flagship essay — how to run Claude Code without burning your token budget. Context engineering, hooks and agentic workflows from daily production use.",
+    href: site.links.fieldGuide,
+    cta: "Read the essay",
   },
   {
     label: "Open source",
