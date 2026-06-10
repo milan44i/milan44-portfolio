@@ -74,11 +74,11 @@ export const experience: Role[] = [
     highlights: [
       "Cut portal initial load time by 80% (1.2 min → 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
       "Led the Vue 3 Composition API + Pinia migration; authored reusable composables adopted team-wide.",
-      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow — 45% less complexity, zero regressions.",
-      "Established codebase standards and reorganized imports across 500+ files for long-term maintainability.",
-      "Architected the team's AI engineering stack — cross-IDE agent rules, CLAUDE.md context system and custom skills.",
+      "Architected the team's AI engineering stack — cross-IDE agent rules, a CLAUDE.md context system and custom skills.",
       "Built a multi-file S3 upload system with real-time progress, smart error handling and DLQ recovery.",
       "Architected role-based access control for Reports with permission-driven UI rendering.",
+      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow — 45% less complexity, zero regressions.",
+      "Established codebase standards and reorganized imports across 500+ files for long-term maintainability.",
     ],
   },
   {
