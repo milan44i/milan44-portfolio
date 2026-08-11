@@ -30,6 +30,25 @@ export const projectsCopy = {
     title: "Šest sajtova, šest svetova",
     lead: "Izbor iz radionice. Svaki je dizajniran jedan-od-jedan, po meri lokala.",
   },
+  search: {
+    eyebrow: "Google + AI",
+    title: "Kad neko pita gde da jede, sajt je u igri",
+    lead: "Ovo gost ne vidi, a odlučuje ko će vas naći: svaki sajt je optimizovan da ga čitaju i pretraživači i AI asistenti.",
+    items: [
+      {
+        tech: "Schema.org + sitemap",
+        plain: "Kad neko ukuca „restoran u vašem kraju“, Google vas prikaže - sa radnim vremenom, jelovnikom i ocenama.",
+      },
+      {
+        tech: "llms.txt",
+        plain: "Kad gost pita ChatGPT ili Google AI gde da večera, vaš sajt je čitljiv i restoran može biti preporučen.",
+      },
+      {
+        tech: "Jelovnik u tekstu",
+        plain: "Svako jelo pretraživo po imenu. Slika jelovnika je za pretragu nevidljiva - tekst nije.",
+      },
+    ],
+  },
   base: {
     eyebrow: "Osnova",
     title: "Dizajn je različit, osnova je uvek ista",
@@ -39,8 +58,8 @@ export const projectsCopy = {
         t: "Stranica od oko 0,6 MB učita se za sekund i na slabijoj mreži - niko ne odustane dok čeka.",
       },
       {
-        h: "Jelovnik u tekstu, sr + en",
-        t: "Google i AI asistenti ga čitaju, gost i stranac pretraže jelo po imenu. Slika jelovnika to ne može.",
+        h: "Dvojezičan od prvog dana",
+        t: "Srpski i engleski u paru - i stranac pronađe jelo i naruči bez pomoći.",
       },
       {
         h: "Rezervacije stižu vama",

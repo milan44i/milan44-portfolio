@@ -104,6 +104,26 @@ export default function ProjectsPage() {
           </div>
         </section>
 
+        {/* Google + AI visibility */}
+        <section className="hairline shell pt-16 pb-20 sm:pb-28">
+          <div>
+            <p className="eyebrow mb-4">{c.search.eyebrow}</p>
+            <h2 className="font-display display-md max-w-2xl text-balance">{c.search.title}</h2>
+            <p className="mt-4 max-w-2xl text-text-dim">{c.search.lead}</p>
+          </div>
+          <div className="mt-11 grid gap-5 sm:grid-cols-3">
+            {c.search.items.map((item) => (
+              <div key={item.tech} className="card rounded-[var(--radius)] p-6">
+                <p className="mono text-[12px] tracking-wide text-accent">{item.tech}</p>
+                <p className="mt-1 text-lg text-text-faint" aria-hidden>
+                  ↳
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-text">{item.plain}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* What every site gets */}
         <section className="hairline shell pt-16 pb-20 sm:pb-28">
           <div>
