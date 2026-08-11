@@ -2,9 +2,9 @@ import type { StaticImageData } from "next/image";
 import pinot from "@/images/projects/pinot.png";
 import istok from "@/images/projects/istok.png";
 import thyme from "@/images/projects/thyme.png";
-import frida from "@/images/projects/frida.png";
 import sentandrea from "@/images/projects/sentandrea.png";
-import bakara from "@/images/projects/bakara.png";
+import ambar from "@/images/projects/ambar.png";
+import reka from "@/images/projects/reka.png";
 
 // Copy + data for the Serbian client-facing /projects page.
 
@@ -123,23 +123,23 @@ export const projects: Project[] = [
     alt: "Sajt restorana Sent Andrea - topli salon sa oslikanim plafonom",
   },
   {
-    slug: "frida",
-    name: "Cantina de Frida",
+    slug: "ambar",
+    name: "Ambar",
     place: "Beton hala",
-    kind: "bar restoran",
-    story: "Fridina rukom pisana pisma vode celu stranicu.",
-    accent: "#c0392b",
-    image: frida,
-    alt: "Sajt Cantina de Frida - belo platno sa crvenim rukopisom",
+    kind: "moderna balkanska kuhinja",
+    story: "Krupna tipografija i narodni vez kao šav kroz stranicu - Balkan na moderan način.",
+    accent: "#c4342d",
+    image: ambar,
+    alt: "Sajt restorana Ambar - industrijska sala sa muralom i krupnom tipografijom",
   },
   {
-    slug: "bakara",
-    name: "Bakara",
-    place: "Ada Ciganlija",
-    kind: "kafanica",
-    story: "Karirani stolnjak i svetleća brvnara pretočeni u web.",
-    accent: "#b5432f",
-    image: bakara,
-    alt: "Sajt kafanice Bakara - brvnara sa svetlećim natpisom i kariranim stolnjacima",
+    slug: "reka",
+    name: "Reka",
+    place: "Zemun, kraj keja",
+    kind: "kafana sa živom muzikom",
+    story: "Sedam kućnih bendova i tri decenije provoda - sajt hvata noć, ne enterijer.",
+    accent: "#d99a3f",
+    image: reka,
+    alt: "Sajt kafane Reka - noćna slika sa gostima koji igraju uz živu muziku",
   },
 ];
