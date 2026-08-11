@@ -1,32 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.css";
+import "../globals.css";
 import { site } from "@/lib/site";
+import { fontClassNames } from "@/lib/fonts";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Statusline } from "@/components/Statusline";
 import { Footer } from "@/components/Footer";
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-bricolage",
-  weight: ["400", "600", "700", "800"],
-  display: "swap",
-});
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#08090b",
@@ -94,11 +75,7 @@ const personLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      className={`${bricolage.variable} ${hanken.variable} ${jetbrains.variable}`}
-    >
+    <html lang="en" data-scroll-behavior="smooth" className={fontClassNames}>
       <body>
         <script
           type="application/ld+json"
