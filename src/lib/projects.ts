@@ -3,7 +3,7 @@ import pinot from "@/images/projects/pinot.png";
 import istok from "@/images/projects/istok.png";
 import thyme from "@/images/projects/thyme.png";
 import sentandrea from "@/images/projects/sentandrea.png";
-import ambar from "@/images/projects/ambar.png";
+import magellan from "@/images/projects/magellan.png";
 import reka from "@/images/projects/reka.png";
 
 // Copy + data for the Serbian client-facing /projects page.
@@ -142,14 +142,14 @@ export const projects: Project[] = [
     alt: "Sajt restorana Sent Andrea - topli salon sa oslikanim plafonom",
   },
   {
-    slug: "ambar",
-    name: "Ambar",
-    place: "Beton hala",
-    kind: "moderna balkanska kuhinja",
-    story: "Krupna tipografija i narodni vez kao šav kroz stranicu - Balkan na moderan način.",
-    accent: "#c4342d",
-    image: ambar,
-    alt: "Sajt restorana Ambar - industrijska sala sa muralom i krupnom tipografijom",
+    slug: "magellan",
+    name: "Magellan",
+    place: "Novi Beograd",
+    kind: "fine dining",
+    story: "Isprekidana ruta plovidbe vodi stranicu - degustacioni meniji i enterijer luksuzne jahte, u MICHELIN vodiču za 2026.",
+    accent: "#6d1b34",
+    image: magellan,
+    alt: "Sajt restorana Magellan - krem pozadina, ruta plovidbe i enterijer luksuzne jahte",
   },
   {
     slug: "reka",
