@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function ResumePage() {
   return (
-    <main className="pt-28 print:pt-0">
+    <main id="main" className="pt-28 print:pt-0">
       <div className="shell max-w-3xl">
         {/* controls (screen only) */}
         <div className="mb-10 flex items-center justify-between print:hidden">

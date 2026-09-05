@@ -8,7 +8,7 @@ export function CaseStudyShell({ study }: { study: CaseStudy }) {
   const other = caseStudyList.find((c) => c.slug !== study.slug);
 
   return (
-    <main className="pt-28">
+    <main id="main" className="pt-28">
       <article className="shell">
         <Link href="/#work" className="hit mono text-xs text-text-dim transition-colors hover:text-accent">
           ← back to work

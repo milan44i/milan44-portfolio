@@ -29,7 +29,7 @@ export default function ProjectsPage() {
         </div>
       </header>
 
-      <main>
+      <main id="main">
         {/* Hero */}
         <section className="shell pt-20 pb-16 sm:pt-28 sm:pb-20">
           <p className="eyebrow mb-5">{c.hero.eyebrow}</p>

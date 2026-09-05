@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { nav, site } from "@/lib/site";
 
 // Derive the section id a nav href points at, e.g. "/#work" -> "work".
@@ -13,6 +13,8 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -42,12 +44,15 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  // Lock background scroll + allow Escape to close the mobile menu.
+  // Lock background scroll, move focus into the mobile menu and hand it back to
+  // the toggle on close; Escape closes.
   useEffect(() => {
     if (!open) return;
     const root = document.documentElement;
     const prev = root.style.overflow;
     root.style.overflow = "hidden";
+    const toggle = toggleRef.current;
+    menuRef.current?.querySelector("a")?.focus();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     const onResize = () => window.innerWidth >= 768 && setOpen(false);
     window.addEventListener("keydown", onKey);
@@ -56,6 +61,7 @@ export function Nav() {
       root.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("resize", onResize);
+      toggle?.focus({ preventScroll: true });
     };
   }, [open]);
 
@@ -114,6 +120,7 @@ export function Nav() {
 
           {/* mobile menu toggle */}
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -140,6 +147,7 @@ export function Nav() {
         references the viewport, not the header's backdrop-filter containing block */}
     {open && (
       <div
+        ref={menuRef}
         id="mobile-menu"
         className="rise fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain md:hidden"
         style={{ background: "rgba(8,9,11,0.97)", backdropFilter: "blur(16px)", ...rise(0, "0px") }}

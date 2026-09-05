@@ -32,9 +32,11 @@ const rows = [
 
 export function Timeline() {
   return (
-    <section className="shell py-16 sm:py-20">
+    <section aria-labelledby="timeline-title" className="shell py-16 sm:py-20">
       <Reveal>
-        <p className="eyebrow mb-7">Timeline</p>
+        <h2 id="timeline-title" className="eyebrow mb-7">
+          Timeline
+        </h2>
       </Reveal>
       <ol className="border-t border-line">
         {rows.map((r, i) => (

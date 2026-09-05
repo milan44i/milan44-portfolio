@@ -27,6 +27,9 @@ export default function SrLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sr" className={fontClassNames}>
       <body>
+        <a href="#main" className="skip-link">
+          Preskoči na sadržaj
+        </a>
         {children}
         <Analytics />
         <SpeedInsights />

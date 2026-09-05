@@ -51,7 +51,7 @@ export default function Page() {
   ]);
 
   return (
-    <main className="pt-28">
+    <main id="main" className="pt-28">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([pipelineLd, crumbs]) }}

@@ -24,7 +24,10 @@ const HEADER_POS = [
 
 export function Impact() {
   return (
-    <section className="shell py-12">
+    <section aria-labelledby="proof-title" className="shell py-12">
+      <h2 id="proof-title" className="sr-only">
+        By the numbers
+      </h2>
       <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line lg:grid-cols-4">
         {metricGroups.map((group, g) => (
           <Fragment key={group.label}>

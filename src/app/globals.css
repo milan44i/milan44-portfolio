@@ -113,6 +113,25 @@
     color: #0a0c06;
   }
 
+  /* skip link: first tab stop, off-screen until focused */
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #0a0c06;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .skip-link:focus-visible {
+    transform: none;
+    outline-offset: 3px;
+  }
+
   /* focus visibility */
   a:focus-visible,
   button:focus-visible {

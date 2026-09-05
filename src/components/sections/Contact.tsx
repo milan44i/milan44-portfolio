@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export function Contact() {
   return (
-    <section id="contact" className="shell scroll-mt-24 py-24 sm:py-32">
+    <section id="contact" aria-labelledby="contact-title" className="shell scroll-mt-24 py-24 sm:py-32">
       <Reveal>
         <div className="card relative overflow-hidden p-8 sm:p-14">
           <div
@@ -16,7 +16,7 @@ export function Contact() {
             <p className="eyebrow mb-5">
               <span className="accent">●</span> {`${site.availability.toLowerCase()} - AI builder & frontend`}
             </p>
-            <h2 className="font-display display-lg max-w-[14ch] font-bold tracking-tight text-balance">
+            <h2 id="contact-title" className="font-display display-lg max-w-[14ch] font-bold tracking-tight text-balance">
               Let&apos;s build something fast.
             </h2>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-text-dim">

@@ -29,6 +29,9 @@ export default function GlobalNotFound() {
   return (
     <html lang="en" className={fontClassNames}>
       <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <Nav />
         <main id="main" className="shell flex min-h-[70svh] flex-col justify-center py-32">
           <p className="mono text-xs text-accent">404</p>
