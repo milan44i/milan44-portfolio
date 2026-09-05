@@ -56,13 +56,23 @@ export const projects: Project[] = [
   {
     slug: "gamescore",
     name: "GameScore",
-    kind: "Solo product · gamescore.cards",
+    kind: "gamescore.cards",
     blurb:
       "A production PWA for board-game score-tracking - offline-first, no account and no server, 20 curated templates, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
     stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "Lemon Squeezy", "Vercel"],
     href: "https://gamescore.cards",
     caseStudy: "/work/gamescore",
     featured: true,
+    year: "2026",
+  },
+  {
+    slug: "sitescore",
+    name: "SiteScore",
+    kind: "sitescore.pages.dev",
+    blurb:
+      "An on-page SEO auditor running entirely on Cloudflare's edge: 25+ checks across 7 analyzers plus PageSpeed Insights, shareable reports and an embeddable widget.",
+    stack: ["Nuxt", "Cloudflare Workers", "D1", "KV", "R2"],
+    href: "https://sitescore.pages.dev",
     year: "2026",
   },
   {
@@ -91,38 +101,48 @@ export type Role = {
 
 export const experience: Role[] = [
   {
+    company: "Independent",
+    title: "AI Builder & Automation Engineer",
+    period: "Mar 2026 - Present",
+    summary:
+      "Self-employed, Belgrade (remote). I design and run systems that find the work, do it, and check their own output.",
+    stack: ["Astro", "Node", "Cloudflare Workers / Pages / D1 / R2", "Playwright", "TypeScript", "Claude Code agents"],
+    highlights: [
+      "Built a pipeline that takes a business from a map listing to a live website: crawl, audit, generate, deploy. 210 sites built across 14 verticals, 177 live, 211 designs and no two alike.",
+      "Built an unattended overnight agent workflow that picks the work, builds and deploys it and verifies each result live: 22 runs, 35 sites, best night 9 of 9 with zero failures.",
+      "Built the site auditor behind it: about 30 checks per site scoring technical health, SEO and AI visibility, run against 110 real sites.",
+      "Wrote the truthfulness gates that stop the system asserting what it cannot cite; one audit caught 78 of 161 outbound claims that nothing had verified.",
+    ],
+  },
+  {
     company: "LotusFlare",
     team: "DNO Cloud Portal",
     title: "Frontend Engineer",
     period: "Jun 2025 - Present",
     summary:
-      "Own the UIs that let business analysts configure complex data pipelines, reporting and real-time event processing for carrier-grade telecom operators serving millions of subscribers.",
-    stack: ["Vue 3", "TypeScript", "Pinia", "Vuex", "Vite", "Tailwind", "Docker", "Kubernetes"],
+      "Own the UIs that let business analysts configure data pipelines, reporting and real-time event processing for carrier-grade telecom operators serving millions of subscribers.",
+    stack: ["Vue 3", "TypeScript", "Pinia", "Vite", "Tailwind", "Docker", "Kubernetes"],
     caseStudy: "/work/lotusflare",
     featured: true,
     highlights: [
-      "Cut portal initial load time by 80% (1.2 min → 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
-      "Led the Vue 3 Composition API + Pinia migration; authored reusable composables adopted team-wide.",
-      "Architected the team's AI engineering stack - cross-IDE agent rules, a CLAUDE.md context system and custom skills.",
+      "Architected the team's AI engineering stack: cross-IDE agent rules, a CLAUDE.md context system and custom skills, now the workflow the team develops with.",
+      "Cut portal initial load time by 80% (1.2 min to 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
+      "Led the Vue 3 Composition API and Pinia migration; authored reusable composables adopted team-wide.",
+      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
       "Built a multi-file S3 upload system with real-time progress, smart error handling and DLQ recovery.",
-      "Architected role-based access control for Reports with permission-driven UI rendering.",
-      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow - 45% less complexity, zero regressions.",
-      "Established codebase standards and reorganized imports across 500+ files for long-term maintainability.",
     ],
   },
   {
     company: "DEVersity",
     title: "Junior Frontend Engineer, then Frontend Engineer",
     period: "Apr 2024 - Jun 2025",
-    summary:
-      "Three products: PointOne, a data-analysis platform; Aktivizam, a social platform; and Romotioncam, a wind-turbine blade inspection platform.",
-    stack: ["React", "Next.js", "TypeScript", "Nx", "TanStack Query", "TanStack Table", "Tailwind", "Shadcn"],
+    summary: "PointOne, a data-analysis platform; Aktivizam, a social platform; Romotioncam, blade inspection.",
+    stack: ["React", "Next.js", "TypeScript", "Nx", "TanStack Query", "TanStack Table", "Tailwind"],
     highlights: [
-      "PointOne: built an analytics dashboard with interactive charts and a DataTable with filter/sort/inline-edit/selection.",
-      "Drove the Redux Toolkit → TanStack Query migration, boosting performance and simplifying the codebase.",
-      "Reduced build time 40% and the main bundle 53% via build optimization and route-based code splitting.",
-      "Aktivizam: built core UI (feed, filters, forms, tags, event calendar) and admin tools; led the i18n rollout.",
-      "Romotioncam: built the Blade Picker UI and core inspection workflows used by field engineers.",
+      "PointOne: built the analytics dashboard and a DataTable with filtering, sorting, inline editing and row selection.",
+      "Drove the Redux Toolkit to TanStack Query migration.",
+      "Cut build time 40% (18.8 to 11.4 s) and the main bundle 53% (1,834 to 858 kB) via route-based code splitting.",
+      "Aktivizam: built the core UI end to end (feed, filters, forms, tags, event calendar, admin tools) and led the i18n rollout.",
     ],
   },
   {
@@ -130,13 +150,25 @@ export const experience: Role[] = [
     title: "Frontend Developer (intern), then Junior Frontend Engineer",
     period: "Apr 2023 - Mar 2024",
     summary: "AI relationship-intelligence platform.",
-    stack: ["Vue", "TypeScript", "Pinia", "TanStack Query", "Storybook", "Vitest", "Vite"],
+    stack: ["Vue 3", "TypeScript", "Pinia", "TanStack Query", "Storybook", "Vitest"],
     highlights: [
-      "Refactored a legacy Vue UI and contributed to modernizing the frontend architecture.",
-      "Built reusable components - Table, Input, Accordion, Checkbox and more - pixel-matched to Figma.",
+      "Refactored a legacy Vue UI and modernized the frontend architecture.",
+      "Built a reusable component library (Table, Input, Accordion, Checkbox) pixel-matched to Figma, with unit and integration tests.",
     ],
   },
 ];
+
+// Résumé-only: the four systems, plus one line on how the work is run.
+export const aiSystems: string[] = [
+  "Site-generation pipeline: crawl, audit, generate, deploy. 210 sites built across 14 verticals, 177 live, 211 designs and no two alike.",
+  "Overnight autopilot: an unattended agent workflow that picks, builds, deploys and verifies. 22 runs, 35 sites, best night 9 of 9, zero failures.",
+  "Site auditor: about 30 checks per site scoring technical health, SEO and AI visibility, run against 110 real sites.",
+  "Truthfulness gates: a claim renders only with a dated, sourced check behind it. One audit caught 78 of 161 outbound claims nothing had verified.",
+  "How I run it: a supervised fleet of agents, reusable skills as the unit of work, validation gates before anything merges, and annotated review boards instead of chat.",
+];
+
+// The title line on the résumé and the printed CV.
+export const resumeTitle = "AI Builder & Frontend Engineer · Vue · React · TypeScript · Automation";
 
 export type AICapability = { title: string; body: string };
 
@@ -175,10 +207,11 @@ export const aiEdge = {
 export type SkillGroup = { label: string; items: string[] };
 
 export const skills: SkillGroup[] = [
+  { label: "AI & automation", items: ["AI agents", "LLM tooling", "Agentic workflows", "Web scraping", "Web crawling", "Technical SEO", "Schema.org / JSON-LD"] },
   { label: "Languages", items: ["TypeScript", "JavaScript", "HTML5", "CSS3", "SQL"] },
-  { label: "Frameworks & UI", items: ["Vue 3", "React", "Next.js", "Nuxt 4", "Node.js", "Tailwind", "SCSS", "Shadcn", "MUI", "Quasar"] },
-  { label: "State & Data", items: ["Pinia", "Vuex", "Redux Toolkit", "TanStack Query", "RTK Query"] },
-  { label: "Tooling & Infra", items: ["Vite", "Nx", "Storybook", "Vitest", "Git", "Docker", "Kubernetes", "AWS", "Vercel"] },
+  { label: "Frameworks & UI", items: ["Vue 3", "React", "Next.js", "Nuxt", "Astro", "Node.js", "Tailwind", "Shadcn"] },
+  { label: "State & Data", items: ["Pinia", "Vuex", "TanStack Query", "Redux Toolkit"] },
+  { label: "Tooling & Infra", items: ["Cloudflare Workers / Pages / D1 / R2", "Vite", "Playwright", "Vitest", "Storybook", "Docker", "Vercel", "Git"] },
 ];
 
 export const education = [

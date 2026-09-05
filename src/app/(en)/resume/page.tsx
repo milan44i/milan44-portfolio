@@ -3,11 +3,11 @@ import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PrintButton } from "@/components/PrintButton";
 import { site } from "@/lib/site";
-import { about, education, experience, projects, skills } from "@/lib/content";
+import { about, aiSystems, education, experience, projects, resumeTitle, skills } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
   title: "Resume",
-  description: `Resume of ${site.name}, ${site.role} - ${site.tagline}.`,
+  description: `Resume of ${site.name}. ${resumeTitle}.`,
   path: "/resume",
 });
 
@@ -27,9 +27,7 @@ export default function ResumePage() {
           {/* header */}
           <header className="border-b border-line pb-6 print:border-black/20">
             <h1 className="font-display text-4xl font-bold tracking-tight">{site.name}</h1>
-            <p className="mt-1 text-text-dim print:text-black">
-              {site.role} · {site.tagline}
-            </p>
+            <p className="mt-1 text-text-dim print:text-black">{resumeTitle}</p>
             <div className="mono mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-text-dim print:text-black">
               <span>{site.email}</span>
               <span>{site.location}</span>
@@ -42,6 +40,18 @@ export default function ResumePage() {
           {/* profile */}
           <Section heading="Profile">
             <p className="text-sm leading-relaxed text-text-dim print:text-black">{about.paragraphs[0]}</p>
+          </Section>
+
+          {/* ai systems */}
+          <Section heading="AI systems">
+            <ul className="space-y-1.5">
+              {aiSystems.map((line) => (
+                <li key={line} className="flex gap-2 text-sm leading-snug text-text-dim print:text-black">
+                  <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent print:bg-black" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
           </Section>
 
           {/* experience */}
@@ -58,9 +68,14 @@ export default function ResumePage() {
                       {role.period}
                     </span>
                   </div>
-                  {role.summary && (
-                    <p className="mt-1 text-sm text-text-dim print:text-black">{role.summary}</p>
-                  )}
+                  {/* stack shares the summary line for the same reason as projects:
+                      four roles x one extra line is most of a page margin */}
+                  <p className="mt-1 text-sm text-text-dim print:text-black">
+                    {role.summary}{" "}
+                    <span className="mono text-[11px] text-text-faint print:text-black/60">
+                      {role.stack.join(" · ")}
+                    </span>
+                  </p>
                   <ul className="mt-2 space-y-1.5">
                     {role.highlights.map((h) => (
                       <li key={h} className="flex gap-2 text-sm leading-snug text-text-dim print:text-black">
@@ -69,7 +84,6 @@ export default function ResumePage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mono mt-2 text-[11px] text-text-faint print:text-black/60">{role.stack.join(" · ")}</p>
                 </div>
               ))}
             </div>
@@ -83,8 +97,14 @@ export default function ResumePage() {
                   <h3 className="font-semibold text-text print:text-black">
                     {p.name} <span className="font-normal text-text-faint print:text-black/60">- {p.kind}</span>
                   </h3>
-                  <p className="mt-1 text-sm text-text-dim print:text-black">{p.blurb}</p>
-                  <p className="mono mt-1 text-[11px] text-text-faint print:text-black/60">{p.stack.join(" · ")}</p>
+                  {/* stack rides the blurb line: three lines per project cost a
+                      page on A4, two do not */}
+                  <p className="mt-1 text-sm text-text-dim print:text-black">
+                    {p.blurb}{" "}
+                    <span className="mono text-[11px] text-text-faint print:text-black/60">
+                      {p.stack.join(" · ")}
+                    </span>
+                  </p>
                 </div>
               ))}
             </div>
