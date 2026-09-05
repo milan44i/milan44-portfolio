@@ -29,7 +29,7 @@ const body = `# ${site.url.replace("https://", "")} - ${site.name}
 - [The site-generation pipeline](${site.url}/work/pipeline): how 210 sites were crawled, generated and deployed
 - [LotusFlare case study](${site.url}/work/lotusflare): carrier-grade telecom frontend
 - [GameScore case study](${site.url}/work/gamescore): solo-shipped PWA with a paid tier
-- [Résumé](${site.url}/resume): full CV and timeline
+- [Resume](${site.url}/resume): full CV and timeline
 - [Projects](${site.url}/projects): gallery of generated client sites (Serbian)
 
 ## Facts

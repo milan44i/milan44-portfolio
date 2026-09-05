@@ -106,7 +106,7 @@ export function Hero() {
             Frontend work →
           </a>
           <Link href="/resume" className="btn btn-secondary">
-            Résumé
+            Resume
           </Link>
         </div>
       </div>
