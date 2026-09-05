@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
+// Preview deployments inject the Vercel Toolbar (vercel.live); production never does.
+const isPreview = process.env.VERCEL_ENV === "preview";
+const only = (allowed: boolean, sources: string) => (allowed ? ` ${sources}` : "");
 
 // Every page is static, so a nonce-based CSP is off the table (it would force
 // dynamic rendering); 'unsafe-inline' covers Next's bootstrap scripts and the
@@ -8,11 +11,12 @@ const isDev = process.env.NODE_ENV !== "production";
 // production and from va.vercel-scripts.com in development.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${isDev ? " 'unsafe-eval'" : ""}`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self'",
-  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${only(isDev, "'unsafe-eval'")}${only(isPreview, "https://vercel.live")}`,
+  `style-src 'self' 'unsafe-inline'${only(isPreview, "https://vercel.live")}`,
+  `img-src 'self' data: blob:${only(isPreview, "https://vercel.live https://vercel.com")}`,
+  `font-src 'self'${only(isPreview, "https://vercel.live https://assets.vercel.com")}`,
+  `connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com${only(isPreview, "https://vercel.live wss://ws-us3.pusher.com")}`,
+  `frame-src ${isPreview ? "https://vercel.live" : "'none'"}`,
   "worker-src 'self' blob:",
   "frame-ancestors 'none'",
   "base-uri 'self'",
