@@ -13,10 +13,10 @@ const body = `# ${site.url.replace("https://", "")} — ${site.name}
 - Name: ${site.name}
 - Role: ${site.role}
 - Location: ${site.location} (remote; EU and US East time zones)
-- Contact: ${site.email}
-- Portfolio: ${site.url}
-- GitHub: ${site.links.github}
-- LinkedIn: ${site.links.linkedin}
+- [Email](mailto:${site.email}): ${site.email}
+- [Portfolio](${site.url}): ${site.url}
+- [GitHub](${site.links.github}): open-source work, including the AI workflow toolkit
+- [LinkedIn](${site.links.linkedin}): full professional history
 
 ## What he builds
 - AI automation and agent workflows: generative pipelines, unattended overnight builds
@@ -25,11 +25,11 @@ const body = `# ${site.url.replace("https://", "")} — ${site.name}
 - Technical SEO and AI-search visibility: schema.org / JSON-LD, sitemaps, hreflang, llms.txt
 
 ## Pages
-- ${site.url}/ — overview
-- ${site.url}/work/lotusflare — carrier-grade telecom frontend
-- ${site.url}/work/gamescore — solo-shipped PWA with a paid tier
-- ${site.url}/resume — full CV
-- ${site.url}/projects — gallery of generated client sites (Serbian)
+- [Overview](${site.url}/): both identities, with the numbers
+- [LotusFlare case study](${site.url}/work/lotusflare): carrier-grade telecom frontend
+- [GameScore case study](${site.url}/work/gamescore): solo-shipped PWA with a paid tier
+- [Résumé](${site.url}/resume): full CV and timeline
+- [Projects](${site.url}/projects): gallery of generated client sites (Serbian)
 
 ## Facts
 ${metricGroups
