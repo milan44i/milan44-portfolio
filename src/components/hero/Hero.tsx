@@ -2,19 +2,29 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { site } from "@/lib/site";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 // Lazy-load the WebGL field so three.js stays out of the critical path (keeps LCP fast).
-// The chunk only downloads once <ParticleField> actually renders — see showCanvas below.
+// The chunk only downloads once <ParticleField> actually renders - see showCanvas below.
 const ParticleField = dynamic(
   () => import("./ParticleField").then((m) => m.ParticleField),
   { ssr: false },
 );
 
-// The em dash the original headline used is gone; the line break is the pause.
+// The line break is the pause; the headline never used punctuation for it.
 const headlineWords = ["I", "build", "fast,", "scalable", "interfaces"];
+
+// Entrance choreography in seconds. Pure CSS (.rise), so the text is in the
+// first paint and only fades up; the lede is the mobile LCP element, hence
+// the short delays.
+const wordDelay = (i: number) => 0.12 + i * 0.06;
+const ledeDelay = 0.5;
+const ctaDelay = 0.62;
+
+const rise = (delay: number, y?: string): CSSProperties =>
+  ({ "--delay": `${delay}s`, ...(y && { "--y": y }) }) as CSSProperties;
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -55,16 +65,11 @@ export function Hero() {
       />
 
       <div className="shell relative w-full pt-24">
-        <motion.p
-          className="eyebrow mb-7 flex flex-wrap items-center gap-x-3 gap-y-1"
-          initial={reduce ? false : { opacity: 0, y: 10 }}
-          animate={reduce ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <p className="rise eyebrow mb-7 flex flex-wrap items-center gap-x-3 gap-y-1" style={rise(0, "10px")}>
           <span className="accent">●</span> {site.name}
           <span className="text-text-faint">/</span> {site.city}
           <span className="text-text-faint">/</span> {site.role}
-        </motion.p>
+        </p>
 
         <h1 className="font-display display-xl max-w-[16ch] font-extrabold text-balance">
           <span className="sr-only">
@@ -72,46 +77,27 @@ export function Hero() {
           </span>
           <span aria-hidden className="flex flex-wrap gap-x-[0.28em]">
             {headlineWords.map((w, i) => (
-              <motion.span
-                key={i}
-                className="inline-block"
-                initial={reduce ? false : { opacity: 0, y: "0.5em" }}
-                animate={reduce ? {} : { opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.15 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              >
+              <span key={w} className="rise inline-block" style={rise(wordDelay(i), "0.5em")}>
                 {w}
-              </motion.span>
+              </span>
             ))}
-            <motion.span
-              aria-hidden
-              className="inline-block"
-              initial={reduce ? false : { opacity: 0, y: "0.5em" }}
-              animate={reduce ? {} : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15 + headlineWords.length * 0.06, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <span className="rise inline-block" style={rise(wordDelay(headlineWords.length), "0.5em")}>
               and the <span className="accent">AI workflow</span> that ships them.
-            </motion.span>
+            </span>
           </span>
         </h1>
 
-        <motion.p
-          className="mt-8 max-w-xl text-base leading-relaxed text-text-dim sm:text-lg"
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={reduce ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
+        <p
+          className="rise mt-8 max-w-xl text-base leading-relaxed text-text-dim sm:text-lg"
+          style={rise(ledeDelay)}
         >
           Frontend engineer with 4+ years of production Vue and React, now at{" "}
           <span className="text-text">LotusFlare</span> on carrier-grade telecom tooling. On my own
           time I built and run a pipeline that crawls, audits, generates and deploys small-business
           websites: <span className="text-text">210</span> so far, no two alike.
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="mt-10 flex flex-wrap items-center gap-3"
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={reduce ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.85 }}
-        >
+        <div className="rise mt-10 flex flex-wrap items-center gap-3" style={rise(ctaDelay)}>
           {/* both identities carry equal weight - neither outranks the other */}
           <a href="#lane-ai" className="btn btn-primary">
             AI systems →
@@ -122,7 +108,7 @@ export function Hero() {
           <Link href="/resume" className="btn btn-secondary">
             Résumé
           </Link>
-        </motion.div>
+        </div>
       </div>
 
       {/* scroll cue */}

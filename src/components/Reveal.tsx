@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 type RevealProps = {
   children: React.ReactNode;
@@ -10,25 +10,33 @@ type RevealProps = {
   as?: "div" | "section" | "li" | "span";
 };
 
-// Scroll-triggered reveal. Collapses to a no-op when reduced motion is requested.
+// Scroll-triggered reveal. The content is in the server HTML and the hiding and
+// the animation live in CSS (.reveal in globals.css), gated on scripting and
+// motion preference, so JS-off and reduced-motion users see everything at once.
 export function Reveal({ children, delay = 0, y = 18, className, as = "div" }: RevealProps) {
-  const reduce = useReducedMotion();
-  const MotionTag = motion[as];
+  const ref = useRef<HTMLDivElement>(null);
 
-  if (reduce) {
-    const Tag = as;
-    return <Tag className={className}>{children}</Tag>;
-  }
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        el.dataset.in = "";
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -12% 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const Tag = as as "div";
+  const style = { "--delay": `${delay}s`, "--y": `${y}px` } as CSSProperties;
 
   return (
-    <MotionTag
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <Tag ref={ref} className={className ? `reveal ${className}` : "reveal"} style={style}>
       {children}
-    </MotionTag>
+    </Tag>
   );
 }

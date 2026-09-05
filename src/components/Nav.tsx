@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { nav, site } from "@/lib/site";
 
 // Derive the section id a nav href points at, e.g. "/#work" -> "work".
 const sectionId = (href: string) => href.split("#")[1] ?? "";
 
+const rise = (delay: number, y = "12px") => ({ "--delay": `${delay}s`, "--y": y }) as CSSProperties;
+
 export function Nav() {
-  const reduce = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
@@ -138,55 +138,42 @@ export function Nav() {
 
     {/* mobile overlay menu - sibling of <header> so its fixed positioning
         references the viewport, not the header's backdrop-filter containing block */}
-    <AnimatePresence>
-        {open && (
-          <motion.div
-            id="mobile-menu"
-            className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain md:hidden"
-            style={{ background: "rgba(8,9,11,0.97)", backdropFilter: "blur(16px)" }}
-            initial={reduce ? { opacity: 0 } : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-          >
-            <nav className="shell flex flex-col gap-1 pt-10" aria-label="Mobile">
-              {nav.map((item, i) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="font-display flex items-baseline gap-4 border-b border-line py-5 text-3xl font-semibold tracking-tight text-text"
-                  initial={reduce ? false : { opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.05 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <span className="mono text-xs text-accent">0{i + 1}</span>
-                  {item.label}
-                </motion.a>
-              ))}
+    {open && (
+      <div
+        id="mobile-menu"
+        className="rise fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain md:hidden"
+        style={{ background: "rgba(8,9,11,0.97)", backdropFilter: "blur(16px)", ...rise(0, "0px") }}
+      >
+        <nav className="shell flex flex-col gap-1 pt-10" aria-label="Mobile">
+          {nav.map((item, i) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="rise font-display flex items-baseline gap-4 border-b border-line py-5 text-3xl font-semibold tracking-tight text-text"
+              style={rise(0.05 + i * 0.06)}
+            >
+              <span className="mono text-xs text-accent">0{i + 1}</span>
+              {item.label}
+            </a>
+          ))}
 
-              <motion.div
-                className="mt-8 flex flex-col gap-3"
-                initial={reduce ? false : { opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.05 + nav.length * 0.06 }}
-              >
-                <a href={site.links.email} onClick={() => setOpen(false)} className="btn btn-primary w-full justify-center">
-                  {site.email} →
-                </a>
-                <Link href="/resume" onClick={() => setOpen(false)} className="btn btn-secondary w-full justify-center">
-                  Resume
-                </Link>
-                <div className="mono mt-2 flex items-center justify-center gap-4 text-[11px] text-text-faint">
-                  <a href={site.links.github} target="_blank" rel="noreferrer" className="hover:text-accent">GitHub ↗</a>
-                  <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-accent">LinkedIn ↗</a>
-                  <a href={site.links.medium} target="_blank" rel="noreferrer" className="hover:text-accent">Medium ↗</a>
-                </div>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div className="rise mt-8 flex flex-col gap-3" style={rise(0.05 + nav.length * 0.06, "10px")}>
+            <a href={site.links.email} onClick={() => setOpen(false)} className="btn btn-primary w-full justify-center">
+              {site.email} →
+            </a>
+            <Link href="/resume" onClick={() => setOpen(false)} className="btn btn-secondary w-full justify-center">
+              Resume
+            </Link>
+            <div className="mono mt-2 flex items-center justify-center gap-4 text-[11px] text-text-faint">
+              <a href={site.links.github} target="_blank" rel="noreferrer" className="hover:text-accent">GitHub ↗</a>
+              <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-accent">LinkedIn ↗</a>
+              <a href={site.links.medium} target="_blank" rel="noreferrer" className="hover:text-accent">Medium ↗</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    )}
     </>
   );
 }

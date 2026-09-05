@@ -1,18 +1,20 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
-import { useReducedMotion } from "motion/react";
+import Lenis from "lenis";
+import { useEffect } from "react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
-// Lenis smooth scroll, disabled entirely when the user prefers reduced motion
-// (native scroll + CSS scroll-behavior:auto takes over in that case).
-export function SmoothScroll({ children }: { children: React.ReactNode }) {
+// Lenis smooth scroll on the window, skipped entirely when the user prefers
+// reduced motion (native scroll + CSS scroll-behavior:auto takes over). Renders
+// nothing, so toggling the preference never remounts the page tree.
+export function SmoothScroll() {
   const reduce = useReducedMotion();
 
-  if (reduce) return <>{children}</>;
+  useEffect(() => {
+    if (reduce) return;
+    const lenis = new Lenis({ lerp: 0.1, duration: 1.1, anchors: true, autoRaf: true });
+    return () => lenis.destroy();
+  }, [reduce]);
 
-  return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.1, anchors: true }}>
-      {children}
-    </ReactLenis>
-  );
+  return null;
 }

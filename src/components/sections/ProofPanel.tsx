@@ -1,6 +1,4 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 // One real evening in the fleet. Every line is something that happened, not a
@@ -16,42 +14,28 @@ const transcript: { kind: string; target: string; detail: string }[] = [
 ];
 
 export function ProofPanel() {
-  const reduce = useReducedMotion();
-
   return (
-    <div className="relative min-w-0">
-      {/* soft lime bloom behind the panel, fades in on view */}
-      <motion.div
+    <Reveal delay={0.1} className="relative min-w-0">
+      {/* soft lime bloom behind the panel */}
+      <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
-        initial={reduce ? false : { opacity: 0 }}
-        whileInView={reduce ? {} : { opacity: 1 }}
-        viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-        transition={{ duration: 1.4, delay: 0.2 }}
         style={{
           background: "radial-gradient(58% 50% at 50% 32%, rgba(198,242,78,0.16), transparent 70%)",
           filter: "blur(22px)",
         }}
       />
 
-      <motion.div
-        className="card overflow-hidden"
-        initial={reduce ? false : { opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-      >
+      <div className="card overflow-hidden">
         <div className="flex items-center gap-2 border-b border-line px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="mono ml-2 flex items-center gap-2 text-[11px] text-text-faint">
             one evening in the fleet
-            <motion.span
+            <span
               aria-hidden
-              className="inline-block h-1.5 w-1.5 rounded-full bg-accent"
-              animate={reduce ? {} : { opacity: [1, 0.25, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-accent"
               style={{ boxShadow: "0 0 6px var(--accent)" }}
             />
           </span>
@@ -67,18 +51,17 @@ export function ProofPanel() {
           <div className="-mx-1 overflow-x-auto px-1 pb-1">
             <ul className="min-w-max space-y-2.5">
               {transcript.map((line, i) => (
-                <motion.li
+                <Reveal
                   key={line.target + line.kind}
+                  as="li"
+                  delay={0.3 + i * 0.08}
+                  y={6}
                   className="mono flex gap-3 whitespace-nowrap text-[12px] leading-snug"
-                  initial={reduce ? false : { opacity: 0, x: -8 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <span className="w-14 shrink-0 text-accent">{line.kind}</span>
                   <span className="w-40 shrink-0 text-text">{line.target}</span>
                   <span className="text-text-faint">{line.detail}</span>
-                </motion.li>
+                </Reveal>
               ))}
             </ul>
           </div>
@@ -97,7 +80,7 @@ export function ProofPanel() {
             The setup behind it, on GitHub ↗
           </a>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </Reveal>
   );
 }

@@ -111,11 +111,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
         />
-        <SmoothScroll>
-          <Nav />
-          {children}
-          <Footer />
-        </SmoothScroll>
+        <SmoothScroll />
+        <Nav />
+        {children}
+        <Footer />
         <Statusline />
         <Analytics />
         <SpeedInsights />
