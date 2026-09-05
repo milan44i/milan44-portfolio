@@ -1,5 +1,10 @@
 import { site } from "@/lib/site";
 
+// One node id for the Person on every page, so the case-study author and
+// the home-page Person resolve to the same entity.
+export const personId = `${site.url}/#person`;
+const personRef = { "@type": "Person", "@id": personId, name: site.name, url: site.url };
+
 // Case-study routes emit a breadcrumb so a search engine renders the trail rather
 // than guessing it from the URL.
 export function breadcrumbLd(trail: { name: string; path: string }[]) {
@@ -24,7 +29,7 @@ export const gameScoreLd = {
   operatingSystem: "Web (PWA)",
   description:
     "An offline-first PWA for tracking board-game scores across a 100,000+ title catalogue, with shareable Victory Cards and a paid Pro tier.",
-  author: { "@type": "Person", name: site.name, url: site.url },
+  author: personRef,
   offers: {
     "@type": "Offer",
     price: "4.99",
@@ -40,7 +45,7 @@ export const pipelineLd = {
   "@type": "CreativeWork",
   name: "AI site-generation pipeline",
   url: `${site.url}/work/pipeline`,
-  creator: { "@type": "Person", name: site.name, url: site.url },
+  creator: personRef,
   description:
     "A pipeline that crawls a business's existing website, scores it across about thirty checks, generates a bespoke replacement from that business's own story and deploys it. 210 sites built across 14 verticals, 177 live.",
   keywords: [

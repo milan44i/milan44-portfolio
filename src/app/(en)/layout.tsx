@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import { site } from "@/lib/site";
+import { personId } from "@/lib/structured-data";
 import { fontClassNames } from "@/lib/fonts";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
@@ -60,6 +61,7 @@ export const metadata: Metadata = {
 const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": personId,
   name: site.name,
   givenName: "Milan",
   familyName: "Stanković",
