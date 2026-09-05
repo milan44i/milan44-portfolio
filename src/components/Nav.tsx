@@ -70,7 +70,8 @@ export function Nav() {
       }}
     >
       <div className="shell flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2" aria-label="Home">
+        {/* the accessible name has to contain the visible text ("milan44.dev") */}
+        <Link href="/" className="group flex items-center gap-2" aria-label="milan44.dev, home">
           <span
             className="inline-block h-2 w-2 rounded-full"
             style={{ background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }}

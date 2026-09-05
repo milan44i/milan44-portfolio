@@ -42,11 +42,11 @@ export default function Image() {
         </div>
 
         <div style={{ display: "flex", gap: "12px", fontSize: 24, color: "#9aa098" }}>
-          <div style={{ display: "flex" }}>Shipped GameScore solo</div>
+          <div style={{ display: "flex" }}>210 sites generated</div>
           <div style={{ display: "flex", color: "#5d635b" }}>·</div>
-          <div style={{ display: "flex" }}>80% faster portal load</div>
+          <div style={{ display: "flex" }}>177 live</div>
           <div style={{ display: "flex", color: "#5d635b" }}>·</div>
-          <div style={{ display: "flex" }}>Claude Code power user</div>
+          <div style={{ display: "flex" }}>211 designs, no two alike</div>
         </div>
       </div>
     ),

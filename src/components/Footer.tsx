@@ -68,7 +68,13 @@ export function Footer() {
         <div className="mono mt-16 flex flex-col gap-2 text-[11px] text-text-faint sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {site.name} — built with Next.js, R3F &amp; a{" "}
-            <a href={site.links.claudeSetup} target="_blank" rel="noreferrer" className="text-text-dim hover:text-accent">
+            {/* underlined: a link inside a text block must not rely on colour alone */}
+            <a
+              href={site.links.claudeSetup}
+              target="_blank"
+              rel="noreferrer"
+              className="text-text-dim underline underline-offset-2 hover:text-accent"
+            >
               Claude Code workflow
             </a>
             .

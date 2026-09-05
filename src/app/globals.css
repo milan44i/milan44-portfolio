@@ -15,7 +15,8 @@
 
   --text: #e8eae3;
   --text-dim: #9aa098;
-  --text-faint: #5d635b;
+  /* 4.65:1 on --bg. #5d635b was 3.23:1 and failed WCAG AA for body text. */
+  --text-faint: #767c73;
 
   --accent: #c6f24e;
   --accent-deep: #9fce1e;
