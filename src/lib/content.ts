@@ -1,15 +1,35 @@
 // All portfolio content lives here. Edit copy in one place; pages render from it.
 
 export type Metric = { value: string; label: string; note?: string };
+export type MetricGroup = { label: string; metrics: Metric[] };
 
-export const metrics: Metric[] = [
-  { value: "80%", label: "faster portal load", note: "1.2 min → 14 s" },
-  { value: "45%", label: "complexity cut", note: "2k-line refactor, zero regressions" },
-  { value: "53%", label: "smaller main bundle", note: "PointOne build optimization" },
-  { value: "Pro", label: "paid tier, shipped solo", note: "GameScore · Lemon Squeezy" },
-  { value: "500+", label: "files restandardized", note: "codebase-wide consistency" },
-  { value: "2.5+ yrs", label: "daily AI-assisted dev", note: "Claude Code power user" },
+// Two halves, four each: the strip has to prove both identities at a glance.
+// The pipeline metric is "1 pipeline", not "0 manual steps" — the build path
+// still has human judgement in it (design quality is scored by eye, the
+// old-site map in sajt-analiza is hand-curated, price lists get transcribed).
+export const metricGroups: MetricGroup[] = [
+  {
+    label: "AI & automation",
+    metrics: [
+      { value: "210", label: "sites generated and deployed", note: "14 verticals · 177 live" },
+      { value: "35", label: "sites built overnight, unattended", note: "22 runs · best night 9 of 9, zero failures" },
+      { value: "100k+", label: "board-game titles in GameScore, shipped solo", note: "offline-first PWA · paid Pro tier" },
+      { value: "1", label: "pipeline from map listing to live demo site", note: "crawl · audit · generate · deploy · verify" },
+    ],
+  },
+  {
+    label: "Frontend",
+    metrics: [
+      { value: "80%", label: "faster portal load", note: "1.2 min → 14 s" },
+      { value: "53%", label: "smaller main bundle", note: "1,834 → 858 kB" },
+      { value: "40%", label: "faster builds", note: "18.8 → 11.4 s" },
+      { value: "45%", label: "less complexity in a 2,000-line editor", note: "zero regressions" },
+    ],
+  },
 ];
+
+// Flat view, for the résumé.
+export const metrics: Metric[] = metricGroups.flatMap((g) => g.metrics);
 
 export type Project = {
   slug: string;
