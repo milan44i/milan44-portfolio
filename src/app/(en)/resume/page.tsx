@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PrintButton } from "@/components/PrintButton";
 import { site } from "@/lib/site";
 import { about, education, experience, projects, skills } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Resume",
   description: `Resume of ${site.name}, ${site.role} - ${site.tagline}.`,
-  alternates: { canonical: "/resume" },
-};
+  path: "/resume",
+});
 
 export default function ResumePage() {
   return (

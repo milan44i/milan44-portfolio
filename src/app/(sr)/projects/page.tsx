@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { projects, projectsCopy as c } from "@/lib/projects";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: c.title,
   description: c.description,
-  alternates: { canonical: "/projects" },
-  openGraph: {
-    type: "website",
-    url: `${site.url}/projects`,
-    title: `${c.title} · ${site.name}`,
-    description: c.description,
-    siteName: site.name,
-    locale: "sr_RS",
-  },
-};
+  path: "/projects",
+  locale: "sr_RS",
+});
 
 export default function ProjectsPage() {
   return (

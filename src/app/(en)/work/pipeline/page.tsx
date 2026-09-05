@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { LiveSiteStrip, liveProjectCount } from "@/components/LiveSiteStrip";
 import { Reveal } from "@/components/Reveal";
@@ -11,12 +12,11 @@ const study = caseById("pipeline")!;
 const summary =
   "How I built a pipeline that crawls a business's existing website, scores it, generates a bespoke replacement and deploys it - 210 built across 14 verticals, 177 live.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "The site-generation pipeline - case study",
   description: summary,
-  openGraph: { title: "The site-generation pipeline - case study", description: summary },
-  alternates: { canonical: "/work/pipeline" },
-};
+  path: "/work/pipeline",
+});
 
 const beats = [
   { heading: "Problem", body: study.problem },

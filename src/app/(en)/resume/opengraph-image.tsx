@@ -1,16 +1,15 @@
 import { ogCard, ogContentType, ogSize } from "@/lib/og";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name} - ${site.role}`;
+export const alt = `Resume - ${site.name}`;
 export const size = ogSize;
 export const contentType = ogContentType;
 
-// Home card; routes below define their own.
 export default function Image() {
   return ogCard({
-    eyebrow: site.city,
+    eyebrow: "resume",
     title: site.name,
-    subtitle: site.role,
-    facts: ["210 sites generated and deployed", "177 live", "4+ years of Vue and React"],
+    subtitle: `${site.role} · ${site.location}`,
+    facts: ["4+ years of Vue and React", site.availability, "Claude Code workflows"],
   });
 }
