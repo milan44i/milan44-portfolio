@@ -15,9 +15,10 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-12 md:flex-row">
           <div className="max-w-md">
             <p className="eyebrow mb-4">Let&apos;s talk</p>
+            {/* one unbreakable word: sized to fit a 320 px shell and the max-w-md column */}
             <a
               href={site.links.email}
-              className="font-display display-md block leading-none text-text transition-colors hover:text-accent"
+              className="font-display block text-[clamp(1.25rem,6.5vw,2.25rem)] leading-none text-text transition-colors [overflow-wrap:anywhere] hover:text-accent"
             >
               {site.email}
             </a>
