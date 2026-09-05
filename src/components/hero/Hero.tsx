@@ -112,9 +112,9 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.85 }}
         >
           {/* both identities carry equal weight - neither outranks the other */}
-          <a href="#ai" className="btn btn-primary">
+          <Link href="/work/pipeline" className="btn btn-primary">
             AI systems →
-          </a>
+          </Link>
           <a href="#work" className="btn btn-primary">
             Frontend work →
           </a>

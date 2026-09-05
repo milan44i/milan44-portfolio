@@ -96,6 +96,9 @@ export type Project = {
   kind: string;
   story: string;
   accent: string;
+  // The deployed demo. null means the demo has been taken down (the design work
+  // stays in the gallery; it just cannot be captioned "live").
+  liveUrl: string | null;
   image: StaticImageData;
   alt: string;
 };
@@ -108,6 +111,7 @@ export const projects: Project[] = [
     kind: "vinski bistro",
     story: "Trag vinske čaše iz logoa postao je motiv celog sajta - serifna elegancija za kartu koja se menja sa sezonom.",
     accent: "#8f2a3c",
+    liveUrl: "https://restoran-pinot.pages.dev",
     image: pinot,
     alt: "Sajt restorana Pinot - krem pozadina, serifni logotip i prsten od vina",
   },
@@ -118,6 +122,7 @@ export const projects: Project[] = [
     kind: "vijetnamska kuhinja",
     story: "Toplina lampiona i mrak sale, a Bib Gourmand priznanje u prvom planu.",
     accent: "#e8a04c",
+    liveUrl: "https://istok.pages.dev",
     image: istok,
     alt: "Sajt restorana Istok - tamna sala sa lampionima i svetlim logotipom",
   },
@@ -128,6 +133,7 @@ export const projects: Project[] = [
     kind: "street food",
     story: "Retro slab tipografija i pruge paviljona - glasan sajt za glasnu hranu.",
     accent: "#2a6e57",
+    liveUrl: "https://thyme-street-food.pages.dev",
     image: thyme,
     alt: "Sajt Thyme street food - zeleno-krem retro dizajn sa prugama",
   },
@@ -138,6 +144,7 @@ export const projects: Project[] = [
     kind: "riblji restoran",
     story: "Plafon oslikan starom kartom sveta preslikan u salon starih moreplovaca.",
     accent: "#b98a4a",
+    liveUrl: "https://sentandrea.pages.dev",
     image: sentandrea,
     alt: "Sajt restorana Sent Andrea - topli salon sa oslikanim plafonom",
   },
@@ -148,6 +155,7 @@ export const projects: Project[] = [
     kind: "fine dining",
     story: "Isprekidana ruta plovidbe vodi stranicu - degustacioni meniji i enterijer luksuzne jahte, u MICHELIN vodiču za 2026.",
     accent: "#6d1b34",
+    liveUrl: null, // demo retired 2026-08-28 (Cloudflare project deleted)
     image: magellan,
     alt: "Sajt restorana Magellan - krem pozadina, ruta plovidbe i enterijer luksuzne jahte",
   },
@@ -158,6 +166,7 @@ export const projects: Project[] = [
     kind: "kafana sa živom muzikom",
     story: "Sedam kućnih bendova i tri decenije provoda - sajt hvata noć, ne enterijer.",
     accent: "#d99a3f",
+    liveUrl: "https://restoran-reka.pages.dev",
     image: reka,
     alt: "Sajt kafane Reka - noćna slika sa gostima koji igraju uz živu muziku",
   },
