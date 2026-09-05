@@ -98,7 +98,7 @@ export function Hero() {
           animate={reduce ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
         >
-          3+ years across Vue, React &amp; TypeScript. I shipped{" "}
+          4+ years across Vue, React &amp; TypeScript. I shipped{" "}
           <span className="text-text">GameScore</span>{" "} solo, cut a carrier-grade telecom portal&apos;s
           load time by <span className="text-text">80%</span>, and engineered the AI-assisted workflow
           behind the work.

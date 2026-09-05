@@ -34,10 +34,10 @@ export default function Image() {
             Milan Stanković
           </div>
           <div style={{ display: "flex", fontSize: 36, marginTop: 24, color: "#c6f24e" }}>
-            Frontend Engineer
+            {site.role}
           </div>
           <div style={{ display: "flex", fontSize: 30, marginTop: 10, color: "#9aa098" }}>
-            Vue · React · TypeScript · AI-assisted development
+            {site.tagline}
           </div>
         </div>
 

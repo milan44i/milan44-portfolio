@@ -58,7 +58,7 @@ const personLd = {
   name: site.name,
   givenName: "Milan",
   familyName: "Stanković",
-  jobTitle: "Frontend Engineer",
+  jobTitle: "AI builder & Frontend engineer",
   email: site.email,
   url: site.url,
   address: { "@type": "PostalAddress", addressLocality: "Belgrade", addressCountry: "RS" },

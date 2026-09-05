@@ -3,15 +3,15 @@
 export const site = {
   name: "Milan Stanković",
   handle: "milan44",
-  role: "Frontend Engineer",
-  tagline: "Vue · React · TypeScript · AI-assisted development",
+  role: "AI builder & Frontend engineer",
+  tagline: "Agent workflows · generative pipelines · Vue · React · TypeScript",
   location: "Belgrade, Serbia",
   timezone: "CET",
   availability: "Open to remote",
   email: "mln6stankovic@gmail.com",
   url: "https://milan44.dev",
   description:
-    "Frontend engineer with 3+ years across Vue, React and TypeScript. Shipped GameScore solo, cut a carrier-grade telecom portal's load time by 80%, and engineered the AI-assisted workflow behind the work.",
+    "AI builder and frontend engineer in Belgrade. 4+ years across Vue, React and TypeScript, and a pipeline that crawls, audits, generates and deploys small-business websites: 210 built, 177 live, no two alike.",
   links: {
     github: "https://github.com/milan44i",
     linkedin: "https://www.linkedin.com/in/milan44/",
