@@ -13,7 +13,8 @@ const ParticleField = dynamic(
   { ssr: false },
 );
 
-const headlineWords = ["I", "build", "interfaces"];
+// The em dash the original headline used is gone; the line break is the pause.
+const headlineWords = ["I", "build", "fast,", "scalable", "interfaces"];
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -67,7 +68,7 @@ export function Hero() {
 
         <h1 className="font-display display-xl max-w-[16ch] font-extrabold text-balance">
           <span className="sr-only">
-            I build interfaces and the AI that builds them.
+            I build fast, scalable interfaces and the AI workflow that ships them.
           </span>
           <span aria-hidden className="flex flex-wrap gap-x-[0.28em]">
             {headlineWords.map((w, i) => (
@@ -88,7 +89,7 @@ export function Hero() {
               animate={reduce ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 + headlineWords.length * 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
-              and the <span className="accent">AI</span> that builds them.
+              and the <span className="accent">AI workflow</span> that ships them.
             </motion.span>
           </span>
         </h1>
