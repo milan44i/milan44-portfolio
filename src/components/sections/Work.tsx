@@ -65,7 +65,7 @@ export function Work() {
 
       <div className="space-y-14">
         {lanes.map((lane) => (
-          <div key={lane.id} id={lane.id} className="scroll-mt-24">
+          <div key={lane.id} id={`lane-${lane.id}`} className="scroll-mt-24">
             <Reveal>
               <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <h3 className="font-display text-xl font-semibold tracking-tight text-accent">
