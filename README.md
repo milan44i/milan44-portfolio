@@ -50,6 +50,8 @@ All copy lives in `src/lib/` - edit content there, not in components.
 npm install
 npm run dev      # http://localhost:3000 - see the particle field live
 npm run build    # production build
+npm run lint
+npm test         # Playwright against the production build: metadata, headers, 320 px overflow, a11y, 404
 ```
 
 ## Deploy
