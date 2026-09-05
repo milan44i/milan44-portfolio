@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import * as THREE from "three";
 
 const vertexShader = /* glsl */ `
@@ -53,18 +53,32 @@ const fragmentShader = /* glsl */ `
   }
 `;
 
+// Seeded PRNG (mulberry32): the field is pure for a given count and identical on every load.
+function mulberry32(seed: number) {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = Math.imul(a ^ (a >>> 15), a | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 function Field({ count }: { count: number }) {
   const matRef = useRef<THREE.ShaderMaterial>(null);
   const groupRef = useRef<THREE.Group>(null);
+  // scratch vectors, reused every frame instead of allocated
+  const scratch = useRef({ ndc: new THREE.Vector3(), dir: new THREE.Vector3(), target: new THREE.Vector3() });
 
   const [positions, seeds] = useMemo(() => {
+    const random = mulberry32(count);
     const pos = new Float32Array(count * 3);
     const sd = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      pos[i * 3 + 0] = (Math.random() - 0.5) * 24;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 16;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 8 - 1;
-      sd[i] = Math.random();
+      pos[i * 3 + 0] = (random() - 0.5) * 24;
+      pos[i * 3 + 1] = (random() - 0.5) * 16;
+      pos[i * 3 + 2] = (random() - 0.5) * 8 - 1;
+      sd[i] = random();
     }
     return [pos, sd];
   }, [count]);
@@ -74,26 +88,25 @@ function Field({ count }: { count: number }) {
       uTime: { value: 0 },
       uPointer: { value: new THREE.Vector3(0, 0, 0) },
       uSize: { value: 26 },
-      uPixelRatio: { value: typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 1.75) : 1 },
+      uPixelRatio: { value: 1 },
       uColor: { value: new THREE.Color("#c6f24e") },
     }),
     [],
   );
 
-  // reusable vectors (avoid per-frame allocation)
-  const ndc = useMemo(() => new THREE.Vector3(), []);
-  const dir = useMemo(() => new THREE.Vector3(), []);
-  const target = useMemo(() => new THREE.Vector3(), []);
-
   useFrame((state, delta) => {
-    uniforms.uTime.value += Math.min(delta, 0.05);
+    const mat = matRef.current;
+    if (!mat) return;
+    mat.uniforms.uTime.value += Math.min(delta, 0.05);
+    mat.uniforms.uPixelRatio.value = state.viewport.dpr;
 
     // project cursor onto the z = 0 plane
+    const { ndc, dir, target } = scratch.current;
     ndc.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
     dir.copy(ndc).sub(state.camera.position).normalize();
     const dist = -state.camera.position.z / dir.z;
     target.copy(state.camera.position).addScaledVector(dir, dist);
-    uniforms.uPointer.value.lerp(target, 0.08);
+    (mat.uniforms.uPointer.value as THREE.Vector3).lerp(target, 0.08);
 
     if (groupRef.current) {
       groupRef.current.rotation.y += (state.pointer.x * 0.16 - groupRef.current.rotation.y) * 0.03;
@@ -123,24 +136,30 @@ function Field({ count }: { count: number }) {
 }
 
 export function ParticleField({
+  count,
   eventSource,
 }: {
+  count: number;
   // The hero <section>; lets r3f track the cursor across the overlays painted on top of the canvas.
   eventSource?: RefObject<HTMLElement | null>;
 }) {
-  const count = useMemo(() => {
-    if (typeof window === "undefined") return 4200;
-    const w = window.innerWidth;
-    if (w < 640) return 2200;
-    if (w < 1024) return 3600;
-    return 5200;
-  }, []);
+  // The loop only runs while the hero is on screen; scrolled past, the GPU rests.
+  const [onScreen, setOnScreen] = useState(true);
+
+  useEffect(() => {
+    const el = eventSource?.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [eventSource]);
 
   return (
     <Canvas
       className="!absolute inset-0"
       camera={{ position: [0, 0, 6], fov: 52 }}
       dpr={[1, 1.75]}
+      frameloop={onScreen ? "always" : "never"}
       gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       eventSource={(eventSource ?? undefined) as RefObject<HTMLElement> | undefined}
       eventPrefix="client"

@@ -26,23 +26,38 @@ const ctaDelay = 0.62;
 const rise = (delay: number, y?: string): CSSProperties =>
   ({ "--delay": `${delay}s`, ...(y && { "--y": y }) }) as CSSProperties;
 
+const particleCountFor = (viewportWidth: number) =>
+  viewportWidth < 1024 ? 3600 : 5200;
+
+// Software-rendered or blocked WebGL would only buy a ~860KB download for a blank canvas.
+function canRenderField() {
+  if ((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return false;
+  try {
+    const canvas = document.createElement("canvas");
+    return Boolean(canvas.getContext("webgl2") ?? canvas.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
+
 export function Hero() {
   const reduce = useReducedMotion();
   // Desktop-only, idle-time WebGL: mobile and reduced-motion users keep the static
   // gradient fallback, and the ~860KB three.js chunk never competes with first paint.
-  const [idle, setIdle] = useState(false);
+  const [particles, setParticles] = useState<number | null>(null);
   useEffect(() => {
-    if (reduce || !window.matchMedia("(min-width: 768px)").matches) return;
+    if (reduce || !window.matchMedia("(min-width: 768px)").matches || !canRenderField()) return;
+    const start = () => setParticles(particleCountFor(window.innerWidth));
     if (typeof window.requestIdleCallback !== "function") {
-      const t = window.setTimeout(() => setIdle(true), 1200);
+      const t = window.setTimeout(start, 1200);
       return () => window.clearTimeout(t);
     }
-    const id = window.requestIdleCallback(() => setIdle(true), { timeout: 2500 });
+    const id = window.requestIdleCallback(start, { timeout: 2500 });
     return () => window.cancelIdleCallback(id);
   }, [reduce]);
 
   const sectionRef = useRef<HTMLElement>(null);
-  const showCanvas = idle && !reduce;
+  const showCanvas = particles !== null && !reduce;
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden">
@@ -55,7 +70,7 @@ export function Hero() {
             "radial-gradient(120% 90% at 78% 12%, rgba(198,242,78,0.10), transparent 55%), radial-gradient(80% 70% at 12% 95%, rgba(126,240,208,0.06), transparent 60%)",
         }}
       />
-      {showCanvas && <ParticleField eventSource={sectionRef} />}
+      {showCanvas && <ParticleField count={particles} eventSource={sectionRef} />}
 
       {/* readability vignette over the field */}
       <div
