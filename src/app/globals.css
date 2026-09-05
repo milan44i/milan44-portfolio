@@ -297,6 +297,15 @@
     transform: translate(-50%, -50%);
   }
 
+  /* horizontal scroller; ScrollFade sets data-more while there is content past the right edge */
+  .scroll-fade {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .scroll-fade[data-more] {
+    mask-image: linear-gradient(to right, #000 calc(100% - 3.5rem), transparent);
+  }
+
   /* animated primitives */
   .cursor-blink {
     animation: blink 1.05s steps(1) infinite;

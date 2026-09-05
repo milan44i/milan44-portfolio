@@ -8,7 +8,7 @@ export function AIEdge() {
     <Section id="ai" index="02" title="How I work with AI" kicker="what I do when it is wrong">
       {/* lede beside the transcript, then the cards full width underneath:
           six of them in the old narrow left column were unreadable */}
-      <div className="grid items-start gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-12 lg:gap-14">
+      <div className="grid items-start gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-14">
         <Reveal>
           <p className="max-w-xl text-lg leading-relaxed text-text">{aiEdge.lede}</p>
         </Reveal>

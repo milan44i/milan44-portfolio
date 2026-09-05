@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import { ScrollFade } from "@/components/ScrollFade";
 import { site } from "@/lib/site";
 
 // One real evening in the fleet. Every line is something that happened, not a
@@ -48,23 +49,23 @@ export function ProofPanel() {
           </div>
 
           {/* the transcript scrolls inside its own box; the page never does */}
-          <div className="-mx-1 overflow-x-auto px-1 pb-1">
-            <ul className="min-w-max space-y-2.5">
+          <ScrollFade className="-mx-1 px-1 pb-1">
+            <ul className="min-w-max space-y-2.5 lg:min-w-0">
               {transcript.map((line, i) => (
                 <Reveal
                   key={line.target + line.kind}
                   as="li"
                   delay={0.3 + i * 0.08}
                   y={6}
-                  className="mono flex gap-3 whitespace-nowrap text-[12px] leading-snug"
+                  className="mono flex gap-3 whitespace-nowrap text-[12px] leading-snug lg:whitespace-normal"
                 >
                   <span className="w-14 shrink-0 text-accent">{line.kind}</span>
-                  <span className="w-40 shrink-0 text-text">{line.target}</span>
+                  <span className="w-32 shrink-0 text-text">{line.target}</span>
                   <span className="text-text-faint">{line.detail}</span>
                 </Reveal>
               ))}
             </ul>
-          </div>
+          </ScrollFade>
 
           <p className="mt-5 text-[12px] leading-relaxed text-text-faint">
             A supervising agent, many workers. Each gets a written brief and its own copy of the
