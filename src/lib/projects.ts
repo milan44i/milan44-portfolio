@@ -59,7 +59,7 @@ export const projectsCopy = {
     items: [
       {
         h: "Otvara se odmah",
-        t: "Stranica od oko 0,6 MB učita se za sekund i na slabijoj mreži - niko ne odustane dok čeka.",
+        t: "Stranica od oko 0,5 MB učita se za sekund i na slabijoj mreži - niko ne odustane dok čeka.",
       },
       {
         h: "Dvojezičan od prvog dana",
