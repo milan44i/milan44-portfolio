@@ -4,6 +4,7 @@ import { LiveSiteStrip } from "@/components/LiveSiteStrip";
 import { Reveal } from "@/components/Reveal";
 import { caseById } from "@/lib/lanes";
 import { site } from "@/lib/site";
+import { breadcrumbLd, pipelineLd } from "@/lib/structured-data";
 
 const study = caseById("pipeline")!;
 
@@ -43,8 +44,18 @@ const stack = [
 ];
 
 export default function Page() {
+  const crumbs = breadcrumbLd([
+    { name: "Home", path: "/" },
+    { name: "Work", path: "/#work" },
+    { name: "The site-generation pipeline", path: "/work/pipeline" },
+  ]);
+
   return (
     <main className="pt-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([pipelineLd, crumbs]) }}
+      />
       <article className="shell">
         <Link href="/#work" className="mono text-xs text-text-dim transition-colors hover:text-accent">
           ← back to work
