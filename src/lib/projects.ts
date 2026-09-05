@@ -19,8 +19,11 @@ export const projectsCopy = {
     lead: "Zato što nijedan nije šablon. Pravim sajtove za restorane i male biznise: dizajn svakog nastaje iz priče samog lokala - iz sale, jelovnika, imena i kraja u kom radi.",
     ctaPrimary: "Javite se",
     stats: [
-      { big: "60+", small: "izgrađenih sajtova" },
-      { big: "~0,6 MB", small: "prosečna težina stranice" },
+      { big: "200+", small: "izgrađenih sajtova" },
+      // Measured 2026-09-05 across 5 deployed sites (transferSize, full page load):
+      // 546 / 562 / 825 / 257 / 436 kB, average 525 kB. "~0,5 MB" is the measured
+      // figure; the previous "~0,6 MB" had nothing behind it.
+      { big: "~0,5 MB", small: "prosečna težina stranice" },
       { big: "sr + en", small: "svaki sajt dvojezičan" },
       { big: "48 h", small: "rok za svaku izmenu" },
     ],

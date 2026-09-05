@@ -22,7 +22,8 @@ export function Footer() {
               {site.email}
             </a>
             <p className="mt-5 text-sm text-text-dim">
-              {site.availability} · frontend roles · {site.location} ({site.timezone})
+              {site.availability} · AI builder &amp; automation, contract and fractional ·{" "}
+              {site.location} ({site.timezone})
             </p>
           </div>
 

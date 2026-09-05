@@ -103,21 +103,23 @@ export const experience: Role[] = [
   },
   {
     company: "DEVersity",
-    title: "Frontend Engineer",
+    title: "Frontend Engineer, previously Junior Frontend Engineer",
     period: "Apr 2024 — Jun 2025",
-    summary: "Two products: PointOne, a data-analysis platform, and Aktivizam, a social platform.",
+    summary:
+      "Three products: PointOne, a data-analysis platform; Aktivizam, a social platform; and Romotioncam, a wind-turbine blade inspection platform.",
     stack: ["React", "Next.js", "TypeScript", "Nx", "TanStack Query", "TanStack Table", "Tailwind", "Shadcn"],
     highlights: [
       "PointOne: built an analytics dashboard with interactive charts and a DataTable with filter/sort/inline-edit/selection.",
       "Drove the Redux Toolkit → TanStack Query migration, boosting performance and simplifying the codebase.",
       "Reduced build time 40% and the main bundle 53% via build optimization and route-based code splitting.",
       "Aktivizam: built core UI (feed, filters, forms, tags, event calendar) and admin tools; led the i18n rollout.",
+      "Romotioncam: built the Blade Picker UI and core inspection workflows used by field engineers.",
     ],
   },
   {
     company: "Connect The Dots",
-    title: "Junior Frontend Engineer",
-    period: "Apr 2023 — Apr 2024",
+    title: "Junior Frontend Engineer, then Frontend Developer (intern)",
+    period: "Apr 2023 — Mar 2024",
     summary: "AI relationship-intelligence platform.",
     stack: ["Vue", "TypeScript", "Pinia", "TanStack Query", "Storybook", "Vitest", "Vite"],
     highlights: [
@@ -168,7 +170,7 @@ export const education = [
 
 export const about = {
   paragraphs: [
-    "I'm a frontend engineer based in Belgrade, building clean, scalable, high-performance web applications. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity — like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
-    "My edge is AI-assisted development. I've spent 2.5+ years building the system around the model — context engineering, agentic orchestration, custom skills — and shipped a production product, GameScore, solo with Claude Code. I'm currently open to frontend roles at remote-first product teams.",
+    "I'm an AI builder and frontend engineer based in Belgrade, with 4+ years across Vue, React and TypeScript. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity — like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
+    "For the past year I have been building AI systems end to end: a pipeline that crawls and audits small-business websites, generates a bespoke replacement for each one and deploys it. 210 built, 177 live. The part I care about is not that the model wrote most of it, it is the gates that catch it when it is wrong.",
   ],
 };
