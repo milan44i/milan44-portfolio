@@ -134,22 +134,31 @@ export type AICapability = { title: string; body: string };
 export const aiEdge = {
   lede:
     "The interesting question is not how I get a model to write code. It is what I do on the day it is confidently wrong.",
+  // Six things I actually do daily, one measured sentence each.
   capabilities: [
     {
-      title: "I assume it is lying, then check",
-      body: "Every claim my systems make about someone else's business has to cite a dated source or it does not render at all. That rule exists because I measured how often the unchecked version was wrong: 78 messages out of 161.",
+      title: "I run a fleet, not a chat",
+      body: "A supervising agent and many workers, each with a written brief and its own copy of the repo. About 180 task records since late August, typically 4 to 8 workers alive at once.",
     },
     {
-      title: "I write evals for taste, not just correctness",
-      body: "A generative fleet converges long before it breaks. Eight design axes, a collision rule, and a build gate that fails on a dishonest entry. 211 designs in and it still holds.",
+      title: "Skills are my unit of work",
+      body: "Reusable skills instead of prompts: implement-ticket into create-pr into fix-pr-checks into resolve-conflicts, chained across a whole sprint. Each one carries its own rules, checks and definition of done.",
     },
     {
-      title: "I decide where the model is not allowed",
-      body: "Agents research and build. The path that produces the message a stranger reads is deterministic, and sending is always a human. Knowing where to stop took the longest to learn.",
+      title: "Gates, not vibes",
+      body: "Engine changes pass independent review, tests, docs, lint, PR and CI before they land. On one change this week the review ran five fix rounds before the tests were allowed to start.",
     },
     {
-      title: "Every rule has a failure behind it",
-      body: "Nothing in my systems is a precaution. Each gate is dated and names the production incident that produced it, so the next person, or the next model, can see why before removing it.",
+      title: "I review on a board, not in a chat",
+      body: "Plans and diffs become annotatable pages. I draw on a screenshot and the marks go back to the worker as instructions: the last logo round was 12 annotations, 12 fixes, one redeploy.",
+    },
+    {
+      title: "Nights run themselves",
+      body: "Scheduled agents pick the work, build it, deploy it and verify each result live. 22 overnight runs, 35 sites, best night 9 of 9 with zero failures, and a preflight that refuses to start rather than half-finish.",
+    },
+    {
+      title: "I assume it is wrong, then check",
+      body: "A claim about someone else's business renders only with a dated, sourced check behind it, and a negative verdict needs two independent measurements. The unchecked version was wrong in 78 of 161 messages.",
     },
   ] as AICapability[],
 };
