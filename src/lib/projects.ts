@@ -159,9 +159,9 @@ export const projects: Project[] = [
     kind: "fine dining",
     story: "Isprekidana ruta plovidbe vodi stranicu - degustacioni meniji i enterijer luksuzne jahte, u MICHELIN vodiču za 2026.",
     accent: "#6d1b34",
-    liveUrl: null, // demo retired 2026-08-28 (Cloudflare project deleted)
+    liveUrl: "https://magellan-p8t.pages.dev", // redeployed at the old URL 2026-09-05
     image: magellan,
-    alt: "Sajt restorana Magellan - krem pozadina, ruta plovidbe i enterijer luksuzne jahte",
+    alt: "Sajt restorana Magellan - krem pozadina, iscrtana ruta plovidbe i sala luksuzne jahte",
   },
   {
     slug: "reka",
