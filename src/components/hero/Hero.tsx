@@ -100,10 +100,10 @@ export function Hero() {
           animate={reduce ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
         >
-          Frontend engineer at <span className="text-text">LotusFlare</span>, on carrier-grade
-          telecom tooling. On my own time, a pipeline that crawls, audits, generates and deploys
-          small-business websites: <span className="text-text">210 built</span>,{" "}
-          <span className="text-text">177 live</span>, no two alike.
+          Frontend engineer with 4+ years of production Vue and React, now at{" "}
+          <span className="text-text">LotusFlare</span> on carrier-grade telecom tooling. On my own
+          time I built and run a pipeline that crawls, audits, generates and deploys small-business
+          websites: <span className="text-text">210</span> so far, no two alike.
         </motion.p>
 
         <motion.div
