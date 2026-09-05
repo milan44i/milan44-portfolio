@@ -5,7 +5,7 @@ import { aiEdge } from "@/lib/content";
 
 export function AIEdge() {
   return (
-    <Section id="ai" index="02" title="The AI edge" kicker="proof, not buzzwords">
+    <Section id="ai" index="02" title="How I work with AI" kicker="what I do when it is wrong">
       <div className="grid gap-10 md:grid-cols-[1fr_1.05fr] md:gap-12 lg:gap-14">
         <div>
           <Reveal>

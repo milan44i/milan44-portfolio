@@ -131,23 +131,23 @@ export type AICapability = { title: string; body: string };
 
 export const aiEdge = {
   lede:
-    "2.5+ years of daily AI-assisted development. Claude Code power user, and author of LotusFlare's team-adopted workflow. The differentiator isn't that I use AI — it's that I engineered the system around it.",
+    "The interesting question is not how I get a model to write code. It is what I do on the day it is confidently wrong.",
   capabilities: [
     {
-      title: "Context engineering",
-      body: "Typed memory, CLAUDE.md context systems and pre-compaction capture so the model keeps the thread across long sessions.",
+      title: "I assume it is lying, then check",
+      body: "Every claim my systems make about someone else's business has to cite a dated source or it does not render at all. That rule exists because I measured how often the unchecked version was wrong: 78 messages out of 161.",
     },
     {
-      title: "Agentic orchestration",
-      body: "Planning loops and multi-agent workflows that decompose, fan out and verify — not one-shot prompting.",
+      title: "I write evals for taste, not just correctness",
+      body: "A generative fleet converges long before it breaks. Eight design axes, a collision rule, and a build gate that fails on a dishonest entry. 211 designs in and it still holds.",
     },
     {
-      title: "Refactoring at scale",
-      body: "AI-assisted refactors across hundreds of files with guardrails that keep regressions at zero.",
+      title: "I decide where the model is not allowed",
+      body: "Agents research and build. The path that produces the message a stranger reads is deterministic, and sending is always a human. Knowing where to stop took the longest to learn.",
     },
     {
-      title: "Custom skills & hooks",
-      body: "Self-healing TypeScript loops, budget monitoring and reusable skills — published in claude-setup.",
+      title: "Every rule has a failure behind it",
+      body: "Nothing in my systems is a precaution. Each gate is dated and names the production incident that produced it, so the next person, or the next model, can see why before removing it.",
     },
   ] as AICapability[],
 };
