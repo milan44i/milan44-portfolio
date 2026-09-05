@@ -33,16 +33,14 @@ export function Impact() {
             </div>
             {group.metrics.map((m, i) => (
               <Reveal key={m.label} delay={(g * 4 + i) * 0.05} className={CELL_POS[g][i]}>
-                {/* fixed height so all eight cells match regardless of label length */}
-                <div className="flex h-[128px] flex-col bg-bg-elev p-5 sm:h-[136px]">
+                {/* the grid row sizes every cell to its tallest sibling; nothing gets clipped */}
+                <div className="flex h-full min-h-[7.5rem] flex-col bg-bg-elev p-4 sm:min-h-[8.5rem] sm:p-5">
                   <div className="font-display text-3xl font-bold leading-none tracking-tight text-accent sm:text-4xl">
                     {m.value}
                   </div>
-                  <div className="mt-2.5 line-clamp-2 text-sm leading-snug text-text">{m.label}</div>
+                  <div className="mt-2.5 text-sm leading-snug text-text">{m.label}</div>
                   {m.note && (
-                    <div className="mono mt-auto truncate text-[10px] text-text-faint" title={m.note}>
-                      {m.note}
-                    </div>
+                    <div className="mono mt-auto pt-3 text-[10px] leading-snug text-text-faint">{m.note}</div>
                   )}
                 </div>
               </Reveal>
