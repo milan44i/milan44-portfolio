@@ -29,7 +29,6 @@ export type NavItem = { label: string; href: string };
 
 export const nav: NavItem[] = [
   { label: "Work", href: "/#work" },
-  { label: "AI edge", href: "/#ai" },
+  { label: "How I work", href: "/#ai" },
   { label: "About", href: "/#about" },
-  { label: "Writing", href: "/#writing" },
 ];

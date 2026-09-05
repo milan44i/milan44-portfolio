@@ -5,7 +5,6 @@ import { Work } from "@/components/sections/Work";
 import { AIEdge } from "@/components/sections/AIEdge";
 import { About } from "@/components/sections/About";
 import { Timeline } from "@/components/sections/Timeline";
-import { Writing } from "@/components/sections/Writing";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
       <Work />
       <AIEdge />
       <About />
-      <Writing />
       <Timeline />
       <Contact />
     </main>
