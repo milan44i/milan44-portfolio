@@ -6,6 +6,8 @@ import { projects } from "@/lib/projects";
 // Serbian gallery as design work, but it cannot sit under a "live now" caption.
 const liveProjects = projects.filter((p) => p.liveUrl);
 
+export const liveProjectCount = liveProjects.length;
+
 export function LiveSiteStrip() {
   return (
     <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

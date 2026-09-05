@@ -12,9 +12,9 @@ export const metricGroups: MetricGroup[] = [
     label: "AI & automation",
     metrics: [
       { value: "210", label: "sites generated and deployed", note: "14 verticals · 177 live" },
-      { value: "35", label: "sites built overnight, unattended", note: "22 runs · best night 9 of 9, zero failures" },
-      { value: "100k+", label: "board-game titles in GameScore, shipped solo", note: "offline-first PWA · paid Pro tier" },
-      { value: "1", label: "pipeline from map listing to live demo site", note: "crawl · audit · generate · deploy · verify" },
+      { value: "35", label: "sites built overnight, unattended", note: "22 runs · best 9 of 9, no failures" },
+      { value: "100k+", label: "board-game titles, shipped solo", note: "GameScore · offline-first · paid Pro" },
+      { value: "1", label: "pipeline: map listing to live demo", note: "crawl · audit · generate · deploy" },
     ],
   },
   {

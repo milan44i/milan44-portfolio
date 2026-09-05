@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LiveSiteStrip } from "@/components/LiveSiteStrip";
+import { LiveSiteStrip, liveProjectCount } from "@/components/LiveSiteStrip";
 import { Reveal } from "@/components/Reveal";
 import { caseById } from "@/lib/lanes";
 import { site } from "@/lib/site";
@@ -93,9 +93,10 @@ export default function Page() {
         <section className="hairline mt-16 pt-12">
           <h2 className="font-display display-md font-bold tracking-tight">What it produces</h2>
           <p className="mt-4 max-w-2xl text-text-dim">
-            Five of the sites the pipeline generated, deployed and still serving. Every design is
-            one-of-one: the fingerprint registry refuses a new theme that shares more than one of
-            eight design axes with anything already shipped.
+            {liveProjectCount === 6 ? "Six" : liveProjectCount === 5 ? "Five" : liveProjectCount} of
+            the sites the pipeline generated, deployed and still serving. Every design is one-of-one:
+            the fingerprint registry refuses a new theme that shares more than one of eight design
+            axes with anything already shipped.
           </p>
           <div className="mt-10">
             <LiveSiteStrip />

@@ -5,6 +5,7 @@ import thyme from "@/images/projects/thyme.png";
 import sentandrea from "@/images/projects/sentandrea.png";
 import magellan from "@/images/projects/magellan.png";
 import reka from "@/images/projects/reka.png";
+import brunello from "@/images/projects/brunello.png";
 
 // Copy + data for the Serbian client-facing /projects page.
 
@@ -30,7 +31,7 @@ export const projectsCopy = {
   },
   gallery: {
     eyebrow: "Izlog",
-    title: "Šest sajtova, šest svetova",
+    title: "Sedam sajtova, sedam svetova",
     lead: "Izbor iz radionice. Svaki je dizajniran jedan-od-jedan, po meri lokala.",
   },
   search: {
@@ -136,7 +137,7 @@ export const projects: Project[] = [
     kind: "street food",
     story: "Retro slab tipografija i pruge paviljona - glasan sajt za glasnu hranu.",
     accent: "#2a6e57",
-    liveUrl: "https://thyme-street-food.pages.dev",
+    liveUrl: null, // removed from the live strip on the captain's call 2026-09-05
     image: thyme,
     alt: "Sajt Thyme street food - zeleno-krem retro dizajn sa prugama",
   },
@@ -172,5 +173,16 @@ export const projects: Project[] = [
     liveUrl: "https://restoran-reka.pages.dev",
     image: reka,
     alt: "Sajt kafane Reka - noćna slika sa gostima koji igraju uz živu muziku",
+  },
+  {
+    slug: "brunello",
+    name: "Brunello",
+    place: "Dedinje",
+    kind: "restoran i vinoteka",
+    story: "Police s vinom od poda do plafona, a ispod njih se ruča - sajt vodi od flaše ka stolu.",
+    accent: "#c8a24a",
+    liveUrl: "https://brunello-wine-dine.restorani.pages.dev",
+    image: brunello,
+    alt: "Sajt restorana Brunello - vinoteka sa policama do plafona i topao šank",
   },
 ];
