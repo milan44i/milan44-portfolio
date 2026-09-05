@@ -35,6 +35,14 @@ export function Contact() {
               >
                 LinkedIn ↗
               </a>
+              <a
+                href={site.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secondary w-full justify-center sm:w-auto"
+              >
+                GitHub ↗
+              </a>
               <Link href="/resume" className="btn btn-secondary w-full justify-center sm:w-auto">
                 Resume
               </Link>

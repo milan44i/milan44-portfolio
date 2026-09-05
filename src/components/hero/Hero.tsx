@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
@@ -12,7 +13,7 @@ const ParticleField = dynamic(
   { ssr: false },
 );
 
-const headlineWords = ["I", "build", "fast,", "scalable", "interfaces", "—"];
+const headlineWords = ["I", "build", "interfaces"];
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -59,14 +60,14 @@ export function Hero() {
           animate={reduce ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="accent">●</span> {site.role}
-          <span className="text-text-faint">/</span> {site.location}
-          <span className="text-text-faint">/</span> {site.availability}
+          <span className="accent">●</span> {site.name}
+          <span className="text-text-faint">/</span> {site.city}
+          <span className="text-text-faint">/</span> {site.role}
         </motion.p>
 
         <h1 className="font-display display-xl max-w-[16ch] font-extrabold text-balance">
           <span className="sr-only">
-            I build fast, scalable interfaces — and the AI workflow that ships them.
+            I build interfaces and the AI that builds them.
           </span>
           <span aria-hidden className="flex flex-wrap gap-x-[0.28em]">
             {headlineWords.map((w, i) => (
@@ -87,7 +88,7 @@ export function Hero() {
               animate={reduce ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 + headlineWords.length * 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
-              and the <span className="accent">AI workflow</span> that ships them.
+              and the <span className="accent">AI</span> that builds them.
             </motion.span>
           </span>
         </h1>
@@ -98,10 +99,10 @@ export function Hero() {
           animate={reduce ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
         >
-          4+ years across Vue, React &amp; TypeScript. I shipped{" "}
-          <span className="text-text">GameScore</span>{" "} solo, cut a carrier-grade telecom portal&apos;s
-          load time by <span className="text-text">80%</span>, and engineered the AI-assisted workflow
-          behind the work.
+          Frontend engineer at <span className="text-text">LotusFlare</span>, on carrier-grade
+          telecom tooling. On my own time, a pipeline that crawls, audits, generates and deploys
+          small-business websites: <span className="text-text">210 built</span>,{" "}
+          <span className="text-text">177 live</span>, no two alike.
         </motion.p>
 
         <motion.div
@@ -110,15 +111,16 @@ export function Hero() {
           animate={reduce ? {} : { opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
         >
+          {/* both identities carry equal weight - neither outranks the other */}
+          <a href="#ai" className="btn btn-primary">
+            AI systems →
+          </a>
           <a href="#work" className="btn btn-primary">
-            View work →
+            Frontend work →
           </a>
-          <a href="#ai" className="btn">
-            The AI edge
-          </a>
-          <a href={site.links.github} target="_blank" rel="noreferrer" className="btn">
-            GitHub ↗
-          </a>
+          <Link href="/resume" className="btn btn-secondary">
+            Résumé
+          </Link>
         </motion.div>
       </div>
 

@@ -6,6 +6,7 @@ export const site = {
   role: "AI builder & Frontend engineer",
   tagline: "Agent workflows · generative pipelines · Vue · React · TypeScript",
   location: "Belgrade, Serbia",
+  city: "Belgrade",
   timezone: "CET",
   availability: "Open to remote",
   email: "mln6stankovic@gmail.com",
