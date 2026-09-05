@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ *
- *  milan44.dev — "engineered observability" dark theme
+ *  milan44.dev - "engineered observability" dark theme
  *  near-black canvas · bone type · one electric signal-lime accent
  * ------------------------------------------------------------------ */
 
@@ -46,7 +46,7 @@
 }
 
 /* ------------------------------------------------------------------ *
- *  base layer — element defaults & atmosphere
+ *  base layer - element defaults & atmosphere
  *  (kept in @layer base so Tailwind utilities always win the cascade)
  * ------------------------------------------------------------------ */
 @layer base {
@@ -131,7 +131,7 @@
 }
 
 /* ------------------------------------------------------------------ *
- *  components layer — reusable building blocks
+ *  components layer - reusable building blocks
  *  (in @layer components so utility classes can override them)
  * ------------------------------------------------------------------ */
 @layer components {
@@ -260,7 +260,7 @@
     transform: translateY(-1px);
   }
 
-  /* ghost / secondary action — recedes next to a primary CTA */
+  /* ghost / secondary action - recedes next to a primary CTA */
   .btn-secondary {
     background: transparent;
     border-color: var(--line);
@@ -376,7 +376,7 @@
     display: none;
   }
   body {
-    /* hardcoded print palette — intentional override of the dark theme */
+    /* hardcoded print palette - intentional override of the dark theme */
     background: #fff;
     color: #111;
   }

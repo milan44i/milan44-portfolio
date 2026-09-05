@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 
 // A fixed statusline that nods to claude-setup's context-monitor. The "ctx" bar
-// fills with scroll progress — a small, on-brand, evidence-bearing detail.
+// fills with scroll progress - a small, on-brand, evidence-bearing detail.
 const BARS = 7;
 
 export function Statusline() {

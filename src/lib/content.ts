@@ -4,7 +4,7 @@ export type Metric = { value: string; label: string; note?: string };
 export type MetricGroup = { label: string; metrics: Metric[] };
 
 // Two halves, four each: the strip has to prove both identities at a glance.
-// The pipeline metric is "1 pipeline", not "0 manual steps" — the build path
+// The pipeline metric is "1 pipeline", not "0 manual steps" - the build path
 // still has human judgement in it (design quality is scored by eye, the
 // old-site map in sajt-analiza is hand-curated, price lists get transcribed).
 export const metricGroups: MetricGroup[] = [

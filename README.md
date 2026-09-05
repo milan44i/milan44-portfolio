@@ -1,6 +1,6 @@
 # milan44.dev
 
-Personal portfolio of **Milan Stanković** — Frontend Engineer (Vue · React · TypeScript · AI-assisted development).
+Personal portfolio of **Milan Stanković** - AI builder & Frontend engineer (Vue · React · TypeScript · Claude Code workflows).
 
 A bold, motion-led site built around one signature interaction: an **agentic WebGL particle field** that reacts to the cursor. Substance-first content, an "engineered observability" aesthetic, and a recurring statusline motif that nods to my [`claude-setup`](https://github.com/milan44i/claude-setup) context-monitor.
 
@@ -8,16 +8,16 @@ A bold, motion-led site built around one signature interaction: an **agentic Web
 
 - **Next.js 16** (App Router) + **React 19** + **TypeScript**
 - **Tailwind CSS v4**
-- **React Three Fiber** + **three.js** — the agentic particle hero (lazy-loaded, GPU points)
-- **Motion** — scroll reveals & hero choreography
-- **Lenis** — smooth scroll
+- **React Three Fiber** + **three.js** - the agentic particle hero (lazy-loaded, GPU points)
+- **CSS entrance animations** - hero choreography and scroll reveals (`.rise`, `.reveal`), gated on `prefers-reduced-motion`
+- **Lenis** - smooth scroll
 - **Vercel Analytics + Speed Insights**
 - Fonts: Bricolage Grotesque (display) · Hanken Grotesk (body) · JetBrains Mono (labels)
 
 ## Design principles
 
 - **One signature moment, restraint elsewhere.** The particle field is the hero; everything else stays calm and readable.
-- **Bold in form, evidence in substance.** Every flashy element carries meaning — metrics, real projects, a public workflow repo.
+- **Bold in form, evidence in substance.** Every flashy element carries meaning - metrics, real projects, a public workflow repo.
 - **Accessible & fast.** `prefers-reduced-motion` disables the canvas and smooth scroll with a real static fallback; the hero is lazy-loaded so it never blocks LCP; mobile uses a reduced particle count.
 
 ## Structure
@@ -42,13 +42,13 @@ src/
     case-studies.ts         # long-form case study content
 ```
 
-All copy lives in `src/lib/` — edit content there, not in components.
+All copy lives in `src/lib/` - edit content there, not in components.
 
 ## Develop
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000 — see the particle field live
+npm run dev      # http://localhost:3000 - see the particle field live
 npm run build    # production build
 ```
 

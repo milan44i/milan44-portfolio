@@ -33,7 +33,7 @@ export const gameScoreLd = {
   },
 };
 
-// The pipeline is not an installable application — it is a system I built and run,
+// The pipeline is not an installable application - it is a system I built and run,
 // so CreativeWork is the honest type rather than SoftwareApplication.
 export const pipelineLd = {
   "@context": "https://schema.org",
