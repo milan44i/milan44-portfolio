@@ -12,6 +12,7 @@ export type LaneCase = {
   result: string;
   href?: string;
   hrefLabel?: string;
+  tag?: string;
 };
 
 export type Lane = {
@@ -53,16 +54,16 @@ export const lanes: Lane[] = [
           "211 shipped designs and the veto still has room. It also caught two CSS prefix collisions that were silently rendering one design with another's colours.",
       },
       {
-        id: "truthfulness",
-        title: "The truthfulness gates",
-        kicker: "case 03 · 7 rules, each with a test",
+        id: "overnight",
+        title: "The overnight autopilot",
+        kicker: "case 03 · 35 built unattended",
         problem:
-          "Every generated message goes to a real business owner. A wrong fact in the first sentence is not a bug in a number, it is the whole relationship.",
+          "Building a site is an evening. Building at fleet scale means the evenings have to happen without me.",
         built:
-          "Seven rules that outrank everything else in the repo, each pinned by a test, each written after the system had already said something false in production.",
-        ai: "Being wrong, confidently, at scale. It told two owners with working websites that their site was down, because their host was blocking automated requests. It told 78 owners a search had happened when nothing had searched.",
+          "A scheduled overnight workflow that picks the businesses, builds and deploys their sites, verifies each one live, writes the outcome back into fourteen pipelines and two boards, and leaves a machine-readable summary.",
+        ai: "A supervised multi-agent workflow doing the whole job unattended, inside a window that never races me, holding a lock so two runs cannot overlap.",
         result:
-          "A negative verdict now needs two independent measurements. A claim only renders when a dated, sourced check backs it, and that check expires after 90 days.",
+          "35 sites built with nobody watching; best night nine of nine, zero failures. It aborts on preflight rather than half-finishing, which is the behaviour I actually wanted.",
       },
     ],
   },
@@ -97,6 +98,7 @@ export const lanes: Lane[] = [
         result: "Live at gamescore.cards, with a paid Pro tier. Design to deployment, one person.",
         href: "/work/gamescore",
         hrefLabel: "Read the case study",
+        tag: "built with Claude Code",
       },
       {
         id: "pointone",

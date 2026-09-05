@@ -33,7 +33,14 @@ function CaseCard({ c }: { c: LaneCase }) {
   return (
     <article className="card flex h-full flex-col p-6">
       <p className="mono text-[11px] text-accent">{c.kicker}</p>
-      <h3 className="font-display mt-2 text-xl font-semibold tracking-tight">{c.title}</h3>
+      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+        <h3 className="font-display text-xl font-semibold tracking-tight">{c.title}</h3>
+        {c.tag && (
+          <span className="mono rounded-full border border-line-strong px-2.5 py-0.5 text-[10px] tracking-wide text-text-dim">
+            {c.tag}
+          </span>
+        )}
+      </div>
       <dl className="mt-5 space-y-3.5">
         {beats.map((b) => (
           <div key={b.key}>
