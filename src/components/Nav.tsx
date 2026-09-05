@@ -62,7 +62,7 @@ export function Nav() {
   return (
     <>
     <header
-      className="fixed inset-x-0 top-0 z-50 transition-colors duration-300"
+      className="fixed inset-x-0 top-0 z-50 transition-colors duration-300 print:hidden"
       style={{
         background: scrolled || open ? "rgba(8,9,11,0.72)" : "transparent",
         backdropFilter: scrolled || open ? "blur(12px)" : "none",

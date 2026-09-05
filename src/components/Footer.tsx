@@ -10,7 +10,7 @@ const social = [
 
 export function Footer() {
   return (
-    <footer className="hairline mt-32 pb-16 sm:pb-20">
+    <footer className="hairline mt-32 pb-16 sm:pb-20 print:hidden">
       <div className="shell pt-16">
         <div className="flex flex-col justify-between gap-12 md:flex-row">
           <div className="max-w-md">
