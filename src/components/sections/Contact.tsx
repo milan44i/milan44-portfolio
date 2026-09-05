@@ -14,7 +14,7 @@ export function Contact() {
           />
           <div className="relative">
             <p className="eyebrow mb-5">
-              <span className="accent">●</span> {site.availability.toLowerCase()} - AI builder &amp; frontend
+              <span className="accent">●</span> {`${site.availability.toLowerCase()} - AI builder & frontend`}
             </p>
             <h2 className="font-display display-lg max-w-[14ch] font-bold tracking-tight text-balance">
               Let&apos;s build something fast.
