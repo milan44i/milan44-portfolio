@@ -1,90 +1,117 @@
 import Link from "next/link";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
-import { experience, projects } from "@/lib/content";
+import { lanes, type LaneCase } from "@/lib/lanes";
 
-const flagship = projects.find((p) => p.featured)!;
+// Four beats in a fixed order, so the six cases can be compared down the column
+// rather than read one at a time.
+const beats: { key: keyof Pick<LaneCase, "problem" | "built" | "ai" | "result">; label: string }[] = [
+  { key: "problem", label: "Problem" },
+  { key: "built", label: "What I built" },
+  { key: "ai", label: "The AI's role" },
+  { key: "result", label: "Result" },
+];
+
+const alsoShipped = [
+  {
+    name: "SiteScore",
+    host: "sitescore.pages.dev",
+    href: "https://sitescore.pages.dev",
+    blurb:
+      "An on-page SEO auditor on Cloudflare's edge: 25+ checks across 7 analyzers, PageSpeed Insights, shareable reports and an embeddable widget.",
+  },
+  {
+    name: "claude-setup",
+    host: "github.com/milan44i",
+    href: "https://github.com/milan44i/claude-setup",
+    blurb:
+      "The AI workflow itself, published: self-healing hooks that feed compiler output back to the model, pre-compaction context capture, and a typed memory system.",
+  },
+];
+
+function CaseCard({ c }: { c: LaneCase }) {
+  return (
+    <article className="card flex h-full flex-col p-6">
+      <p className="mono text-[11px] text-accent">{c.kicker}</p>
+      <h3 className="font-display mt-2 text-xl font-semibold tracking-tight">{c.title}</h3>
+      <dl className="mt-5 space-y-3.5">
+        {beats.map((b) => (
+          <div key={b.key}>
+            <dt className="mono text-[10px] uppercase tracking-[0.14em] text-text-faint">{b.label}</dt>
+            <dd className="mt-1 text-sm leading-relaxed text-text-dim">{c[b.key]}</dd>
+          </div>
+        ))}
+      </dl>
+      {c.href && (
+        <div className="mt-auto border-t border-line pt-4">
+          <Link href={c.href} className="link mono text-xs">
+            {c.hrefLabel ?? "Read more"} →
+          </Link>
+        </div>
+      )}
+    </article>
+  );
+}
 
 export function Work() {
   return (
-    <Section id="work" index="01" title="Selected work" kicker="flagship + recent roles">
-      {/* Flagship — GameScore */}
+    <Section id="work" index="01" title="What I build" kicker="two lanes, six systems">
       <Reveal>
-        <article className="card group mb-6 overflow-hidden p-7 sm:p-10">
-          <div className="pointer-events-none absolute right-4 top-2 select-none font-display text-[7rem] font-extrabold leading-none text-line-strong/40 sm:text-[10rem]">
-            01
-          </div>
-          <div className="relative">
-            <div className="mono mb-3 text-xs text-accent">{flagship.kind}</div>
-            <h3 className="font-display display-md font-bold tracking-tight">{flagship.name}</h3>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-dim">{flagship.blurb}</p>
-
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {flagship.stack.map((s) => (
-                <li key={s} className="chip">
-                  {s}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={flagship.caseStudy!} className="btn btn-primary">
-                Read case study →
-              </Link>
-              <a href={flagship.href} target="_blank" rel="noreferrer" className="btn">
-                Visit {flagship.href!.replace("https://", "")} ↗
-              </a>
-            </div>
-          </div>
-        </article>
+        <p className="mb-12 max-w-2xl text-base leading-relaxed text-text-dim">
+          Two halves of the same job: interfaces people use, and the systems that build them. Both
+          in production, both with numbers.
+        </p>
       </Reveal>
 
-      {/* Roles */}
-      <div className="grid gap-5 md:grid-cols-2">
-        {experience.map((role, i) => (
-          <Reveal key={role.company} delay={i * 0.06}>
-            <article className="card flex h-full flex-col p-6 sm:p-7">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-display text-xl font-semibold tracking-tight">
-                    {role.company}
-                    {role.team && <span className="text-text-faint"> · {role.team}</span>}
-                  </h3>
-                  <p className="mt-0.5 text-sm text-text-dim">{role.title}</p>
-                </div>
-                <span className="mono whitespace-nowrap text-[11px] text-text-faint">{role.period}</span>
+      <div className="space-y-14">
+        {lanes.map((lane) => (
+          <div key={lane.id} id={lane.id} className="scroll-mt-24">
+            <Reveal>
+              <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 className="font-display text-xl font-semibold tracking-tight text-accent">
+                  {lane.label}
+                </h3>
+                <p className="text-sm text-text-dim">{lane.blurb}</p>
               </div>
-
-              {role.summary && <p className="mt-4 text-sm leading-relaxed text-text-dim">{role.summary}</p>}
-
-              <ul className="mt-4 space-y-2">
-                {role.highlights.slice(0, 3).map((h) => (
-                  <li key={h} className="flex gap-2.5 text-sm leading-snug text-text">
-                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent" />
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="mt-5 flex flex-wrap gap-1.5">
-                {role.stack.slice(0, 6).map((s) => (
-                  <li key={s} className="chip">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-
-              {role.caseStudy && (
-                <div className="mt-6 border-t border-line pt-4">
-                  <Link href={role.caseStudy} className="link mono text-xs">
-                    Read the deep dive →
-                  </Link>
-                </div>
-              )}
-            </article>
-          </Reveal>
+            </Reveal>
+            <div className="grid gap-5 md:grid-cols-3">
+              {lane.cases.map((c, i) => (
+                <Reveal key={c.id} delay={i * 0.06} className="h-full">
+                  <CaseCard c={c} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
+
+      {/* Demoted, not deleted: GameScore is now a Lane B case, so this row carries
+          the two that would otherwise vanish from the site entirely. */}
+      <Reveal>
+        <div className="hairline mt-14 pt-8">
+          <p className="eyebrow mb-5">Also shipped</p>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {alsoShipped.map((p) => (
+              <li key={p.name}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="card flex h-full flex-col p-5 transition-colors hover:border-line-strong"
+                >
+                  <p className="font-display text-lg font-semibold tracking-tight">
+                    {p.name}
+                    <span className="mono ml-2 align-middle text-[11px] font-normal text-text-faint">
+                      {p.host} ↗
+                    </span>
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-text-dim">{p.blurb}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
     </Section>
   );
 }
