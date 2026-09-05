@@ -22,11 +22,11 @@ export default function ProjectsPage() {
   return (
     <>
       <header className="shell flex items-center justify-between pt-7">
-        <Link href="/projects" className="font-display text-[15px] font-semibold tracking-tight">
+        <Link href="/projects" className="font-display hit text-[15px] font-semibold tracking-tight">
           {site.name}
         </Link>
         <div className="flex items-center gap-5">
-          <Link href="/" className="mono text-[11px] text-text-faint transition-colors hover:text-text" title="English">
+          <Link href="/" className="hit mono text-[11px] text-text-faint transition-colors hover:text-text" title="English">
             EN
           </Link>
           <a href="#kontakt" className="btn text-[13px]">
@@ -148,20 +148,20 @@ export default function ProjectsPage() {
             <div className="mt-8 space-y-3">
               <a
                 href={site.links.email}
-                className="font-display block w-fit text-2xl font-semibold tracking-tight transition-colors hover:text-accent sm:text-3xl"
+                className="font-display hit block w-fit text-2xl font-semibold tracking-tight transition-colors hover:text-accent sm:text-3xl"
               >
                 {site.email}
               </a>
               <a
                 href={c.contact.phoneHref}
-                className="font-display block w-fit text-2xl font-semibold tracking-tight transition-colors hover:text-accent sm:text-3xl"
+                className="font-display hit block w-fit text-2xl font-semibold tracking-tight transition-colors hover:text-accent sm:text-3xl"
               >
                 {c.contact.phone}
               </a>
             </div>
             <p className="mt-6 text-sm text-text-dim">{c.contact.note}</p>
             <p className="mt-12">
-              <Link href="/" className="link mono text-[12px] text-text-dim">
+              <Link href="/" className="link hit mono text-[12px] text-text-dim">
                 {c.contact.techProfile} →
               </Link>
             </p>

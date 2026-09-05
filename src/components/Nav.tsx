@@ -71,7 +71,7 @@ export function Nav() {
     >
       <div className="shell flex h-16 items-center justify-between">
         {/* the accessible name has to contain the visible text ("milan44.dev") */}
-        <Link href="/" className="group flex items-center gap-2" aria-label="milan44.dev, home">
+        <Link href="/" className="group flex min-h-11 items-center gap-2" aria-label="milan44.dev, home">
           <span
             className="inline-block h-2 w-2 rounded-full"
             style={{ background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }}
@@ -90,7 +90,7 @@ export function Nav() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "true" : undefined}
-                className="mono relative text-xs transition-colors"
+                className="mono hit relative text-xs transition-colors"
                 style={{ color: isActive ? "var(--accent)" : "var(--text-dim)" }}
               >
                 {item.label}
@@ -119,7 +119,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="relative grid h-10 w-10 place-items-center rounded-lg border border-line-strong md:hidden"
+            className="relative grid h-11 w-11 place-items-center rounded-lg border border-line-strong md:hidden"
           >
             <span className="relative block h-[10px] w-5">
               <span
@@ -166,9 +166,9 @@ export function Nav() {
               Resume
             </Link>
             <div className="mono mt-2 flex items-center justify-center gap-4 text-[11px] text-text-faint">
-              <a href={site.links.github} target="_blank" rel="noreferrer" className="hover:text-accent">GitHub ↗</a>
-              <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-accent">LinkedIn ↗</a>
-              <a href={site.links.medium} target="_blank" rel="noreferrer" className="hover:text-accent">Medium ↗</a>
+              <a href={site.links.github} target="_blank" rel="noreferrer" className="hit hover:text-accent">GitHub ↗</a>
+              <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="hit hover:text-accent">LinkedIn ↗</a>
+              <a href={site.links.medium} target="_blank" rel="noreferrer" className="hit hover:text-accent">Medium ↗</a>
             </div>
           </div>
         </nav>

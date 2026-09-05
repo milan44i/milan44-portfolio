@@ -10,7 +10,7 @@ export function CaseStudyShell({ study }: { study: CaseStudy }) {
   return (
     <main className="pt-28">
       <article className="shell">
-        <Link href="/#work" className="mono text-xs text-text-dim transition-colors hover:text-accent">
+        <Link href="/#work" className="hit mono text-xs text-text-dim transition-colors hover:text-accent">
           ← back to work
         </Link>
 
@@ -113,7 +113,7 @@ export function CaseStudyShell({ study }: { study: CaseStudy }) {
                       href={l.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="link mono text-xs"
+                      className="link hit mono text-xs"
                     >
                       {l.label} ↗
                     </a>
@@ -126,11 +126,11 @@ export function CaseStudyShell({ study }: { study: CaseStudy }) {
 
         {/* footer nav */}
         <nav className="hairline mt-8 flex flex-col gap-4 border-t border-line py-10 sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/#work" className="link mono text-sm">
+          <Link href="/#work" className="link hit mono text-sm">
             ← All work
           </Link>
           {other && (
-            <Link href={`/work/${other.slug}`} className="link mono text-sm sm:text-right">
+            <Link href={`/work/${other.slug}`} className="link hit mono text-sm sm:text-right">
               Next: {other.title} →
             </Link>
           )}

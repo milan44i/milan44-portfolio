@@ -233,6 +233,7 @@
     font-family: var(--font-mono);
     font-size: 0.8rem;
     letter-spacing: 0.01em;
+    min-height: 2.75rem; /* 44 px tap target */
     padding: 0.7rem 1.15rem;
     border-radius: 10px;
     border: 1px solid var(--line-strong);
@@ -280,6 +281,20 @@
   }
   .display-md {
     font-size: clamp(1.6rem, 4vw, 2.6rem);
+  }
+
+  /* 44 px tap area for small inline links, without moving the layout */
+  .hit {
+    position: relative;
+  }
+  .hit::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
   }
 
   /* animated primitives */

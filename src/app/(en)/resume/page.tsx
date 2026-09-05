@@ -16,7 +16,7 @@ export default function ResumePage() {
       <div className="shell max-w-3xl">
         {/* controls (screen only) */}
         <div className="mb-10 flex items-center justify-between print:hidden">
-          <Link href="/" className="mono text-xs text-text-dim transition-colors hover:text-accent">
+          <Link href="/" className="hit mono text-xs text-text-dim transition-colors hover:text-accent">
             ← back home
           </Link>
           <PrintButton />
@@ -32,9 +32,9 @@ export default function ResumePage() {
             <div className="mono mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-text-dim print:text-black">
               <span>{site.email}</span>
               <span>{site.location}</span>
-              <a href={site.url} className="hover:text-accent">{site.url.replace("https://", "")}</a>
-              <a href={site.links.github} className="hover:text-accent">github.com/{site.handle}i</a>
-              <a href={site.links.linkedin} className="hover:text-accent">linkedin.com/in/{site.handle}</a>
+              <a href={site.url} className="hit hover:text-accent">{site.url.replace("https://", "")}</a>
+              <a href={site.links.github} className="hit hover:text-accent">github.com/{site.handle}i</a>
+              <a href={site.links.linkedin} className="hit hover:text-accent">linkedin.com/in/{site.handle}</a>
             </div>
           </header>
 

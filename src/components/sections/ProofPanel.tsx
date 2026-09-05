@@ -75,7 +75,7 @@ export function ProofPanel() {
             href={site.links.claudeSetup}
             target="_blank"
             rel="noreferrer"
-            className="link mono mt-4 inline-block text-[11px]"
+            className="link hit mono mt-4 inline-block text-[11px]"
           >
             The setup behind it, on GitHub ↗
           </a>

@@ -57,7 +57,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([pipelineLd, crumbs]) }}
       />
       <article className="shell">
-        <Link href="/#work" className="mono text-xs text-text-dim transition-colors hover:text-accent">
+        <Link href="/#work" className="hit mono text-xs text-text-dim transition-colors hover:text-accent">
           ← back to work
         </Link>
 

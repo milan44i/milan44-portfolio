@@ -51,7 +51,7 @@ function CaseCard({ c }: { c: LaneCase }) {
       </dl>
       {c.href && (
         <div className="mt-auto border-t border-line pt-4">
-          <Link href={c.href} className="link mono text-xs">
+          <Link href={c.href} className="link hit mono text-xs">
             {c.hrefLabel ?? "Read more"} →
           </Link>
         </div>

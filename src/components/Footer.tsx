@@ -18,7 +18,7 @@ export function Footer() {
             {/* one unbreakable word: sized to fit a 320 px shell and the max-w-md column */}
             <a
               href={site.links.email}
-              className="font-display block text-[clamp(1.25rem,6.5vw,2.25rem)] leading-none text-text transition-colors [overflow-wrap:anywhere] hover:text-accent"
+              className="font-display hit block text-[clamp(1.25rem,6.5vw,2.25rem)] leading-none text-text transition-colors [overflow-wrap:anywhere] hover:text-accent"
             >
               {site.email}
             </a>
@@ -34,13 +34,13 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {nav.map((item) => (
                   <li key={item.href}>
-                    <a href={item.href} className="text-sm text-text-dim transition-colors hover:text-text">
+                    <a href={item.href} className="hit text-sm text-text-dim transition-colors hover:text-text">
                       {item.label}
                     </a>
                   </li>
                 ))}
                 <li>
-                  <Link href="/resume" className="text-sm text-text-dim transition-colors hover:text-text">
+                  <Link href="/resume" className="hit text-sm text-text-dim transition-colors hover:text-text">
                     Resume
                   </Link>
                 </li>
@@ -56,7 +56,7 @@ export function Footer() {
                       href={s.href}
                       target={s.href.startsWith("http") ? "_blank" : undefined}
                       rel={s.href.startsWith("http") ? "noreferrer" : undefined}
-                      className="text-sm text-text-dim transition-colors hover:text-text"
+                      className="hit text-sm text-text-dim transition-colors hover:text-text"
                     >
                       {s.label} <span className="text-text-faint">↗</span>
                     </a>
@@ -75,7 +75,7 @@ export function Footer() {
               href={site.links.claudeSetup}
               target="_blank"
               rel="noreferrer"
-              className="text-text-dim underline underline-offset-2 hover:text-accent"
+              className="hit text-text-dim underline underline-offset-2 hover:text-accent"
             >
               Claude Code workflow
             </a>
