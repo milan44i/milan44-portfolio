@@ -33,11 +33,11 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "GameScore",
     kind: "Solo product · gamescore.cards",
     period: "Shipped 2026 · actively maintained",
-    role: "Design, engineering & infrastructure — solo",
+    role: "Design, engineering & infrastructure - solo",
     intro:
-      "A production PWA for tracking board-game scores: offline-first, fast, and wired into BoardGameGeek search across 100,000+ titles — with a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
+      "A production PWA for tracking board-game scores: offline-first, fast, and wired into BoardGameGeek search across 100,000+ titles - with a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
     summary:
-      "How I designed, built and shipped GameScore solo — an offline-first board-game scoring PWA on Nuxt 4, Dexie and Vercel with a paid Pro tier.",
+      "How I designed, built and shipped GameScore solo - an offline-first board-game scoring PWA on Nuxt 4, Dexie and Vercel with a paid Pro tier.",
     links: [{ label: "Visit gamescore.cards", href: "https://gamescore.cards" }],
     stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "shadcn-vue", "PWA", "Lemon Squeezy", "Vercel", "Vercel KV"],
     metrics: [
@@ -50,21 +50,21 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         src: "/work/gamescore/bgg-search.png",
         alt: "GameScore game search showing BoardGameGeek results for Wingspan with box art, year and rating",
-        caption: "Game search — BoardGameGeek's XML API, proxied and parsed server-side.",
+        caption: "Game search - BoardGameGeek's XML API, proxied and parsed server-side.",
         width: 430,
         height: 932,
       },
       {
         src: "/work/gamescore/live-scoring.png",
         alt: "GameScore live match screen scoring Wingspan for three players, with a per-category breakdown for the leader",
-        caption: "Live scoring — the Wingspan template tracks all six end-game categories per player.",
+        caption: "Live scoring - the Wingspan template tracks all six end-game categories per player.",
         width: 430,
         height: 932,
       },
        {
         src: "/work/gamescore/victory-card.png",
         alt: "A GameScore Victory Card for a Wingspan match, showing the winner and final standings over the game's box art",
-        caption: "The Victory Card — rendered client-side at 1080×1920, ready to share.",
+        caption: "The Victory Card - rendered client-side at 1080×1920, ready to share.",
         width: 810,
         height: 1440,
       },
@@ -79,9 +79,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "Constraints that shaped the build",
         bullets: [
-          "Offline-first is non-negotiable — scoring happens where Wi-Fi isn't. All state lives on-device; there are no accounts and no cloud sync, with JSON export/import for backup.",
-          "Adding a game pulls metadata from BoardGameGeek's API — that lookup must be fast and must never block scoring, so each game's details are snapshotted locally the moment it's added.",
-          "It's a solo project with a real cost ceiling — the infrastructure had to be cheap to run and near-zero to operate.",
+          "Offline-first is non-negotiable - scoring happens where Wi-Fi isn't. All state lives on-device; there are no accounts and no cloud sync, with JSON export/import for backup.",
+          "Adding a game pulls metadata from BoardGameGeek's API - that lookup must be fast and must never block scoring, so each game's details are snapshotted locally the moment it's added.",
+          "It's a solo project with a real cost ceiling - the infrastructure had to be cheap to run and near-zero to operate.",
           "A paid Pro tier means real payments, license checks and a feature boundary that can't leak.",
         ],
       },
@@ -89,14 +89,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         heading: "Key decisions",
         body: [
           "I built on Nuxt 4 for a single TypeScript codebase across rendering, routing and server endpoints, with Pinia for state. The core is local-first: Dexie over IndexedDB holds matches, players and snapshotted game data, so scoring never blocks on the network. BGG search runs through a small Nuxt server route that proxies and parses BoardGameGeek's XML API; the fields that matter are denormalized into the match, so a game's name and box art stay available offline once it's been added.",
-          "The whole thing runs on Vercel — Nuxt server routes for BGG search and license verification, with Vercel KV holding Pro license keys (there is no user database). Payments are a one-time €4.99 through Lemon Squeezy, which also handles EU VAT. Pro features sit behind a server-verified license check so the boundary holds even though the app is otherwise offline-capable. Victory Cards are rendered client-side with html-to-image into shareable 1080×1920 images people actually post.",
+          "The whole thing runs on Vercel - Nuxt server routes for BGG search and license verification, with Vercel KV holding Pro license keys (there is no user database). Payments are a one-time €4.99 through Lemon Squeezy, which also handles EU VAT. Pro features sit behind a server-verified license check so the boundary holds even though the app is otherwise offline-capable. Victory Cards are rendered client-side with html-to-image into shareable 1080×1920 images people actually post.",
         ],
       },
       {
         heading: "Architecture at a glance",
         bullets: [
           "Client: Nuxt 4 PWA (@vite-pwa/nuxt), installable, with a service worker caching the offline shell + assets.",
-          "Local data: Dexie / IndexedDB as the source of truth for in-progress and historical games — no accounts, no server DB.",
+          "Local data: Dexie / IndexedDB as the source of truth for in-progress and historical games - no accounts, no server DB.",
           "Game search: BoardGameGeek XML API via a Nuxt server route (fast-xml-parser); results snapshotted locally on add.",
           "Backend: Vercel-hosted Nuxt server routes; Vercel KV stores Pro license keys.",
           "Monetization: one-time €4.99 via Lemon Squeezy; license verified server-side and fenced behind that check.",
@@ -106,13 +106,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "Where the AI workflow earned its keep",
         body: [
-          "GameScore is the clearest proof of the workflow I write about: a single engineer carrying design, frontend, edge backend, data modelling and ops. Claude Code, driven by the context-engineering and agentic-orchestration setup I publish in claude-setup, is what made that scope tractable solo — planning loops for features, AI-assisted refactors with guardrails, and a typed memory system so the model kept the thread across long sessions.",
+          "GameScore is the clearest proof of the workflow I write about: a single engineer carrying design, frontend, edge backend, data modelling and ops. Claude Code, driven by the context-engineering and agentic-orchestration setup I publish in claude-setup, is what made that scope tractable solo - planning loops for features, AI-assisted refactors with guardrails, and a typed memory system so the model kept the thread across long sessions.",
         ],
       },
       {
         heading: "Outcome",
         body: [
-          "A live, production PWA with a paid tier — shipped and operated by one person. It's the answer to the only question that matters in an interview: can you take something from nothing to in-production, end to end? Here it is, and you can click it.",
+          "A live, production PWA with a paid tier - shipped and operated by one person. It's the answer to the only question that matters in an interview: can you take something from nothing to in-production, end to end? Here it is, and you can click it.",
         ],
       },
     ],
@@ -120,12 +120,12 @@ export const caseStudies: Record<string, CaseStudy> = {
 
   lotusflare: {
     slug: "lotusflare",
-    title: "LotusFlare — DNO Cloud Portal",
+    title: "LotusFlare - DNO Cloud Portal",
     kind: "Frontend Engineer · carrier-grade telecom",
-    period: "Jun 2025 — present",
-    role: "Frontend Engineer — owning analyst-facing portal UIs",
+    period: "Jun 2025 - present",
+    role: "Frontend Engineer - owning analyst-facing portal UIs",
     intro:
-      "I own the UIs that let business analysts configure complex data pipelines, reporting and real-time event processing for carrier-grade telecom operators serving millions of subscribers. The work is about making genuinely hard configuration feel manageable — and keeping a large Vue codebase fast and consistent.",
+      "I own the UIs that let business analysts configure complex data pipelines, reporting and real-time event processing for carrier-grade telecom operators serving millions of subscribers. The work is about making genuinely hard configuration feel manageable - and keeping a large Vue codebase fast and consistent.",
     summary:
       "Owning analyst-facing portal UIs at LotusFlare: an 80% load-time cut, a Vue 3 + Pinia migration, and a 2k-line editor refactored with zero regressions.",
     links: [{ label: "Company", href: "https://lotusflare.com" }],
@@ -146,14 +146,14 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "Performance: 1.2 minutes → 14 seconds",
         body: [
-          "Initial load had crept to roughly 1.2 minutes — unacceptable for a tool people live in all day. I cut it by ~80% to about 14 seconds through dynamic imports, route-level code splitting and Vite build optimizations, shrinking what the browser has to parse and execute before the portal is usable.",
+          "Initial load had crept to roughly 1.2 minutes - unacceptable for a tool people live in all day. I cut it by ~80% to about 14 seconds through dynamic imports, route-level code splitting and Vite build optimizations, shrinking what the browser has to parse and execute before the portal is usable.",
         ],
       },
       {
         heading: "Modernizing the codebase",
         bullets: [
           "Led the Vue 3 Composition API + Pinia migration and authored reusable composables adopted across the team.",
-          "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow — 45% less complexity, zero regressions.",
+          "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow - 45% less complexity, zero regressions.",
           "Established codebase standards and reorganized imports across 500+ files for long-term maintainability.",
           "Architected the team's AI engineering stack: cross-IDE agent rules, a CLAUDE.md context system and custom skills.",
         ],
@@ -169,7 +169,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "The throughline",
         body: [
-          "Two things define the role: making hard configuration feel manageable for analysts, and keeping a large, fast-moving Vue codebase performant and consistent. The 80% load-time cut and the zero-regression refactor are the measurable edges of that work — and the AI engineering stack I set up is how the whole team moves faster on it.",
+          "Two things define the role: making hard configuration feel manageable for analysts, and keeping a large, fast-moving Vue codebase performant and consistent. The 80% load-time cut and the zero-regression refactor are the measurable edges of that work - and the AI engineering stack I set up is how the whole team moves faster on it.",
         ],
       },
     ],

@@ -35,7 +35,7 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* static atmospheric fallback — always rendered, sits behind the canvas */}
+      {/* static atmospheric fallback - always rendered, sits behind the canvas */}
       <div
         aria-hidden
         className="absolute inset-0"

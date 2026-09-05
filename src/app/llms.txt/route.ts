@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 // Served as a route rather than a public/ file so the facts stay derived from
 // the same content the pages render — a stale llms.txt is worse than none.
-const body = `# ${site.url.replace("https://", "")} — ${site.name}
+const body = `# ${site.url.replace("https://", "")} - ${site.name}
 
 > ${site.description}
 

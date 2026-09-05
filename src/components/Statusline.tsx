@@ -68,7 +68,7 @@ export function Statusline() {
       </div>
     </div>
 
-    {/* mobile: minimal scroll-progress bar — keeps the "observability" signal alive on small screens */}
+    {/* mobile: minimal scroll-progress bar - keeps the "observability" signal alive on small screens */}
     <div aria-hidden className="fixed inset-x-0 bottom-0 z-50 h-[3px] bg-line print:hidden sm:hidden">
       <div
         className="h-full origin-left bg-accent"

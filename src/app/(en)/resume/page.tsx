@@ -6,7 +6,7 @@ import { about, education, experience, projects, skills } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: `Resume of ${site.name}, ${site.role} — ${site.tagline}.`,
+  description: `Resume of ${site.name}, ${site.role} - ${site.tagline}.`,
   alternates: { canonical: "/resume" },
 };
 
@@ -50,7 +50,7 @@ export default function ResumePage() {
                 <div key={role.company}>
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="font-semibold text-text print:text-black">
-                      {role.title} — {role.company}
+                      {role.title} - {role.company}
                       {role.team ? ` · ${role.team}` : ""}
                     </h3>
                     <span className="mono whitespace-nowrap text-[11px] text-text-faint print:text-black/60">
@@ -80,7 +80,7 @@ export default function ResumePage() {
               {projects.map((p) => (
                 <div key={p.slug}>
                   <h3 className="font-semibold text-text print:text-black">
-                    {p.name} <span className="font-normal text-text-faint print:text-black/60">— {p.kind}</span>
+                    {p.name} <span className="font-normal text-text-faint print:text-black/60">- {p.kind}</span>
                   </h3>
                   <p className="mt-1 text-sm text-text-dim print:text-black">{p.blurb}</p>
                   <p className="mono mt-1 text-[11px] text-text-faint print:text-black/60">{p.stack.join(" · ")}</p>
@@ -109,7 +109,7 @@ export default function ResumePage() {
               {education.map((e) => (
                 <li key={e.school} className="flex items-baseline justify-between gap-4">
                   <span className="text-sm text-text-dim print:text-black">
-                    <span className="font-medium text-text print:text-black">{e.school}</span> — {e.detail}
+                    <span className="font-medium text-text print:text-black">{e.school}</span> - {e.detail}
                   </span>
                   <span className="mono whitespace-nowrap text-[11px] text-text-faint print:text-black/60">{e.period}</span>
                 </li>

@@ -136,7 +136,7 @@ export function Nav() {
       </div>
     </header>
 
-    {/* mobile overlay menu — sibling of <header> so its fixed positioning
+    {/* mobile overlay menu - sibling of <header> so its fixed positioning
         references the viewport, not the header's backdrop-filter containing block */}
     <AnimatePresence>
         {open && (

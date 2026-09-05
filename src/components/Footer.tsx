@@ -68,7 +68,7 @@ export function Footer() {
 
         <div className="mono mt-16 flex flex-col gap-2 text-[11px] text-text-faint sm:flex-row sm:items-center sm:justify-between">
           <span>
-            © {site.name} — built with Next.js, R3F &amp; a{" "}
+            © {site.name} - built with Next.js, R3F &amp; a{" "}
             {/* underlined: a link inside a text block must not rely on colour alone */}
             <a
               href={site.links.claudeSetup}

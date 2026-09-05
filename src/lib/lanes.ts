@@ -79,7 +79,7 @@ export const lanes: Lane[] = [
           "Business analysts at carrier-grade telecom operators need to configure data pipelines, reporting and real-time event processing without touching code, and the portal took 1.2 minutes to load.",
         built:
           "I own the Data Hub frontend on the DNO Cloud Portal: data-dense configuration UIs, a step-based editor flow, and a multi-file S3 upload with per-file progress and DLQ recovery.",
-        ai: "The AI work here is the workflow, not the product: I architected the team's AI engineering stack — cross-IDE agent rules, a context system, custom skills — and the team develops with it.",
+        ai: "The AI work here is the workflow, not the product: I architected the team's AI engineering stack - cross-IDE agent rules, a context system, custom skills - and the team develops with it.",
         result:
           "Load time down 80% to 14 seconds. A 2,000-line editor refactored to 45% less complexity with zero regressions. Vue 3 + Pinia migration led, composables adopted team-wide.",
         href: "/work/lotusflare",
@@ -106,7 +106,7 @@ export const lanes: Lane[] = [
           "An analytics product with a data table that had to filter, sort, edit inline and select rows, over charts that had to stay fast.",
         built:
           "The analytics dashboard and the DataTable, plus the migration from Redux Toolkit to TanStack Query.",
-        ai: "None — this one predates the workflow, and it is here because the frontend half of the job is not all AI-assisted.",
+        ai: "None - this one predates the workflow, and it is here because the frontend half of the job is not all AI-assisted.",
         result:
           "Build time down 40% (18.84s → 11.44s) and the main bundle down 53% (1,834 → 858 kB) via route-based code splitting.",
       },

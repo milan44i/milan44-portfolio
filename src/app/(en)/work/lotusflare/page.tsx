@@ -6,9 +6,9 @@ import { caseStudies } from "@/lib/case-studies";
 const study = caseStudies.lotusflare;
 
 export const metadata: Metadata = {
-  title: `${study.title} — case study`,
+  title: `${study.title} - case study`,
   description: study.summary,
-  openGraph: { title: `${study.title} — case study`, description: study.summary },
+  openGraph: { title: `${study.title} - case study`, description: study.summary },
   alternates: { canonical: `/work/${study.slug}` },
 };
 

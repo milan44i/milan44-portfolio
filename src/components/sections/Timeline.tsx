@@ -10,17 +10,17 @@ const rows = [
   },
   {
     year: "2025",
-    title: "LotusFlare — Frontend Engineer",
+    title: "LotusFlare - Frontend Engineer",
     detail: "DNO Cloud Portal, Data Hub",
   },
   {
     year: "2024",
-    title: "DEVersity — Frontend Engineer",
+    title: "DEVersity - Frontend Engineer",
     detail: "PointOne, Aktivizam, Romotioncam",
   },
   {
     year: "2023",
-    title: "Connect The Dots — Junior Frontend Engineer",
+    title: "Connect The Dots - Junior Frontend Engineer",
     detail: "AI relationship-intelligence platform",
   },
   {

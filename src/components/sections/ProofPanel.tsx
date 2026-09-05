@@ -44,7 +44,7 @@ export function ProofPanel() {
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
           <span className="mono ml-2 flex items-center gap-2 text-[11px] text-text-faint">
-            milan44i/claude-setup — main
+            milan44i/claude-setup - main
             <motion.span
               aria-hidden
               className="inline-block h-1.5 w-1.5 rounded-full bg-accent"

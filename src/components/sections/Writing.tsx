@@ -8,14 +8,14 @@ const channels = [
   {
     label: "Medium",
     title: "Claude Code: The Complete Field Guide",
-    body: "The flagship essay — how to run Claude Code without burning your token budget. Context engineering, hooks and agentic workflows from daily production use.",
+    body: "The flagship essay - how to run Claude Code without burning your token budget. Context engineering, hooks and agentic workflows from daily production use.",
     href: site.links.fieldGuide,
     cta: "Read the essay",
   },
   {
     label: "Open source",
     title: "claude-setup",
-    body: "A modular Claude Code toolkit — self-healing hooks, context capture, typed memory and skills.",
+    body: "A modular Claude Code toolkit - self-healing hooks, context capture, typed memory and skills.",
     href: site.links.claudeSetup,
     cta: "View on GitHub",
   },

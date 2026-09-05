@@ -49,7 +49,7 @@ export const projects: Project[] = [
     name: "GameScore",
     kind: "Solo product · gamescore.cards",
     blurb:
-      "A production PWA for board-game score-tracking — offline-first, 100,000+ BoardGameGeek titles, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
+      "A production PWA for board-game score-tracking - offline-first, 100,000+ BoardGameGeek titles, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
     stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "Lemon Squeezy", "Vercel"],
     href: "https://gamescore.cards",
     caseStudy: "/work/gamescore",
@@ -85,7 +85,7 @@ export const experience: Role[] = [
     company: "LotusFlare",
     team: "DNO Cloud Portal",
     title: "Frontend Engineer",
-    period: "Jun 2025 — Present",
+    period: "Jun 2025 - Present",
     summary:
       "Own the UIs that let business analysts configure complex data pipelines, reporting and real-time event processing for carrier-grade telecom operators serving millions of subscribers.",
     stack: ["Vue 3", "TypeScript", "Pinia", "Vuex", "Vite", "Tailwind", "Docker", "Kubernetes"],
@@ -94,17 +94,17 @@ export const experience: Role[] = [
     highlights: [
       "Cut portal initial load time by 80% (1.2 min → 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
       "Led the Vue 3 Composition API + Pinia migration; authored reusable composables adopted team-wide.",
-      "Architected the team's AI engineering stack — cross-IDE agent rules, a CLAUDE.md context system and custom skills.",
+      "Architected the team's AI engineering stack - cross-IDE agent rules, a CLAUDE.md context system and custom skills.",
       "Built a multi-file S3 upload system with real-time progress, smart error handling and DLQ recovery.",
       "Architected role-based access control for Reports with permission-driven UI rendering.",
-      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow — 45% less complexity, zero regressions.",
+      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow - 45% less complexity, zero regressions.",
       "Established codebase standards and reorganized imports across 500+ files for long-term maintainability.",
     ],
   },
   {
     company: "DEVersity",
     title: "Frontend Engineer, previously Junior Frontend Engineer",
-    period: "Apr 2024 — Jun 2025",
+    period: "Apr 2024 - Jun 2025",
     summary:
       "Three products: PointOne, a data-analysis platform; Aktivizam, a social platform; and Romotioncam, a wind-turbine blade inspection platform.",
     stack: ["React", "Next.js", "TypeScript", "Nx", "TanStack Query", "TanStack Table", "Tailwind", "Shadcn"],
@@ -119,12 +119,12 @@ export const experience: Role[] = [
   {
     company: "Connect The Dots",
     title: "Junior Frontend Engineer, then Frontend Developer (intern)",
-    period: "Apr 2023 — Mar 2024",
+    period: "Apr 2023 - Mar 2024",
     summary: "AI relationship-intelligence platform.",
     stack: ["Vue", "TypeScript", "Pinia", "TanStack Query", "Storybook", "Vitest", "Vite"],
     highlights: [
       "Refactored a legacy Vue UI and contributed to modernizing the frontend architecture.",
-      "Built reusable components — Table, Input, Accordion, Checkbox and more — pixel-matched to Figma.",
+      "Built reusable components - Table, Input, Accordion, Checkbox and more - pixel-matched to Figma.",
     ],
   },
 ];
@@ -164,13 +164,13 @@ export const skills: SkillGroup[] = [
 ];
 
 export const education = [
-  { school: "University of Belgrade, ETF", detail: "B.Sc. Systems Engineering · GPA 8.75 / 10", period: "2018 — 2022" },
-  { school: "Mathematical Grammar School, Belgrade", detail: "GPA 4.7 / 5", period: "2014 — 2018" },
+  { school: "University of Belgrade, ETF", detail: "B.Sc. Systems Engineering · GPA 8.75 / 10", period: "2018 - 2022" },
+  { school: "Mathematical Grammar School, Belgrade", detail: "GPA 4.7 / 5", period: "2014 - 2018" },
 ];
 
 export const about = {
   paragraphs: [
-    "I'm an AI builder and frontend engineer based in Belgrade, with 4+ years across Vue, React and TypeScript. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity — like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
+    "I'm an AI builder and frontend engineer based in Belgrade, with 4+ years across Vue, React and TypeScript. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity - like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
     "For the past year I have been building AI systems end to end: a pipeline that crawls and audits small-business websites, generates a bespoke replacement for each one and deploys it. 210 built, 177 live. The part I care about is not that the model wrote most of it, it is the gates that catch it when it is wrong.",
   ],
 };
