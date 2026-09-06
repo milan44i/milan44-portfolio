@@ -222,7 +222,7 @@ export const education = [
 // The resume and the printed CV share one profile paragraph; the landing page
 // About section keeps its own two, so this is deliberately not about.paragraphs[0].
 export const resumeProfile =
-  "AI builder and frontend engineer with 4+ years in Vue, React and TypeScript, passionate about building clean, scalable, and high-performance web applications. Strong understanding of modern frontend frameworks, component-based architecture, and UI/UX best practices. Experienced with AI-assisted development focused on productivity and token-efficient workflows.";
+  "AI builder and frontend engineer with 4+ years in Vue, React and TypeScript, passionate about building clean, scalable, and high-performance web applications. Strong understanding of modern frontend frameworks, component-based architecture, and UI/UX best practices. Designs and operates multi-agent AI workflows end to end: supervised coding agents, validation gates, and unattended pipelines that have built 210 production sites.";
 
 export const about = {
   paragraphs: [
