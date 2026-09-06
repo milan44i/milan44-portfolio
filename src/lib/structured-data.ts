@@ -28,7 +28,7 @@ export const gameScoreLd = {
   applicationCategory: "GameApplication",
   operatingSystem: "Web (PWA)",
   description:
-    "An offline-first PWA for tracking board-game scores across a 100,000+ title catalogue, with shareable Victory Cards and a paid Pro tier.",
+    "An offline-first PWA for tracking board-game scores with no account and no server: 20 curated templates, shareable Victory Cards and a paid Pro tier.",
   author: personRef,
   offers: {
     "@type": "Offer",

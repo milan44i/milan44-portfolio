@@ -28,10 +28,13 @@ export function Impact() {
       <h2 id="proof-title" className="sr-only">
         By the numbers
       </h2>
-      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line lg:grid-cols-4">
+      {/* one column below 360px: at 320 a two-up grid gives each label ~130px,
+          which pushes the longer ones to four lines. Full width keeps them at two
+          without clamping anything away. */}
+      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line min-[360px]:grid-cols-2 lg:grid-cols-4">
         {metricGroups.map((group, g) => (
           <Fragment key={group.label}>
-            <div className={`col-span-2 bg-bg-elev px-5 pt-4 pb-2 ${HEADER_POS[g]}`}>
+            <div className={`bg-bg-elev px-5 pt-4 pb-2 min-[360px]:col-span-2 ${HEADER_POS[g]}`}>
               <p className="eyebrow">{group.label}</p>
             </div>
             {group.metrics.map((m, i) => (

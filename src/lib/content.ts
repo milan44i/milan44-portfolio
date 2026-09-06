@@ -12,9 +12,9 @@ export const metricGroups: MetricGroup[] = [
     label: "AI & automation",
     metrics: [
       { value: "210", label: "sites generated and deployed", note: "14 verticals · 177 live" },
-      { value: "35", label: "sites built overnight, unattended", note: "22 runs · best 9 of 9, no failures" },
-      { value: "100k+", label: "board-game titles, shipped solo", note: "GameScore · offline-first · paid Pro" },
-      { value: "1", label: "pipeline: map listing to live demo", note: "crawl · audit · generate · deploy" },
+      { value: "80+", label: "sites built overnight, unattended", note: "15 nightly runs · best night 9 of 9" },
+      { value: "0", label: "sign-ups or servers needed to score a game", note: "GameScore · offline-first PWA · IndexedDB · paid Pro" },
+      { value: "1", label: "pipeline: Google Maps listing in, live demo site out", note: "scout · audit · build · deploy · verify, hands off" },
     ],
   },
   {
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     name: "GameScore",
     kind: "Solo product · gamescore.cards",
     blurb:
-      "A production PWA for board-game score-tracking - offline-first, 100,000+ BoardGameGeek titles, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
+      "A production PWA for board-game score-tracking - offline-first, no account and no server, 20 curated templates, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
     stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "Lemon Squeezy", "Vercel"],
     href: "https://gamescore.cards",
     caseStudy: "/work/gamescore",
@@ -154,7 +154,7 @@ export const aiEdge = {
     },
     {
       title: "Nights run themselves",
-      body: "Scheduled agents pick the work, build it, deploy it and verify each result live. 22 overnight runs, 35 sites, best night 9 of 9 with zero failures, and a preflight that refuses to start rather than half-finish.",
+      body: "Scheduled agents pick the work, build it, deploy it and verify each result live. 80+ sites over 15 nightly runs, best night 9 of 9, and a preflight that refuses to start rather than half-finish.",
     },
     {
       title: "I assume it is wrong, then check",

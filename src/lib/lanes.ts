@@ -56,14 +56,14 @@ export const lanes: Lane[] = [
       {
         id: "overnight",
         title: "The overnight autopilot",
-        kicker: "case 03 · 35 built unattended",
+        kicker: "case 03 · 80+ built unattended",
         problem:
           "Building a site is an evening. Building at fleet scale means the evenings have to happen without me.",
         built:
           "A scheduled overnight workflow that picks the businesses, builds and deploys their sites, verifies each one live, writes the outcome back into fourteen pipelines and two boards, and leaves a machine-readable summary.",
         ai: "A supervised multi-agent workflow doing the whole job unattended, inside a window that never races me, holding a lock so two runs cannot overlap.",
         result:
-          "35 sites built with nobody watching; best night nine of nine, zero failures. It aborts on preflight rather than half-finishing, which is the behaviour I actually wanted.",
+          "80+ sites built with nobody watching, over 15 nightly runs; best night nine of nine. It aborts on preflight rather than half-finishing, which is the behaviour I actually wanted.",
       },
     ],
   },
@@ -93,7 +93,7 @@ export const lanes: Lane[] = [
         problem:
           "Board-game scoring is paper, phones die, and nobody keeps a group's history.",
         built:
-          "An offline-first PWA over a 100,000-title catalogue: flexible scoring, 20 curated templates, shareable Victory Cards, play-group stats, and a paid Pro tier with licensing.",
+          "An offline-first PWA that needs no account and no server: flexible scoring, 20 curated templates, shareable Victory Cards, play-group stats, and a paid Pro tier with licensing.",
         ai: "Designed, built and shipped solo with Claude Code as the force multiplier, including the payments and licensing path.",
         result: "Live at gamescore.cards, with a paid Pro tier. Design to deployment, one person.",
         href: "/work/gamescore",

@@ -35,7 +35,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     period: "Shipped 2026 · actively maintained",
     role: "Design, engineering & infrastructure - solo",
     intro:
-      "A production PWA for tracking board-game scores: offline-first, fast, and wired into BoardGameGeek search across 100,000+ titles - with a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
+      "A production PWA for tracking board-game scores: offline-first, no account and no server, with BoardGameGeek search wired in and a paid Pro tier. Designed, built, shipped and operated solo, with Claude Code as the force multiplier.",
     summary:
       "How I designed, built and shipped GameScore solo - an offline-first board-game scoring PWA on Nuxt 4, Dexie and Vercel with a paid Pro tier.",
     links: [{ label: "Visit gamescore.cards", href: "https://gamescore.cards" }],
