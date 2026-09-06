@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PrintButton } from "@/components/PrintButton";
 import { site } from "@/lib/site";
-import { about, aiSystems, education, experience, projects, resumeTitle, skills } from "@/lib/content";
+import { aiSystems, education, experience, projects, resumeTitle, skills, resumeProfile } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
   title: "Resume",
@@ -46,7 +46,7 @@ export default function ResumePage() {
 
           {/* profile */}
           <Section heading="Profile">
-            <p className="text-sm leading-relaxed text-text-dim print:text-black">{about.paragraphs[0]}</p>
+            <p className="text-sm leading-relaxed text-text-dim print:text-black">{resumeProfile}</p>
           </Section>
 
           {/* ai systems */}

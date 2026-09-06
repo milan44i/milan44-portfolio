@@ -219,6 +219,11 @@ export const education = [
   { school: "Mathematical Grammar School, Belgrade", detail: "GPA 4.7 / 5", period: "2014 - 2018" },
 ];
 
+// The resume and the printed CV share one profile paragraph; the landing page
+// About section keeps its own two, so this is deliberately not about.paragraphs[0].
+export const resumeProfile =
+  "AI builder and frontend engineer with 4+ years in Vue, React and TypeScript, passionate about building clean, scalable, and high-performance web applications. Strong understanding of modern frontend frameworks, component-based architecture, and UI/UX best practices. Experienced with AI-assisted development focused on productivity and token-efficient workflows.";
+
 export const about = {
   paragraphs: [
     "I'm an AI builder and frontend engineer based in Belgrade, with 4+ years across Vue, React and TypeScript. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity - like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
