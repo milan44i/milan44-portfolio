@@ -9,6 +9,6 @@ export default function Image() {
     eyebrow: "case study",
     title: "The site-generation pipeline",
     subtitle: "Crawl, generate, review, deploy - a whole site per business, unattended",
-    facts: ["210 sites built", "14 verticals", "177 live", "35 built overnight, unattended"],
+    facts: ["210 sites built", "14 verticals", "177 live", "80+ built overnight"],
   });
 }
