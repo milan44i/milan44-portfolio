@@ -20,7 +20,14 @@ export default function ResumePage() {
           <Link href="/" className="hit mono text-xs text-text-dim transition-colors hover:text-accent">
             ← back home
           </Link>
-          <PrintButton />
+          <div className="flex items-center gap-2">
+            {/* the PDF is printed from cv/cv.html by npm run cv:pdf, so it is the
+                same content as this page in the captain's own CV design */}
+            <a href="/Milan-Stankovic-CV.pdf" download className="btn btn-secondary hit text-xs">
+              Download PDF
+            </a>
+            <PrintButton />
+          </div>
         </div>
 
         <article className="print:text-black">
