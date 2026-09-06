@@ -25,7 +25,7 @@ const alsoShipped = [
     host: "github.com/milan44i",
     href: "https://github.com/milan44i/claude-setup",
     blurb:
-      "The AI workflow itself, published: self-healing hooks that feed compiler output back to the model, pre-compaction context capture, and a typed memory system.",
+      "My Claude Code setup, published: the 18 skills I actually run, from Jira ticket to merged PR (implement, create PR, fix checks, fix comments, resolve conflicts) and from Google Maps listing to live demo (scout, build, pitch), with an installer that merges into an existing setup.",
   },
 ];
 

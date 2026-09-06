@@ -45,6 +45,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "site-pipeline",
+    name: "Potpis Studio",
+    kind: "Small-business site pipeline · 210 built, 177 live",
+    blurb:
+      "An end-to-end pipeline that turns a Google Maps listing into a live demo site: scout the business, crawl and audit its current site, generate a bespoke replacement on a shared engine, deploy to Cloudflare Pages and verify it live. Runs unattended overnight (80+ sites over 15 nightly runs, best night 9 of 9), with truthfulness gates on every outreach claim and review boards for the human pass. Potpis Studio is the inbound brand built on it.",
+    stack: ["Node", "Astro", "Cloudflare Pages / Workers / D1", "Playwright", "Claude Code agents"],
+    year: "2026",
+  },
+  {
     slug: "gamescore",
     name: "GameScore",
     kind: "Solo product · gamescore.cards",
@@ -61,8 +70,8 @@ export const projects: Project[] = [
     name: "claude-setup",
     kind: "Open source · AI workflow toolkit",
     blurb:
-      "A modular Claude Code installation toolkit: a self-healing TypeScript hook that re-wakes the model with compiler output, pre-compaction context capture, a context/budget statusline, and a typed memory system. The 'how' behind the velocity.",
-    stack: ["Python", "Shell", "Claude Code", "Hooks", "Skills"],
+      "My Claude Code setup, published: the 18 skills I actually run, from Jira ticket to merged PR (implement, create PR, fix checks, fix comments, resolve conflicts) and from Google Maps listing to live demo (scout, build, pitch), with an installer that merges into an existing setup.",
+    stack: ["Shell", "Claude Code", "Skills", "Hooks"],
     href: "https://github.com/milan44i/claude-setup",
     year: "2026",
   },
@@ -103,7 +112,7 @@ export const experience: Role[] = [
   },
   {
     company: "DEVersity",
-    title: "Frontend Engineer, previously Junior Frontend Engineer",
+    title: "Junior Frontend Engineer, then Frontend Engineer",
     period: "Apr 2024 - Jun 2025",
     summary:
       "Three products: PointOne, a data-analysis platform; Aktivizam, a social platform; and Romotioncam, a wind-turbine blade inspection platform.",
@@ -118,7 +127,7 @@ export const experience: Role[] = [
   },
   {
     company: "Connect The Dots",
-    title: "Junior Frontend Engineer, then Frontend Developer (intern)",
+    title: "Frontend Developer (intern), then Junior Frontend Engineer",
     period: "Apr 2023 - Mar 2024",
     summary: "AI relationship-intelligence platform.",
     stack: ["Vue", "TypeScript", "Pinia", "TanStack Query", "Storybook", "Vitest", "Vite"],
@@ -180,6 +189,6 @@ export const education = [
 export const about = {
   paragraphs: [
     "I'm an AI builder and frontend engineer based in Belgrade, with 4+ years across Vue, React and TypeScript. I care about component architecture, measurable performance, and interfaces that hold up under real-world complexity - like the analyst-facing tooling I own at LotusFlare for carrier-grade telecom operators.",
-    "For the past year I have been building AI systems end to end: a pipeline that crawls and audits small-business websites, generates a bespoke replacement for each one and deploys it. 210 built, 177 live. The part I care about is not that the model wrote most of it, it is the gates that catch it when it is wrong.",
+    "For the past year, in my free time, I have been building AI systems end to end: a pipeline that crawls and audits small-business websites, generates a bespoke replacement for each one and deploys it. 210 built, 177 live. I design the system and write the rules; agents do the volume, and every result is checked live before it counts.",
   ],
 };
