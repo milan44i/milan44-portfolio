@@ -103,15 +103,14 @@ export const experience: Role[] = [
   {
     company: "Independent",
     title: "AI Builder & Automation Engineer",
-    period: "Mar 2026 - Present",
+    period: "Jul 2026 - Present",
     summary:
       "Self-employed, Belgrade (remote). I design and run systems that find the work, do it, and check their own output.",
     stack: ["Astro", "Node", "Cloudflare Workers / Pages / D1 / R2", "Playwright", "TypeScript", "Claude Code agents"],
     highlights: [
-      "Built a pipeline that takes a business from a map listing to a live website: crawl, audit, generate, deploy. 210 sites built across 14 verticals, 177 live, 211 designs and no two alike.",
-      "Built an unattended overnight agent workflow that picks the work, builds and deploys it and verifies each result live: 22 runs, 35 sites, best night 9 of 9 with zero failures.",
-      "Built the site auditor behind it: about 30 checks per site scoring technical health, SEO and AI visibility, run against 110 real sites.",
-      "Wrote the truthfulness gates that stop the system asserting what it cannot cite; one audit caught 78 of 161 outbound claims that nothing had verified.",
+      "Built a pipeline that turns a Google Maps listing into a live website - scout, audit, generate, deploy: 210 sites across 14 verticals, 177 live, no two alike. Potpis Studio is the inbound brand on it.",
+      "It runs itself overnight: 80+ sites over 15 nightly runs, best night 9 of 9, each verified live before it counts.",
+      "Truthfulness gates on every outreach claim (one audit caught 78 of 161 unverified) and validation gates before any merge, run by a supervised fleet of agents.",
     ],
   },
   {
@@ -156,15 +155,6 @@ export const experience: Role[] = [
       "Built a reusable component library (Table, Input, Accordion, Checkbox) pixel-matched to Figma, with unit and integration tests.",
     ],
   },
-];
-
-// Résumé-only: the four systems, plus one line on how the work is run.
-export const aiSystems: string[] = [
-  "Site-generation pipeline: crawl, audit, generate, deploy. 210 sites built across 14 verticals, 177 live, 211 designs and no two alike.",
-  "Overnight autopilot: an unattended agent workflow that picks, builds, deploys and verifies. 22 runs, 35 sites, best night 9 of 9, zero failures.",
-  "Site auditor: about 30 checks per site scoring technical health, SEO and AI visibility, run against 110 real sites.",
-  "Truthfulness gates: a claim renders only with a dated, sourced check behind it. One audit caught 78 of 161 outbound claims nothing had verified.",
-  "How I run it: a supervised fleet of agents, reusable skills as the unit of work, validation gates before anything merges, and annotated review boards instead of chat.",
 ];
 
 // The title line on the résumé and the printed CV.
