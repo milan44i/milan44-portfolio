@@ -49,7 +49,7 @@ export const projects: Project[] = [
     name: "Potpis Studio",
     kind: "Small-business site pipeline · 210 built, 177 live",
     blurb:
-      "An end-to-end pipeline that turns a Google Maps listing into a live demo site: scout the business, crawl and audit its current site, generate a bespoke replacement on a shared engine, deploy to Cloudflare Pages and verify it live. Runs unattended overnight (80+ sites over 15 nightly runs, best night 9 of 9), with truthfulness gates on every outreach claim and review boards for the human pass. Potpis Studio is the inbound brand built on it.",
+      "A website studio run by agents with me at the gate: from a single request, the pipeline researches the business, drafts the copy, builds and deploys a bespoke site within 48 hours, and the owner pays only if they keep it. The pipeline behind it turns a Google Maps listing into a live site: scout, audit, generate, deploy, verify. 210 built across 14 verticals, 177 live, 80+ of them overnight across 15 nightly runs, best night 9 of 9.",
     stack: ["Node", "Astro", "Cloudflare Pages / Workers / D1", "Playwright", "Claude Code agents"],
     year: "2026",
   },
@@ -133,7 +133,7 @@ export const experience: Role[] = [
   },
   {
     company: "DEVersity",
-    title: "Junior Frontend Engineer, then Frontend Engineer",
+    title: "Frontend Engineer",
     period: "Apr 2024 - Jun 2025",
     summary: "PointOne, a data-analysis platform; Aktivizam, a social platform; Romotioncam, blade inspection.",
     stack: ["React", "Next.js", "TypeScript", "Nx", "TanStack Query", "TanStack Table", "Tailwind"],
@@ -146,7 +146,7 @@ export const experience: Role[] = [
   },
   {
     company: "Connect The Dots",
-    title: "Frontend Developer (intern), then Junior Frontend Engineer",
+    title: "Junior Frontend Engineer",
     period: "Apr 2023 - Mar 2024",
     summary: "AI relationship-intelligence platform.",
     stack: ["Vue 3", "TypeScript", "Pinia", "TanStack Query", "Storybook", "Vitest"],
