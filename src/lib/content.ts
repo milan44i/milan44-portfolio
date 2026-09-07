@@ -127,8 +127,7 @@ export const experience: Role[] = [
       "Cut portal initial load time by 80% (1.2 min to 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
       "Led the Vue 3 Composition API and Pinia migration; authored reusable composables adopted team-wide.",
       "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
-      "Developed the Application Management UI with cluster-level actions for data pipeline orchestration.",
-      "Built a multi-file S3 upload system with real-time progress, smart error handling and DLQ recovery.",
+      "Shipped analyst-facing features end-to-end: multi-file S3 upload with DLQ recovery, RBAC for Reports, and an Application Management UI with cluster-level actions.",
     ],
   },
   {

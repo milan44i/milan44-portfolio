@@ -24,7 +24,9 @@
   @font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Italic.ttf'); font-weight: 400; font-style: italic; }
 
   @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; font-optical-sizing: none; }
+  /* No ligatures: the fi ligature pastes as U+FB01, so "multi-file" comes out
+     of the PDF as "multi-ﬁle" and stops matching in an ATS or a search box. */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-optical-sizing: none; font-variant-ligatures: none; }
 
   :root {
     --ink: #0f172a;
@@ -145,7 +147,7 @@
     <li>Own the UIs that let analysts configure data pipelines, reporting and real-time event processing for operators serving millions of subscribers.</li>
     <li>Cut portal initial load time 80% (1.2 min → 14 s) via dynamic imports, route-level splitting and Vite tuning.</li>
     <li>Led the Vue 3 Composition API + Pinia migration, and refactored a 2k+ line editor into a step-based flow: 45% less complexity, zero regressions.</li>
-    <li>Developed the Application Management UI with cluster-level actions for data pipeline orchestration.</li>
+    <li>Shipped analyst-facing features end-to-end: multi-file S3 upload with DLQ recovery, RBAC for Reports, and an Application Management UI with cluster-level actions.</li>
   </ul>
 </div>
 
