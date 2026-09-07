@@ -129,7 +129,7 @@ export const experience: Role[] = [
       "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
       "Shipped analyst-facing features end-to-end: multi-file S3 upload with DLQ recovery, RBAC for Reports, and an Application Management UI with cluster-level actions.",
       "Led the Dataflows migration across frontend and Scala backend: five draw.io SVGs became interactive Vue Flow diagrams as backend-owned content, behind a per-operator flag with a contract test and an ADR. Legacy path deleted.",
-      "Owned the portal build toolchain: upgraded to Vitest 4 and Vite 8 and added an oxlint + ESLint lint pipeline that cut lint CI time.",
+      "Upgraded portal build toolchain to Vite 8 and Vitest 4 and added an oxlint + ESLint lint pipeline that cut lint CI time.",
     ],
   },
   {
@@ -142,7 +142,7 @@ export const experience: Role[] = [
       "PointOne: built the analytics dashboard and a DataTable with filtering, sorting, inline editing and row selection.",
       "Drove the Redux Toolkit to TanStack Query migration.",
       "Cut build time 40% (18.8 to 11.4 s) and the main bundle 53% (1,834 to 858 kB) via build optimizations and route-based code splitting.",
-      "Aktivizam: built the core UI end to end (feed, filters, forms, tags, event calendar, admin tools) and led the i18n rollout.",
+      "Aktivizam: built the core UI end to end (feed, filters, forms, tags, event calendar) and admin tools (analytics, settings), and led the i18n rollout.",
     ],
   },
   {
