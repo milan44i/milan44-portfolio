@@ -128,7 +128,7 @@ export const experience: Role[] = [
       "Led the Vue 3 Composition API and Pinia migration; authored reusable composables adopted team-wide.",
       "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
       "Shipped analyst-facing features end-to-end: multi-file S3 upload with DLQ recovery, RBAC for Reports, and an Application Management UI with cluster-level actions.",
-      "Led the Dataflows diagram migration end to end across frontend and backend: replaced five draw.io SVGs with interactive Vue Flow diagrams served as backend-owned content (Scala), rolled out behind a per-operator feature flag with a cross-repo contract test and an ADR; 11 tickets, 15 PRs, legacy path deleted.",
+      "Led the Dataflows migration across frontend and Scala backend: five draw.io SVGs became interactive Vue Flow diagrams as backend-owned content, behind a per-operator flag with a contract test and an ADR. Legacy path deleted.",
     ],
   },
   {
