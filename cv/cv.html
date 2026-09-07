@@ -5,14 +5,26 @@
 <title>Milan Stankovic CV</title>
 <!-- Design is the captain's own cv-source; only the content is v2. Print with npm run cv:pdf. -->
 <style>
-  @font-face { font-family: 'Bricolage Grotesque'; src: url('fonts/Bricolage.ttf'); font-weight: 200 800; font-style: normal; }
-  @font-face { font-family: 'Hanken Grotesk'; src: url('fonts/Hanken.ttf'); font-weight: 100 900; font-style: normal; }
-  @font-face { font-family: 'Hanken Grotesk'; src: url('fonts/Hanken-Italic.ttf'); font-weight: 100 900; font-style: italic; }
-  @font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono.ttf'); font-weight: 100 800; font-style: normal; }
-  @font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Italic.ttf'); font-weight: 100 800; font-style: italic; }
+  /* Static instances, not the variable TTFs. Chrome embeds a variable font in a
+     PDF as Type 3 outlines split across several font objects, so copied text
+     comes back broken into runs - and some ATS parsers break the same way.
+     Generated with fontTools varLib.instancer --remove-overlaps at the weights
+     this page actually uses (400, 600, 700). */
+  @font-face { font-family: 'Bricolage Grotesque'; src: url('fonts/BricolageGrotesque-Bold.ttf'); font-weight: 700; font-style: normal; }
+  /* Bricolage is optical-size aware and the variable build let Chrome pick a
+     different opsz for the 22pt name and the 9.5pt section titles. Pinning one
+     instance flattened the titles, so the small sizes get their own. */
+  @font-face { font-family: 'Bricolage Small'; src: url('fonts/BricolageGrotesque-Bold-Small.ttf'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'Hanken Grotesk'; src: url('fonts/HankenGrotesk-Regular.ttf'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'Hanken Grotesk'; src: url('fonts/HankenGrotesk-SemiBold.ttf'); font-weight: 600; font-style: normal; }
+  @font-face { font-family: 'Hanken Grotesk'; src: url('fonts/HankenGrotesk-Bold.ttf'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'Hanken Grotesk'; src: url('fonts/HankenGrotesk-Italic.ttf'); font-weight: 400; font-style: italic; }
+  @font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Regular.ttf'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Bold.ttf'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono-Italic.ttf'); font-weight: 400; font-style: italic; }
 
   @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-optical-sizing: none; }
 
   :root {
     --ink: #0f172a;
@@ -52,7 +64,7 @@
     margin-bottom: 4.5pt;
   }
   .section-h .idx { font-family: 'JetBrains Mono', monospace; font-size: 8pt; font-weight: 700; color: var(--lime-deep); }
-  .section-h .t { font-family: 'Bricolage Grotesque', sans-serif; font-size: 9.5pt; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.8pt; }
+  .section-h .t { font-family: 'Bricolage Small', sans-serif; font-size: 9.5pt; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.8pt; }
 
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8pt; }
   .role-title { font-size: 10pt; font-weight: 700; color: var(--ink); }
