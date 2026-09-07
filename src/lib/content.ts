@@ -129,6 +129,7 @@ export const experience: Role[] = [
       "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
       "Shipped analyst-facing features end-to-end: multi-file S3 upload with DLQ recovery, RBAC for Reports, and an Application Management UI with cluster-level actions.",
       "Led the Dataflows migration across frontend and Scala backend: five draw.io SVGs became interactive Vue Flow diagrams as backend-owned content, behind a per-operator flag with a contract test and an ADR. Legacy path deleted.",
+      "Owning the portal toolchain epic: Vitest 4 shipped, Storybook 10 review, Vite 8 migration off the deprecated rolldown-vite alias, and an oxlint plus slimmed ESLint pipeline to cut lint CI time across 7,000+ TypeScript files.",
     ],
   },
   {
