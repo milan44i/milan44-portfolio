@@ -110,7 +110,6 @@ export const experience: Role[] = [
     highlights: [
       "Built a pipeline that turns a Google Maps listing into a live website - scout, audit, generate, deploy: 210 sites across 14 verticals, 177 live, no two alike. Potpis Studio is the inbound brand on it.",
       "It runs itself overnight: 80+ sites over 15 nightly runs, best night 9 of 9, each verified live before it counts.",
-      "Truthfulness gates on every outreach claim (one audit caught 78 of 161 unverified) and validation gates before any merge, run by a supervised fleet of agents.",
     ],
   },
   {
@@ -128,6 +127,7 @@ export const experience: Role[] = [
       "Cut portal initial load time by 80% (1.2 min to 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
       "Led the Vue 3 Composition API and Pinia migration; authored reusable composables adopted team-wide.",
       "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
+      "Developed the Application Management UI with cluster-level actions for data pipeline orchestration.",
       "Built a multi-file S3 upload system with real-time progress, smart error handling and DLQ recovery.",
     ],
   },
