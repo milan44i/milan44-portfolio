@@ -141,7 +141,7 @@ export const experience: Role[] = [
     highlights: [
       "PointOne: built the analytics dashboard and a DataTable with filtering, sorting, inline editing and row selection.",
       "Drove the Redux Toolkit to TanStack Query migration.",
-      "Cut build time 40% (18.8 to 11.4 s) and the main bundle 53% (1,834 to 858 kB) via route-based code splitting.",
+      "Cut build time 40% (18.8 to 11.4 s) and the main bundle 53% (1,834 to 858 kB) via build optimizations and route-based code splitting.",
       "Aktivizam: built the core UI end to end (feed, filters, forms, tags, event calendar, admin tools) and led the i18n rollout.",
     ],
   },
