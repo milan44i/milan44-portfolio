@@ -18,11 +18,13 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-const routes = [
+const routes: { href: string; label: string; lang?: string }[] = [
   { href: "/#work", label: "What I build" },
   { href: "/work/pipeline", label: "Case study: the pipeline" },
   { href: "/work/gamescore", label: "Case study: GameScore" },
+  { href: "/work/lotusflare", label: "Case study: LotusFlare" },
   { href: "/resume", label: "Resume" },
+  { href: "/projects", label: "Sajtovi za restorane (SR)", lang: "sr" },
 ];
 
 export default function GlobalNotFound() {
@@ -44,7 +46,7 @@ export default function GlobalNotFound() {
           <ul className="mt-8 flex flex-wrap gap-3">
             {routes.map((r) => (
               <li key={r.href}>
-                <Link href={r.href} className="btn btn-secondary">
+                <Link href={r.href} lang={r.lang} className="btn btn-secondary">
                   {r.label}
                 </Link>
               </li>

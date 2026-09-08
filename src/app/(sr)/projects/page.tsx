@@ -154,6 +154,18 @@ export default function ProjectsPage() {
               </a>
             </div>
             <p className="mt-6 text-sm text-text-dim">{c.contact.note}</p>
+            <p className="mt-2 text-sm text-text-dim">
+              {c.contact.studio}{" "}
+              <a
+                href={c.contact.studioHref}
+                target="_blank"
+                rel="noreferrer"
+                className="link hit text-text"
+              >
+                {c.contact.studioName}
+              </a>
+              .
+            </p>
             <p className="mt-12">
               <Link href="/" className="link hit mono text-[12px] text-text-dim">
                 {c.contact.techProfile} →

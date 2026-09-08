@@ -13,7 +13,7 @@ export const metricGroups: MetricGroup[] = [
     metrics: [
       { value: "210", label: "sites generated and deployed", note: "14 verticals · 177 live" },
       { value: "80+", label: "sites built overnight, unattended", note: "15 nightly runs · best night 9 of 9" },
-      { value: "0", label: "sign-ups or servers needed to score a game", note: "GameScore · offline-first PWA · IndexedDB · paid Pro" },
+      { value: "0", label: "sign-ups or servers needed to score a game", note: "GameScore · offline-first PWA · paid Pro" },
       { value: "1", label: "pipeline: Google Maps listing in, live demo site out", note: "scout · audit · build · deploy · verify, hands off" },
     ],
   },
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     name: "Potpis Studio",
     kind: "Small-business site pipeline · 210 built, 177 live",
     blurb:
-      "A website studio run by agents with me at the gate: from a single request, the pipeline researches the business, drafts the copy, builds and deploys a bespoke site within 48 hours, and the owner pays only if they keep it. The pipeline behind it turns a Google Maps listing into a live site: scout, audit, generate, deploy, verify. 210 built across 14 verticals, 177 live, 80+ of them overnight across 15 nightly runs, best night 9 of 9.",
+      "A website studio run by agents with me at the gate: from a single request, the pipeline researches the business, drafts the copy, builds and deploys a bespoke site within 48 hours, and the owner pays only if they keep it.",
     stack: ["Node", "Astro", "Cloudflare Pages / Workers / D1", "Playwright", "Claude Code agents"],
     year: "2026",
   },
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     name: "GameScore",
     kind: "gamescore.cards",
     blurb:
-      "A production PWA for board-game score-tracking - offline-first, no account and no server, 20 curated templates, and a paid Pro tier with sharable Victory Cards. Designed, built and shipped solo with Claude Code.",
+      "A production PWA for board-game score-tracking - offline-first, no account and no server, 20 curated templates, and a paid Pro tier with shareable Victory Cards. Designed, built and shipped solo with Claude Code.",
     stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "Lemon Squeezy", "Vercel"],
     href: "https://gamescore.cards",
     caseStudy: "/work/gamescore",
@@ -126,10 +126,10 @@ export const experience: Role[] = [
       "Architected the team's AI engineering stack: cross-IDE agent rules, a CLAUDE.md context system and custom skills, now the workflow the team develops with.",
       "Cut portal initial load time by 80% (1.2 min to 14 s) via dynamic imports, route-level splitting and Vite optimizations.",
       "Led the Vue 3 Composition API and Pinia migration; authored reusable composables adopted team-wide.",
-      "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
+      "Refactored a 2,000-line SinkConfigEditor into a modular, step-based flow: 45% less complexity, zero regressions.",
       "Shipped analyst-facing features end-to-end: multi-file S3 upload with DLQ recovery, RBAC for Reports, and an Application Management UI with cluster-level actions.",
       "Led the Dataflows migration across frontend and Scala backend: five draw.io SVGs became interactive Vue Flow diagrams as backend-owned content, behind a per-operator flag with a contract test and an ADR. Legacy path deleted.",
-      "Upgraded portal build toolchain to Vite 8 and Vitest 4 and added an oxlint + ESLint lint pipeline that cut lint CI time.",
+      "Upgraded the portal toolchain to Vite 8 and Vitest 4, and added an oxlint + ESLint pipeline that cut lint CI time.",
     ],
   },
   {
@@ -170,7 +170,7 @@ export const aiEdge = {
   capabilities: [
     {
       title: "I run a fleet, not a chat",
-      body: "A supervising agent and many workers, each with a written brief and its own copy of the repo. About 180 task records since late August, typically 4 to 8 workers alive at once.",
+      body: "A supervising agent and many workers, each with a written brief and its own copy of the repo. About 180 task records since late August 2026, typically 4 to 8 workers alive at once.",
     },
     {
       title: "Skills are my unit of work",
@@ -178,15 +178,15 @@ export const aiEdge = {
     },
     {
       title: "Gates, not vibes",
-      body: "Engine changes pass independent review, tests, docs, lint, PR and CI before they land. On one change this week the review ran five fix rounds before the tests were allowed to start.",
+      body: "Engine changes pass independent review, tests, docs, lint, PR and CI before they land. On one change the review ran five fix rounds before the tests were allowed to start.",
     },
     {
       title: "I review on a board, not in a chat",
-      body: "Plans and diffs become annotatable pages. I draw on a screenshot and the marks go back to the worker as instructions: the last logo round was 12 annotations, 12 fixes, one redeploy.",
+      body: "Plans and diffs become annotatable pages. I draw on a screenshot and the marks go back to the worker as instructions: one logo round was 12 annotations, 12 fixes, one redeploy.",
     },
     {
       title: "Nights run themselves",
-      body: "Scheduled agents pick the work, build it, deploy it and verify each result live. 80+ sites over 15 nightly runs, best night 9 of 9, and a preflight that refuses to start rather than half-finish.",
+      body: "Scheduled agents pick the work, build it, deploy it and verify each result live. The same 80+ sites as above, and a preflight that refuses to start rather than half-finish.",
     },
     {
       title: "I assume it is wrong, then check",
@@ -200,7 +200,7 @@ export type SkillGroup = { label: string; items: string[] };
 export const skills: SkillGroup[] = [
   { label: "AI & automation", items: ["AI agents", "LLM tooling", "Agentic workflows", "Web scraping", "Web crawling", "Technical SEO", "Schema.org / JSON-LD"] },
   { label: "Languages", items: ["TypeScript", "JavaScript", "HTML5", "CSS3", "SQL"] },
-  { label: "Frameworks & UI", items: ["Vue 3", "React", "Next.js", "Nuxt", "Astro", "Node.js", "Tailwind", "Shadcn"] },
+  { label: "Frameworks & UI", items: ["Vue 3", "React", "Next.js", "Nuxt", "Astro", "Node.js", "Tailwind", "shadcn/ui"] },
   { label: "State & Data", items: ["Pinia", "Vuex", "TanStack Query", "Redux Toolkit"] },
   { label: "Tooling & Infra", items: ["Cloudflare Workers / Pages / D1 / R2", "Vite", "Playwright", "Vitest", "Storybook", "Docker", "Vercel", "Git"] },
 ];
@@ -213,7 +213,7 @@ export const education = [
 // The resume and the printed CV share one profile paragraph; the landing page
 // About section keeps its own two, so this is deliberately not about.paragraphs[0].
 export const resumeProfile =
-  "AI builder and frontend engineer with 4+ years in Vue, React and TypeScript, passionate about building clean, scalable, and high-performance web applications. Strong understanding of modern frontend frameworks, component-based architecture, and UI/UX best practices. Designs and operates multi-agent AI workflows end to end: supervised coding agents, validation gates, and unattended pipelines that have built 210 production sites.";
+  "AI builder and frontend engineer with 4+ years in Vue, React and TypeScript, building clean, scalable, high-performance web applications on component-based architecture and UI/UX best practices. Designs and operates multi-agent AI workflows end to end: supervised coding agents, validation gates, and unattended pipelines that have built 210 production sites.";
 
 export const about = {
   paragraphs: [

@@ -17,7 +17,7 @@ export const projectsCopy = {
   hero: {
     eyebrow: "Milan Stanković · Beograd",
     title: "Nijedan od ovih sajtova ne liči na drugi.",
-    lead: "Zato što nijedan nije šablon. Pravim sajtove za restorane i male biznise: dizajn svakog nastaje iz priče samog lokala - iz sale, jelovnika, imena i kraja u kom radi.",
+    lead: "Zato što nijedan nije šablon. Pravim sajtove za restorane i male biznise: dizajn svakog nastaje iz priče samog lokala - iz sale, jelovnika, imena i kraja u kom radi. Novi sajt je gotov za 48 sati.",
     ctaPrimary: "Javite se",
     stats: [
       { big: "200+", small: "izgrađenih sajtova" },
@@ -87,6 +87,9 @@ export const projectsCopy = {
     eyebrow: "Kontakt",
     title: "Imate lokal? Javite se.",
     note: "Obično odgovorim u toku dana.",
+    studio: "Sajtove radim kroz",
+    studioName: "Potpis Studio",
+    studioHref: "https://potpisstudio.rs",
     phone: "065 317 8640",
     phoneHref: "tel:+381653178640",
     techProfile: "Tehnički profil (EN)",
@@ -105,6 +108,8 @@ export type Project = {
   liveUrl: string | null;
   image: StaticImageData;
   alt: string;
+  // The English /work/pipeline strip reuses these cards; a screen reader there must not get Serbian.
+  altEn: string;
 };
 
 export const projects: Project[] = [
@@ -118,6 +123,7 @@ export const projects: Project[] = [
     liveUrl: "https://restoran-pinot.pages.dev",
     image: pinot,
     alt: "Sajt restorana Pinot - krem pozadina, serifni logotip i prsten od vina",
+    altEn: "Pinot restaurant website - cream background, serif logotype and a wine ring",
   },
   {
     slug: "istok",
@@ -129,6 +135,7 @@ export const projects: Project[] = [
     liveUrl: "https://istok.pages.dev",
     image: istok,
     alt: "Sajt restorana Istok - tamna sala sa lampionima i svetlim logotipom",
+    altEn: "Istok restaurant website - dark dining room with lanterns and a light logotype",
   },
   {
     slug: "thyme",
@@ -140,6 +147,7 @@ export const projects: Project[] = [
     liveUrl: null, // removed from the live strip on the captain's call 2026-09-05
     image: thyme,
     alt: "Sajt Thyme street food - zeleno-krem retro dizajn sa prugama",
+    altEn: "Thyme street food website - green and cream retro design with stripes",
   },
   {
     slug: "sentandrea",
@@ -151,6 +159,7 @@ export const projects: Project[] = [
     liveUrl: "https://sentandrea.pages.dev",
     image: sentandrea,
     alt: "Sajt restorana Sent Andrea - topli salon sa oslikanim plafonom",
+    altEn: "Sent Andrea restaurant website - warm lounge with a painted ceiling",
   },
   {
     slug: "magellan",
@@ -162,6 +171,7 @@ export const projects: Project[] = [
     liveUrl: "https://magellan-p8t.pages.dev", // redeployed at the old URL 2026-09-05
     image: magellan,
     alt: "Sajt restorana Magellan - krem pozadina, iscrtana ruta plovidbe i sala luksuzne jahte",
+    altEn: "Magellan restaurant website - cream background, a drawn sailing route and a luxury-yacht dining room",
   },
   {
     slug: "reka",
@@ -173,6 +183,7 @@ export const projects: Project[] = [
     liveUrl: "https://restoran-reka.pages.dev",
     image: reka,
     alt: "Sajt kafane Reka - noćna slika sa gostima koji igraju uz živu muziku",
+    altEn: "Reka tavern website - night photo of guests dancing to live music",
   },
   {
     slug: "brunello",
@@ -184,5 +195,6 @@ export const projects: Project[] = [
     liveUrl: "https://brunello-wine-dine.restorani.pages.dev",
     image: brunello,
     alt: "Sajt restorana Brunello - vinoteka sa policama do plafona i topao šank",
+    altEn: "Brunello restaurant website - wine shop with floor-to-ceiling shelves and a warm bar",
   },
 ];

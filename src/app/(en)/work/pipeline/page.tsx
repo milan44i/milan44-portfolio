@@ -28,8 +28,8 @@ const beats = [
 const metrics = [
   { value: "210", label: "sites generated and deployed" },
   { value: "177", label: "live in production" },
-  { value: "211", label: "designs, no two alike" },
   { value: "14", label: "business verticals" },
+  { value: "80+", label: "built overnight, unattended" },
 ];
 
 const stack = [
@@ -40,7 +40,7 @@ const stack = [
   "Cloudflare Workers",
   "D1",
   "Playwright",
-  "schema.org / JSON-LD",
+  "Schema.org / JSON-LD",
 ];
 
 export default function Page() {
@@ -67,7 +67,7 @@ export default function Page() {
             The site-generation pipeline
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-text-dim">
-            A business goes in as a map listing and comes out as a deployed website: crawled, scored,
+            A business goes in as a map listing and comes out as a deployed website: scouted, audited,
             designed from its own story, built, deployed and verified.
           </p>
         </header>
@@ -93,8 +93,8 @@ export default function Page() {
         <section className="hairline mt-16 pt-12">
           <h2 className="font-display display-md font-bold tracking-tight">What it produces</h2>
           <p className="mt-4 max-w-2xl text-text-dim">
-            {liveProjectCount === 6 ? "Six" : liveProjectCount === 5 ? "Five" : liveProjectCount} of
-            the sites the pipeline generated, deployed and still serving. Every design is one-of-one:
+            {liveProjectCount === 6 ? "Six" : liveProjectCount === 5 ? "Five" : liveProjectCount} sites
+            the pipeline generated and deployed, still live. Every design is one-of-one:
             the fingerprint registry refuses a new theme that shares more than one of eight design
             axes with anything already shipped.
           </p>
@@ -108,7 +108,6 @@ export default function Page() {
           <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">
             Lighthouse on <span className="text-text">restoran-pinot.pages.dev</span>, desktop:
             accessibility <span className="text-text">95</span>, best practices{" "}
-            <span className="text-text">100</span>, agentic browsing{" "}
             <span className="text-text">100</span>. Every generated site ships typed JSON-LD, a
             sitemap, hreflang pairs, an <code className="mono text-[12px]">llms.txt</code> and
             near-zero client JavaScript.

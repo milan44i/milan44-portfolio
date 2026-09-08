@@ -41,7 +41,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     links: [{ label: "Visit gamescore.cards", href: "https://gamescore.cards" }],
     stack: ["Nuxt 4", "TypeScript", "Pinia", "Dexie / IndexedDB", "Tailwind", "shadcn-vue", "PWA", "Lemon Squeezy", "Vercel", "Vercel KV"],
     metrics: [
-      { value: "Offline", label: "first PWA, no account" },
+      { value: "0", label: "accounts, servers or sign-ups" },
       { value: "Solo", label: "design → ship → operate" },
       { value: "Pro", label: "paid tier (€4.99, Lemon Squeezy)" },
       { value: "20", label: "curated game templates" },
@@ -106,13 +106,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "Where the AI workflow earned its keep",
         body: [
-          "GameScore is the clearest proof of the workflow I write about: a single engineer carrying design, frontend, edge backend, data modelling and ops. Claude Code, driven by the context-engineering and agentic-orchestration setup I publish in claude-setup, is what made that scope tractable solo - planning loops for features, AI-assisted refactors with guardrails, and a typed memory system so the model kept the thread across long sessions.",
+          "GameScore is the clearest proof of the workflow I write about: a single engineer carrying design, frontend, edge backend, data modelling and ops. Claude Code, driven by the Claude Code setup I publish in claude-setup, is what made that scope tractable solo - planning loops for features, AI-assisted refactors with guardrails, and a typed memory system so the model kept the thread across long sessions.",
         ],
       },
       {
         heading: "Outcome",
         body: [
-          "A live, production PWA with a paid tier - shipped and operated by one person. It's the answer to the only question that matters in an interview: can you take something from nothing to in-production, end to end? Here it is, and you can click it.",
+          "A live, production PWA with a paid tier, shipped and operated by one person. It answers the question every hiring manager eventually asks: can you take something from nothing to production, end to end? Here it is, and you can click it.",
         ],
       },
     ],
@@ -127,14 +127,14 @@ export const caseStudies: Record<string, CaseStudy> = {
     intro:
       "I own the UIs that let business analysts configure complex data pipelines, reporting and real-time event processing for carrier-grade telecom operators serving millions of subscribers. The work is about making genuinely hard configuration feel manageable - and keeping a large Vue codebase fast and consistent.",
     summary:
-      "Owning analyst-facing portal UIs at LotusFlare: an 80% load-time cut, a Vue 3 + Pinia migration, and a 2k-line editor refactored with zero regressions.",
+      "Owning analyst-facing portal UIs at LotusFlare: an 80% load-time cut, a Vue 3 + Pinia migration, and a 2,000-line editor refactored with zero regressions.",
     links: [{ label: "Company", href: "https://lotusflare.com" }],
     stack: ["Vue 3", "TypeScript", "Pinia", "Vuex", "Vite", "Tailwind", "Docker", "Kubernetes"],
     metrics: [
       { value: "80%", label: "faster initial load (1.2 min → 14 s)" },
-      { value: "45%", label: "complexity cut on the editor refactor" },
-      { value: "500+", label: "files restandardized" },
-      { value: "0", label: "regressions on the refactor" },
+      { value: "45%", label: "less complexity, zero regressions" },
+      { value: "500+", label: "files brought to one standard" },
+      { value: "5", label: "draw.io SVGs → interactive Vue Flow diagrams" },
     ],
     blocks: [
       {
@@ -153,8 +153,10 @@ export const caseStudies: Record<string, CaseStudy> = {
         heading: "Modernizing the codebase",
         bullets: [
           "Led the Vue 3 Composition API + Pinia migration and authored reusable composables adopted across the team.",
-          "Refactored a 2,000+ line SinkConfigEditor into a modular, step-based flow - 45% less complexity, zero regressions.",
+          "Refactored a 2,000-line SinkConfigEditor into a modular, step-based flow - 45% less complexity, zero regressions.",
           "Established codebase standards and reorganized imports across 500+ files for long-term maintainability.",
+          "Led the Dataflows migration across frontend and Scala backend: five draw.io SVGs became interactive Vue Flow diagrams as backend-owned content, behind a per-operator flag with a contract test and an ADR. Legacy path deleted.",
+          "Upgraded the toolchain to Vite 8 and Vitest 4, and added an oxlint + ESLint pipeline that cut lint CI time.",
           "Architected the team's AI engineering stack: cross-IDE agent rules, a CLAUDE.md context system and custom skills.",
         ],
       },
@@ -169,7 +171,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         heading: "The throughline",
         body: [
-          "Two things define the role: making hard configuration feel manageable for analysts, and keeping a large, fast-moving Vue codebase performant and consistent. The 80% load-time cut and the zero-regression refactor are the measurable edges of that work - and the AI engineering stack I set up is how the whole team moves faster on it.",
+          "The 80% load-time cut and the zero-regression refactor are the measurable edges of the work, and the AI engineering stack I set up is how the whole team moves faster on it.",
         ],
       },
     ],

@@ -1,20 +1,11 @@
 import { skills } from "@/lib/content";
 
+// Only what the skills list does not already carry; the spread supplies the rest.
 const items = [
-  "Vue 3",
-  "React",
-  "TypeScript",
-  "Next.js",
   "Nuxt 4",
   "Performance",
-  "Pinia",
-  "TanStack Query",
-  "Tailwind",
   "Claude Code",
   "Context engineering",
-  "Vite",
-  "Vercel",
-  "Agentic workflows",
   ...skills.flatMap((g) => g.items),
 ];
 

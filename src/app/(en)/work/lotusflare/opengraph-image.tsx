@@ -12,6 +12,6 @@ export default function Image() {
     eyebrow: "case study",
     title: study.title,
     subtitle: study.role,
-    facts: ["80% faster initial load", "500+ files restandardized", "0 regressions on the refactor"],
+    facts: ["80% faster initial load", "500+ files brought to one standard", "0 regressions on a 2,000-line refactor"],
   });
 }

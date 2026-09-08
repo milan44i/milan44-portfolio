@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 
-const social = [
+const social: { label: string; href: string; lang?: string }[] = [
   { label: "GitHub", href: site.links.github },
   { label: "LinkedIn", href: site.links.linkedin },
   { label: "Medium", href: site.links.medium },
   { label: "Email", href: site.links.email },
+  { label: "Sajtovi za restorane (SR)", href: "/projects", lang: "sr" },
 ];
 
 export function Footer() {
@@ -23,8 +24,8 @@ export function Footer() {
               {site.email}
             </a>
             <p className="mt-5 text-sm text-text-dim">
-              {site.availability} · AI builder &amp; automation, contract and fractional ·{" "}
-              {site.location} ({site.timezone})
+              {site.availability} · AI builder &amp; frontend engineer, contract and fractional ·{" "}
+              {site.location} ({site.timezone}, EU and US East overlap)
             </p>
           </div>
 
@@ -54,11 +55,13 @@ export function Footer() {
                   <li key={s.label}>
                     <a
                       href={s.href}
+                      lang={s.lang}
                       target={s.href.startsWith("http") ? "_blank" : undefined}
                       rel={s.href.startsWith("http") ? "noreferrer" : undefined}
                       className="hit text-sm text-text-dim transition-colors hover:text-text"
                     >
-                      {s.label} <span className="text-text-faint">↗</span>
+                      {s.label}{"\u00a0"}
+                      <span className="text-text-faint">{s.href.startsWith("/") ? "→" : "↗"}</span>
                     </a>
                   </li>
                 ))}
@@ -69,7 +72,7 @@ export function Footer() {
 
         <div className="mono mt-16 flex flex-col gap-2 text-[11px] text-text-faint sm:flex-row sm:items-center sm:justify-between">
           <span>
-            © {site.name} - built with Next.js, R3F &amp; a{" "}
+            © {site.name} - built with Next.js, React Three Fiber and a{" "}
             {/* underlined: a link inside a text block must not rely on colour alone */}
             <a
               href={site.links.claudeSetup}

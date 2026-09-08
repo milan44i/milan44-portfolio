@@ -25,7 +25,7 @@ export function LiveSiteStrip() {
             >
               <Image
                 src={p.image}
-                alt={p.alt}
+                alt={p.altEn}
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 placeholder="blur"
                 className="w-full transition-transform duration-500 ease-out group-hover:scale-[1.015]"

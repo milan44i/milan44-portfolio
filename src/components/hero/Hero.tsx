@@ -108,7 +108,7 @@ export function Hero() {
         >
           Frontend engineer with 4+ years of production Vue and React, now at{" "}
           <span className="text-text">LotusFlare</span> on carrier-grade telecom tooling. On my own
-          time I built and run a pipeline that crawls, audits, generates and deploys small-business
+          time I built and run a pipeline that scouts, audits, generates and deploys small-business
           websites: <span className="text-text">210</span> so far, no two alike.
         </p>
 

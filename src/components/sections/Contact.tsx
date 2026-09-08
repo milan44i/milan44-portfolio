@@ -14,13 +14,13 @@ export function Contact() {
           />
           <div className="relative">
             <p className="eyebrow mb-5">
-              <span className="accent">●</span> {`${site.availability.toLowerCase()} - AI builder & frontend`}
+              <span className="accent">●</span> {`${site.availability.toLowerCase()} - AI builder & frontend engineer`}
             </p>
             <h2 id="contact-title" className="font-display display-lg max-w-[14ch] font-bold tracking-tight text-balance">
               Let&apos;s build something fast.
             </h2>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-text-dim">
-              Open to AI builder and automation roles, contract and fractional work. If that&apos;s
+              Open to AI builder, automation and frontend roles, contract and fractional work. If that&apos;s
               you, the quickest path is a direct email.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

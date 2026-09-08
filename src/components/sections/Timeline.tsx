@@ -6,7 +6,7 @@ const rows = [
   {
     year: "2026",
     title: "Independent AI builder",
-    detail: "The site-generation pipeline, the site auditor, GameScore, SiteScore",
+    detail: "The site-generation pipeline, GameScore, SiteScore",
   },
   {
     year: "2025",

@@ -24,7 +24,7 @@ export default function ResumePage() {
             {/* the PDF is printed from cv/cv.html by npm run cv:pdf, so it is the
                 same content as this page in the captain's own CV design */}
             <a href="/Milan-Stankovic-CV.pdf" download className="btn btn-secondary hit text-xs">
-              Download PDF
+              Download CV (PDF)
             </a>
             <PrintButton />
           </div>

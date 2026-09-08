@@ -3,7 +3,7 @@
 export const site = {
   name: "Milan Stanković",
   handle: "milan44",
-  role: "AI builder & Frontend engineer",
+  role: "AI builder & frontend engineer",
   tagline: "Agent workflows · generative pipelines · Vue · React · TypeScript",
   location: "Belgrade, Serbia",
   city: "Belgrade",
