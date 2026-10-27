@@ -1,10 +1,10 @@
 import type { StaticImageData } from "next/image";
 import pinot from "@/images/projects/pinot.png";
-import istok from "@/images/projects/istok.png";
+import neos from "@/images/projects/neos.png";
 import thyme from "@/images/projects/thyme.png";
-import sentandrea from "@/images/projects/sentandrea.png";
+import hans from "@/images/projects/hans.png";
 import magellan from "@/images/projects/magellan.png";
-import reka from "@/images/projects/reka.png";
+import dixieland from "@/images/projects/dixieland.png";
 import brunello from "@/images/projects/brunello.png";
 
 // Copy + data for the Serbian client-facing /projects page.
@@ -126,16 +126,16 @@ export const projects: Project[] = [
     altEn: "Pinot restaurant website - cream background, serif logotype and a wine ring",
   },
   {
-    slug: "istok",
-    name: "Istok",
-    place: "Dorćol",
-    kind: "vijetnamska kuhinja",
-    story: "Toplina lampiona i mrak sale, a Bib Gourmand priznanje u prvom planu.",
-    accent: "#e8a04c",
-    liveUrl: "https://istok.pages.dev",
-    image: istok,
-    alt: "Sajt restorana Istok - tamna sala sa lampionima i svetlim logotipom",
-    altEn: "Istok restaurant website - dark dining room with lanterns and a light logotype",
+    slug: "neos",
+    name: "Neos Beauty",
+    place: "Beograd na vodi",
+    kind: "beauty salon",
+    story: "Zlatni talas iz logoa i salon u luku: laserska epilacija, body program i masaže, sa cenovnikom na dohvat ruke.",
+    accent: "#c9ae82",
+    liveUrl: "https://neosbeauty.rs",
+    image: neos,
+    alt: "Sajt salona Neos Beauty: tamnozelena pozadina, zlatni talas i recepcija salona u luku",
+    altEn: "Neos Beauty salon website: dark green background, a gold wave and the salon reception in an arch",
   },
   {
     slug: "thyme",
@@ -150,16 +150,16 @@ export const projects: Project[] = [
     altEn: "Thyme street food website - green and cream retro design with stripes",
   },
   {
-    slug: "sentandrea",
-    name: "Sent Andrea",
-    place: "Zemunski kej",
-    kind: "riblji restoran",
-    story: "Plafon oslikan starom kartom sveta preslikan u salon starih moreplovaca.",
-    accent: "#b98a4a",
-    liveUrl: "https://sentandrea.pages.dev",
-    image: sentandrea,
-    alt: "Sajt restorana Sent Andrea - topli salon sa oslikanim plafonom",
-    altEn: "Sent Andrea restaurant website - warm lounge with a painted ceiling",
+    slug: "hans",
+    name: "Powerhouse Club Hans",
+    place: "Zaječar",
+    kind: "teretana i personalni treninzi",
+    story: "Disciplina, rad, rezultati: crno-crveni sajt sa forumom, YouTube kanalom i zakazivanjem personalnog treninga.",
+    accent: "#e31e24",
+    liveUrl: "https://nenadmihajlovic.rs",
+    image: hans,
+    alt: "Sajt Powerhouse Club Hans: crna pozadina, crveno-beli natpis i bodibilder u prvom planu",
+    altEn: "Powerhouse Club Hans website: black background, red and white lettering and a bodybuilder up front",
   },
   {
     slug: "magellan",
@@ -174,16 +174,17 @@ export const projects: Project[] = [
     altEn: "Magellan restaurant website - cream background, a drawn sailing route and a luxury-yacht dining room",
   },
   {
-    slug: "reka",
-    name: "Reka",
-    place: "Zemun, kraj keja",
-    kind: "kafana sa živom muzikom",
-    story: "Sedam kućnih bendova i tri decenije provoda - sajt hvata noć, ne enterijer.",
-    accent: "#d99a3f",
-    liveUrl: "https://restoran-reka.pages.dev",
-    image: reka,
-    alt: "Sajt kafane Reka - noćna slika sa gostima koji igraju uz živu muziku",
-    altEn: "Reka tavern website - night photo of guests dancing to live music",
+    slug: "dixieland",
+    name: "Belgrade Dixieland Orchestra",
+    place: "Beograd",
+    kind: "džez orkestar",
+    story: "Crvena zavesa i reflektori za jedini tradicionalni džez orkestar na Balkanu, na sceni od 2001: šest albuma, rajder i kontakt za nastupe.",
+    accent: "#b21934",
+    // Switch to https://www.belgradedixielandorchestra.com once the domain is connected.
+    liveUrl: "https://belgrade-dixieland-2.pages.dev",
+    image: dixieland,
+    alt: "Sajt Belgrade Dixieland Orchestra: orkestar na sceni između crvenih zavesa i natpis u ramu od sijalica",
+    altEn: "Belgrade Dixieland Orchestra website: the band on stage between red curtains and a marquee-lit title",
   },
   {
     slug: "brunello",
