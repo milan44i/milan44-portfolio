@@ -3,6 +3,7 @@ import pinot from "@/images/projects/pinot.png";
 import neos from "@/images/projects/neos.png";
 import thyme from "@/images/projects/thyme.png";
 import hans from "@/images/projects/hans.png";
+import xbody from "@/images/projects/xbody.png";
 import dixieland from "@/images/projects/dixieland.png";
 import brunello from "@/images/projects/brunello.png";
 
@@ -30,7 +31,7 @@ export const projectsCopy = {
   },
   gallery: {
     eyebrow: "Izlog",
-    title: "Šest sajtova, šest svetova",
+    title: "Sedam sajtova, sedam svetova",
     lead: "Izbor iz radionice. Svaki je dizajniran jedan-od-jedan, po meri lokala.",
   },
   search: {
@@ -159,6 +160,18 @@ export const projects: Project[] = [
     image: hans,
     alt: "Sajt Powerhouse Club Hans: crna pozadina, crveno-beli natpis i bodibilder u prvom planu",
     altEn: "Powerhouse Club Hans website: black background, red and white lettering and a bodybuilder up front",
+  },
+  {
+    slug: "xbody",
+    name: "X Body Studio",
+    place: "Zadar",
+    kind: "EMS trening i tretmani",
+    story: "Crveni X iz logoa deli naslovnu stranu na trening i lepotu: EMS trening, tretmani lica i tela, laser i manikura, sa cenovnikom od 123 stavke.",
+    accent: "#d0121b",
+    liveUrl: "https://xbodystudio.hr",
+    image: xbody,
+    alt: "Sajt X Body Studio: tamna pozadina, naslov o treningu i tretmanu u istom dolasku i crveni X sa fotografijom lica",
+    altEn: "X Body Studio website: dark background, a headline about training and treatment in one visit, and a red X framing a close-up of a face",
   },
   {
     slug: "dixieland",
