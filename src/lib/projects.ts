@@ -3,7 +3,6 @@ import pinot from "@/images/projects/pinot.png";
 import neos from "@/images/projects/neos.png";
 import thyme from "@/images/projects/thyme.png";
 import hans from "@/images/projects/hans.png";
-import magellan from "@/images/projects/magellan.png";
 import dixieland from "@/images/projects/dixieland.png";
 import brunello from "@/images/projects/brunello.png";
 
@@ -31,7 +30,7 @@ export const projectsCopy = {
   },
   gallery: {
     eyebrow: "Izlog",
-    title: "Sedam sajtova, sedam svetova",
+    title: "Šest sajtova, šest svetova",
     lead: "Izbor iz radionice. Svaki je dizajniran jedan-od-jedan, po meri lokala.",
   },
   search: {
@@ -160,18 +159,6 @@ export const projects: Project[] = [
     image: hans,
     alt: "Sajt Powerhouse Club Hans: crna pozadina, crveno-beli natpis i bodibilder u prvom planu",
     altEn: "Powerhouse Club Hans website: black background, red and white lettering and a bodybuilder up front",
-  },
-  {
-    slug: "magellan",
-    name: "Magellan",
-    place: "Novi Beograd",
-    kind: "fine dining",
-    story: "Isprekidana ruta plovidbe vodi stranicu - degustacioni meniji i enterijer luksuzne jahte, u MICHELIN vodiču za 2026.",
-    accent: "#6d1b34",
-    liveUrl: "https://magellan-p8t.pages.dev", // redeployed at the old URL 2026-09-05
-    image: magellan,
-    alt: "Sajt restorana Magellan - krem pozadina, iscrtana ruta plovidbe i sala luksuzne jahte",
-    altEn: "Magellan restaurant website - cream background, a drawn sailing route and a luxury-yacht dining room",
   },
   {
     slug: "dixieland",
